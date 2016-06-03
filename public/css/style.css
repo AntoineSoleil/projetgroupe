@@ -1,0 +1,37 @@
+.center {
+	margin: 0 auto;
+	display: table;
+}
+
+.color {
+	background-color: #45718A;
+}
+
+.large {
+	width: 100%;
+}
+
+.marginTop {
+	margin-top: 5px;
+}
+
+.menu {
+	color: #45718A!important;
+}
+
+.indicator {
+	background-color: #45718A!important;
+}
+
+.page-footer {
+	background-color:  #45718A!important;
+}
+
+.footerli {
+	height: 35px;
+}
+
+
+.blue-input {
+	background-color: #45718A;
+}

@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/materialize.min.css') }}" rel='stylesheet' type='text/css'>
+    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'>
 
     <style>
         body {
@@ -26,57 +26,89 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+    <div class="container">
+            <header>
+                <section>
+                    <div class="row">
+                        <div class="col s9">
+                            <div class="row">
+                                <div class="col s5 color">
+                                      <a href="#" class="brand-logo"><img src="{{ asset('img/logo_ipssi.png') }}" class="center"></a>
+                                </div>
+                                <div class="col s7"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span></div>
+                            </div>
+                        </div>
+                        <div class="col s3">
+                            <div class="row">
+                                <div class="col s12 tail">
+                                    <nav>
+                                        <div class="nav-wrapper">
+                                          <form>
+                                            <div class="input-field blue-input">
+                                              <input id="search" type="search" required>
+                                              <label for="search"><i class="material-icons">search</i></label>
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                                            </div>
+                                          </form>
+                                        </div>
+                                     </nav>
+                                </div>
+                                <div class="col s12 marginTop">
+                                    <button class="btn waves-effect waves-light large" name="action" ng-click="go('/connexion')">Mon IPSSI
+                                  </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
-                </a>
+                <section >
+                    <div class="row">
+                        <div class="col s12 z-depth-1">
+                          <ul class="tabs">
+                            <li class="tab col s2"><a href="#" class="menu" ng-click="go('/test')">Home</a></li>
+                            <li class="tab col s2"><a href="#" class="menu" ng-click="go('/actu')">Le groupe</a></li>
+                            <li class="tab col s2"><a href="#" class="menu" >L'activité</a></li>
+                            <li class="tab col s2"><a href="#" class="menu">Nous rejoindre</a></li>
+                            <li class="tab col s2"><a href="#" class="menu" ng-click="go('/collaborateur')">Espace collaborateur</a></li>
+                            <li class="tab col s2"><a href="#" ng-click="go('/contact')"class="menu">Contact</a></li>
+                          </ul>
+                        </div>
+                    </div>
+                </section>
+            </header>
+
+            @yield('content')
+            
+          <footer class="page-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5 class="white-text">Footer Content</h5>
+                  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links</h5>
+                  <ul>
+                    <li class="footerli"><i class="material-icons">call</i><span>Phone</span></li>
+                    <li  class="footerli"><i class="material-icons">email</i><span>Email</span></li>
+                        <li  class="footerli"><i class="material-icons">home</i><span>Adress</span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
+            <div class="footer-copyright">
+              <div class="container">
+              © 2016 Copyright IPSSI
+              </div>
             </div>
+          </footer>
         </div>
-    </nav>
 
-    @yield('content')
+    
 
     <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('js/materialize.min.js') }}"></script>
 </body>
 </html>
