@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div>
 	<div class="input-field">
 		<label for="IdUser">Identifiant</label>
@@ -12,3 +15,4 @@
 	 </button>
 	 <a href="/inscription" style='margin:0 auto;display:table;'>S'inscrire</a>
 </div>
+@endsection

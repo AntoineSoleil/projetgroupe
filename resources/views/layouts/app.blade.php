@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/materialize.min.css') }}" rel='stylesheet' type='text/css'>
     <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'>
 
@@ -110,5 +111,6 @@
     <!-- JavaScripts -->
     <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
     <script src="{{ asset('js/materialize.min.js') }}"></script>
+    @yield('javascript')
 </body>
 </html>

@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div>
 	<div class="input-field">
 	<label for="IdUser">Identifiant</label>
@@ -23,3 +26,4 @@
 	    <i class="material-icons right">send</i>
 	 </button>
 </div>
+@endsection
