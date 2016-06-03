@@ -13,6 +13,6 @@
 	<button class="btn waves-effect waves-light" type="submit" style='margin:0 auto;display:table;background-color: #45718A;'>Valider
 	    <i class="material-icons right">send</i>
 	 </button>
-	 <a href="/inscription" style='margin:0 auto;display:table;'>S'inscrire</a>
+	 <a href="{{ route('inscriptionsIndex') }}" style='margin:0 auto;display:table;'>S'inscrire</a>
 </div>
 @endsection

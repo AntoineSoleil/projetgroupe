@@ -24,6 +24,6 @@ class CollaborateursController extends Controller
      */
     public function index()
     {
-        return view('collaborateur.index');
+        return view('collaborateurs.index');
     }
 }
