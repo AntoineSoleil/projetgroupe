@@ -34,7 +34,7 @@
                         <div class="col s9">
                             <div class="row">
                                 <div class="col s5 color">
-                                      <a href="#" class="brand-logo"><img src="{{ asset('img/logo_ipssi.png') }}" class="center"></a>
+                                      <a href="{{ route('accueilIndex') }}" class="brand-logo"><img src="{{ asset('img/logo_ipssi.png') }}" class="center"></a>
                                 </div>
                                 <div class="col s7"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span></div>
                             </div>
@@ -55,8 +55,8 @@
                                      </nav>
                                 </div>
                                 <div class="col s12 marginTop">
-                                    <button class="btn waves-effect waves-light large" name="action" ng-click="go('/connexion')">Mon IPSSI
-                                  </button>
+                                    <a class="btn waves-effect waves-light large" href="{{ route('connexionIndex') }}">Mon IPSSI
+                                  </a>
                                 </div>
                             </div>
                         </div>
@@ -67,12 +67,12 @@
                     <div class="row">
                         <div class="col s12 z-depth-1">
                           <ul class="tabs">
-                            <li class="tab col s2"><a href="#" class="menu" ng-click="go('/test')">Home</a></li>
-                            <li class="tab col s2"><a href="#" class="menu" ng-click="go('/actu')">Le groupe</a></li>
-                            <li class="tab col s2"><a href="#" class="menu" >L'activité</a></li>
-                            <li class="tab col s2"><a href="#" class="menu">Nous rejoindre</a></li>
-                            <li class="tab col s2"><a href="#" class="menu" ng-click="go('/collaborateur')">Espace collaborateur</a></li>
-                            <li class="tab col s2"><a href="#" ng-click="go('/contact')"class="menu">Contact</a></li>
+                            <li class="tab col s2"><a href="{{ route('accueilIndex') }}" class="menu">Home</a></li>
+                            <li class="tab col s2"><a href="{{-- route('accueilIndex') --}}" class="menu">Le groupe</a></li>
+                            <li class="tab col s2"><a href="{{-- route('accueilIndex') --}}" class="menu">L'activité</a></li>
+                            <li class="tab col s2"><a href="{{ route('recrutementsIndex') }}" class="menu">Nous rejoindre</a></li>
+                            <li class="tab col s2"><a href="{{ route('collaborateursIndex') }}" class="menu">Espace collaborateur</a></li>
+                            <li class="tab col s2"><a href="{{ route('contactIndex') }}"class="menu">Contact</a></li>
                           </ul>
                         </div>
                     </div>
