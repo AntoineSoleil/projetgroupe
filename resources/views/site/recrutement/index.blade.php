@@ -2,77 +2,88 @@
 
 @section('content') 
 <div class="row">
-  <div class="col s2">
-  		Liste Menus Gauche
-  </div>
-
-  <div class="col s10">
+  <div class="col s12">
   	<!-- Titre de la page -->
     <div class="col s12" style="Text-align:center; font-size: 28px">
       Recrutement
     </div>
-    <div class="col s12">
+    <div class="col s12 input-field">
       <select>
           <option>--Choisissez une option--</option>
           <option>Candidature spontanée</option>
       </select>
     </div>
-    <div class="col s5">
       <!-- Sexe -->
-      <input name="sexe" type="radio" id="femme"/>
-      <label for="femme">Femme</label>
-      <input name="sexe" type="radio" id="homme"/>
-      <label for="homme">Homme</label><br>
+      <p>
+        <input name="sexe" type="radio" id="femme"/>
+        <label for="femme">Femme</label>
+      </p>
+      <p>
+        <input name="sexe" type="radio" id="homme"/>
+        <label for="homme">Homme</label>
+      </p>
 
       <!-- Nom -->
-      <input id="Nom" type="text" class="validate">
-      <label for="Nom">Nom: </label><br>
+      <div class="input-field">
+        <input id="Nom" type="text" class="validate">
+        <label for="Nom">Nom</label>
+      </div>
 
       <!-- Prenom -->
-      <input id="Prenom" type="text" class="validate">
-      <label for="Prenom">Nom: </label><br>
-
+      <div class="input-field">
+        <input id="Prenom" type="text" class="validate">
+        <label for="Prenom">Pénom</label>
+      </div>
       <!-- Adresse -->
-      <input id="Adresse" type="text" class="validate">
-      <label for="Adresse">Nom: </label><br>
-
+      <div class="input-field">
+        <input id="Adresse" type="text" class="validate">
+        <label for="Adresse">Adresse</label>
+      </div>    
       <!-- Code Postal -->
-      <input id="CP" type="text" class="validate">
-      <label for="CP">Nom: </label><br>
-
+      <div class="input-field">
+        <input id="CP" type="text" class="validate">
+        <label for="CP">CP</label>
+      </div>  
       <!-- Ville -->
-      <input id="Ville" type="text" class="validate">
-      <label for="Ville">Nom: </label><br>
-
+      <div class="input-field">
+        <input id="Ville" type="text" class="validate">
+        <label for="Ville">Ville</label>
+      </div>  
       <!-- Pays -->
-      <input id="Pays" type="text" class="validate">
-      <label for="Pays">Nom: </label><br>
-
+      <div class="input-field">
+        <input id="Pays" type="text" class="validate">
+        <label for="Pays">Pays</label>
+      </div>
       <!-- Téléphone -->
-      <input id="Telephone" type="tel" class="validate">
-      <label for="Telephone">Téléphone: </label><br>
-
+      <div class="input-field">
+        <input id="Telephone" type="tel" class="validate">
+        <label for="Telephone">Téléphone</label>
+      </div>
       <!-- E-mail -->
-      <input id="Mail" type="text" class="validate">
-      <label for="Mail">E-mail: </label><br>
-
-      <!-- CV -->
-      <div class="btn">
-        <span>Joindre CV</span>
-        <input type="file">
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
+      <div class="input-field">
+        <input id="Mail" type="text" class="validate">
+        <label for="Mail">E-mail</label>
       </div>
 
-    </div>
-  	<div class="col s7">
-      <div class="input-field col s12">
+      <!-- CV --> 
+      <div class="file-field input-field">
+        <div class="btn" style="background-color:#45718A">
+          <span>Joindre CV</span>
+          <input type="file" multiple>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Pacourir">
+        </div>
+      </div> 
+      <div class="input-field">
         <textarea id="textarea1" class="materialize-textarea"></textarea>
-        <label for="textarea1">Textarea</label>
+        <label for="textarea1">Message</label>
       </div>
-    </div>
 
+      <!-- Bouton validation -->
+      <button class="btn waves-effect waves-light" type="submit" name="action" style="background-color:#45718A;display:table;margin:0 auto;">Envoyer
+        <i class="material-icons right">send</i>
+      </button>
   </div>
 </div>
 @endsection
