@@ -24,6 +24,6 @@ class ConnexionController extends Controller
      */
     public function index()
     {
-        return view('connexion.index');
+        return view('site.connexion.index');
     }
 }

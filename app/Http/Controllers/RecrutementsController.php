@@ -24,6 +24,6 @@ class RecrutementsController extends Controller
      */
     public function index()
     {
-        return view('recrutement.index');
+        return view('site.recrutement.index');
     }
 }

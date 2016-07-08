@@ -24,6 +24,6 @@ class InscriptionsController extends Controller
      */
     public function index()
     {
-        return view('inscriptions.index');
+        return view('site.inscriptions.index');
     }
 }

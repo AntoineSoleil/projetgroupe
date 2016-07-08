@@ -24,6 +24,6 @@ class CongesController extends Controller
      */
     public function index()
     {
-        return view('conges.index');
+        return view('intranet.conges.index');
     }
 }

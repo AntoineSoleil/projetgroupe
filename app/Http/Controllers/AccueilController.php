@@ -24,6 +24,6 @@ class AccueilController extends Controller
      */
     public function index()
     {
-        return view('accueil.index');
+        return view('site.accueil.index');
     }
 }

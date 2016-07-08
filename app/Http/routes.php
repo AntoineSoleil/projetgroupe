@@ -57,6 +57,18 @@ Route::group(['middleware' => ['web']], function () {
       'uses' => 'RecrutementsController@index'
     ]);
 
+    Route::get('/activite/index', [
+      'as' => 'activiteIndex',
+      'uses' => 'ActiviteController@index'
+    ]);
+
+    Route::get('/groupe/index', [
+      'as' => 'groupeIndex',
+      'uses' => 'GroupeController@index'
+    ]);
+
+
+
 });
 
 Route::group(['middleware' => 'web'], function () {
