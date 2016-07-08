@@ -67,6 +67,16 @@ Route::group(['middleware' => ['web']], function () {
       'uses' => 'GroupeController@index'
     ]);
 
+    Route::get('/recherche/index', [
+      'as' => 'rechercheIndex',
+      'uses' => 'RechercheController@index'
+    ]);
+
+    Route::get('/plansite/index', [
+      'as' => 'plansiteIndex',
+      'uses' => 'PlansiteController@index'
+    ]);
+
 
 
 });
