@@ -46,34 +46,33 @@
 
     	<div class="input-field col s6">
     		<input id="Nom" type="text" class="validate">
-      		<label for="Nom">Nom: </label>
+      		<label for="Nom"><i class="material-icons">perm_identity</i>  Nom </label>
       	</div>
       	<div class="input-field col s6">
     		<input id="Prenom" type="text" class="validate">
-      		<label for="Prenom">Prénom: </label>
+      		<label for="Prenom"><i class="material-icons">perm_identity</i>  Prénom </label>
       	</div>
-
       	<div class="input-field col s6">
     		<input id="Fonction" type="text" class="validate">
-      		<label for="Fonction">Fonction: </label>
+      		<label for="Fonction"><i class="material-icons">work</i>  Fonction </label>
       	</div>
       	<div class="input-field col s6">
     		<input id="Societe" type="text" class="validate">
-      		<label for="Societe">Société: </label>
+      		<label for="Societe"><i class="material-icons">business</i>  Société </label>
       	</div>
 
       	<div class="input-field col s6">
     		<input id="Mail" type="text" class="validate">
-      		<label for="Mail">E-mail: </label>
+      		<label for="Mail"><i class="material-icons">email</i>  E-mail </label>
       	</div>
       	<div class="input-field col s6">
     		<input id="Telephone" type="tel" class="validate">
-      		<label for="Telephone">Téléphone: </label>
+      		<label for="Telephone"><i class="material-icons">phone</i>  Téléphone </label>
       	</div>
 
       	<div class="input-field col s12">
         <textarea id="Message" class="materialize-textarea"></textarea>
-        <label for="Message">Votre message:</label>
+        <label for="Message"><i class="material-icons">message</i>  Votre message</label>
       </div>
   	</div>
 

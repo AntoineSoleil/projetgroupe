@@ -65,14 +65,16 @@
 
                 <section >
                     <div class="row">
+
                         <div class="col s12 z-depth-1">
-                          <ul class="tabs">
-                            <li class="tab col s2"><a href="{{ route('accueilIndex') }}" class="menu">Home</a></li>
-                            <li class="tab col s2"><a href="{{-- route('accueilIndex') --}}" class="menu">Le groupe</a></li>
-                            <li class="tab col s2"><a href="{{-- route('accueilIndex') --}}" class="menu">L'activité</a></li>
-                            <li class="tab col s2"><a href="{{ route('recrutementsIndex') }}" class="menu">Nous rejoindre</a></li>
-                            <li class="tab col s2"><a href="{{ route('collaborateursIndex') }}" class="menu">Espace collaborateur</a></li>
-                            <li class="tab col s2"><a href="{{ route('contactIndex') }}"class="menu">Contact</a></li>
+                          <a href="{{ route('groupeIndex') }}" class="menu">Le groupe</a>
+                          <ul class=""> <!-- class="tabs" -->
+                              <li class="tab col s2"><a href="{{ route('accueilIndex') }}" class="menu">Home</a></li>
+                              <li class="tab col s2"><a href="{{ route('groupeIndex') }}" class="menu">Le groupe</a></li>
+                              <li class="tab col s2"><a href="{{-- route('accueilIndex') --}}" class="menu">L'activité</a></li>
+                              <li class="tab col s2"><a href="{{ route('recrutementsIndex') }}" class="menu">Nous rejoindre</a></li>
+                              <li class="tab col s2"><a href="{{ route('collaborateursIndex') }}" class="menu">Espace collaborateur</a></li>
+                              <li class="tab col s2"><a href="{{ route('contactIndex') }}"class="menu">Contact</a></li>  
                           </ul>
                         </div>
                     </div>
