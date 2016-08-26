@@ -9,7 +9,7 @@
                 <div class="panel-body">
 
                     @if (session('status'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" style="float: center; text-align:center; background-color:green; color:red">
                             {{ session('status') }}
                         </div>
                     @endif
