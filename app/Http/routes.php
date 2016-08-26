@@ -37,19 +37,9 @@ Route::group(['middleware' => ['web']], function () {
       'uses' => 'CongesController@index'
     ]);
 
-    Route::get('/connexion/index', [
-      'as' => 'connexionIndex',
-      'uses' => 'ConnexionController@index'
-    ]);
-
     Route::get('/contact/index', [
       'as' => 'contactIndex',
       'uses' => 'ContactController@index'
-    ]);
-
-    Route::get('/inscriptions/index', [
-      'as' => 'inscriptionsIndex',
-      'uses' => 'InscriptionsController@index'
     ]);
 
     Route::get('/recrutement/index', [
@@ -86,3 +76,5 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 });
+
+Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');

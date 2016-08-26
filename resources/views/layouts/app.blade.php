@@ -55,7 +55,7 @@
                                      </nav>
                                 </div>
                                 <div class="col s12 marginTop">
-                                    <a class="btn waves-effect waves-light large" href="{{ route('connexionIndex') }}">Mon IPSSI
+                                    <a class="btn waves-effect waves-light large" href="{{ url('/login') }}">Mon IPSSI
                                   </a>
                                 </div>
                             </div>
