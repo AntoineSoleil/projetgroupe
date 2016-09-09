@@ -9,7 +9,7 @@ class CreateOffreEmploisTable extends Migration {
 	{
 		Schema::create('offreEmplois', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('entreprise')->unsigned();
+			$table->integer('auteur')->unsigned();
 			$table->string('titre', 255);
 			$table->text('description');
 			$table->text('tags');

@@ -24,7 +24,7 @@ class CreateForeignKeys extends Migration {
 						->onUpdate('restrict');
 		});
 		Schema::table('offreEmplois', function(Blueprint $table) {
-			$table->foreign('entreprise')->references('id')->on('entreprises')
+			$table->foreign('auteur')->references('id')->on('entreprises')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
@@ -88,7 +88,7 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
-		Schema::table('Documents_travail', function(Blueprint $table) {
+		Schema::table('documents_travail', function(Blueprint $table) {
 			$table->foreign('auteur')->references('id')->on('users')
 						->onDelete('restrict')
 						->onUpdate('restrict');
@@ -107,7 +107,7 @@ class CreateForeignKeys extends Migration {
 			$table->dropForeign('etudiants_id_users_foreign');
 		});
 		Schema::table('offreEmplois', function(Blueprint $table) {
-			$table->dropForeign('offreEmplois_entreprise_foreign');
+			$table->dropForeign('offreEmplois_auteur_foreign');
 		});
 		Schema::table('suiviPostulants', function(Blueprint $table) {
 			$table->dropForeign('suiviPostulants_etudiants_foreign');
@@ -145,8 +145,8 @@ class CreateForeignKeys extends Migration {
 		Schema::table('notes_frais', function(Blueprint $table) {
 			$table->dropForeign('notes_frais_auteur_foreign');
 		});
-		Schema::table('Documents_travail', function(Blueprint $table) {
-			$table->dropForeign('Documents_travail_auteur_foreign');
+		Schema::table('documents_travail', function(Blueprint $table) {
+			$table->dropForeign('documents_travail_auteur_foreign');
 		});
 	}
 }
