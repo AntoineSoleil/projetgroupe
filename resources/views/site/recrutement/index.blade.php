@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content') 
+@section('content')          
 <div class="row">
   <div class="col s12">
   	<!-- Titre de la page -->
