@@ -22,29 +22,9 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'AccueilController@index'
     ]);
 
-    Route::get('/actualites/index', [
-      'as' => 'actualitesIndex',
-      'uses' => 'ActualitesController@index'
-    ]);
-
-    Route::get('/collaborateurs/index', [
-      'as' => 'collaborateursIndex',
-      'uses' => 'CollaborateursController@index'
-    ]);
-
-    Route::get('/conges/index', [
-      'as' => 'congesIndex',
-      'uses' => 'CongesController@index'
-    ]);
-
     Route::get('/contact/index', [
       'as' => 'contactIndex',
       'uses' => 'ContactController@index'
-    ]);
-
-    Route::get('/recrutement/index', [
-      'as' => 'recrutementsIndex',
-      'uses' => 'RecrutementsController@index'
     ]);
 
     Route::get('/activite/index', [
@@ -67,9 +47,118 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'PlansiteController@index'
     ]);
 
+    Route::group(['prefix' => 'intranet'], function () {
 
+      Route::group(['prefix' => 'actualites'], function () {
 
+          Route::get('/index', [
+            'as' => 'actualitesIndex',
+            'uses' => 'ActualitesController@index'
+          ]);
+      });
+
+      Route::group(['prefix' => 'ressourceshumaines'], function () {
+
+        Route::get('/index', [
+          'as' => 'ressourceshumainesIndex',
+          'uses' => 'RessourceshumainesController@index'
+          ]);
+
+        Route::get('/cra', [
+          'as' => 'craIndex'
+          'uses' => 'CraController@Index'
+        ]);
+
+        Route::get('/notesfrais', [
+          'as' => 'notesfraisIndex'
+          'uses' => 'NotesfraisController@Index'
+        ]);
+
+        Route::get('/conges', [
+          'as' => 'congesIndex',
+          'uses' => 'CongesController@index'
+        ]);
+
+        Route::get('/cvtheque', [
+          'as' => 'cvthequeIndex',
+          'uses' => 'CvthequeController@index'
+        ]);
+
+        Route::get('/offre', [
+          'as' => 'offreIndex',
+          'uses' => 'OffreController@index'
+        ]);
+
+        Route::get('/candidatures', [
+          'as' => 'candidaturesIndex',
+          'uses' => 'CandidaturesController@index'
+        ]);
+
+        Route::get('/collaborateurs/index', [
+          'as' => 'collaborateursIndex',
+          'uses' => 'CollaborateursController@index'
+        ]);
+
+      });
+
+      Route::group(['prefix' => 'boiteoutils'], function () {
+
+          Route::get('/index', [
+            'as' => 'actualitesIndex',
+            'uses' => 'BoiteoutilsController@index'
+          ]);
+
+          Route::get('/certifications', [
+            'as' => 'certificationsIndex',
+            'uses' => 'BoiteoutilsController@certifications'
+          ]);
+
+          Route::get('/documentstravail', [
+            'as' => 'documentstravailIndex',
+            'uses' => 'BoiteoutilsController@documents'
+          ]);
+      });
+
+      Route::group(['prefix' => 'parametrage'], function () {
+
+          Route::get('/index', [
+            'as' => 'parametrageIndex',
+            'uses' => 'ParametrageController@index'
+          ]);
+
+          Route::get('/ressourceshumaines', [
+            'as' => 'parametrageRessourceshumaines',
+            'uses' => 'ParametrageController@ressourceshumaines'
+          ]);
+
+          Route::get('/crm', [
+            'as' => 'parametrageCrm',
+            'uses' => 'ParametrageController@crm'
+          ]);
+      });
+
+      Route::group(['prefix' => 'administration'], function () {
+
+          Route::get('/index', [
+            'as' => 'administrationIndex',
+            'uses' => 'AdministrationController@index'
+          ]);
+
+          Route::get('/gestionutilisateurs', [
+            'as' => 'administrationGestion',
+            'uses' => 'AdministratinController@gestionusers'
+          ]);
+
+          Route::get('/application', [
+            'as' => 'administrationApplication',
+            'uses' => 'AdministrationController@Application'
+          ]);
+      });
+        
+    });
 
 });
 
 Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
+
+
