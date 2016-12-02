@@ -67,27 +67,27 @@ Route::group(['middleware' => 'web'], function () {
           ]);
 
           Route::get('/create', [
-            'as' => 'actualitesIndex',
+            'as' => 'actualitesCreate',
             'uses' => 'Intranet\Actualites\ActualitesController@create'
           ]);
 
           Route::post('/create', [
-            'as' => 'actualitesIndex',
+            'as' => 'actualitesCreate',
             'uses' => 'Intranet\Actualites\ActualitesController@create'
           ]);
 
           Route::get('/update/{id}', [
-            'as' => 'actualitesIndex',
+            'as' => 'actualitesUpdate',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
 
           Route::put('/update/{id}', [
-            'as' => 'actualitesIndex',
+            'as' => 'actualitesUpdate',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
 
           Route::delete('/delete/{id}', [
-            'as' => 'actualitesIndex',
+            'as' => 'actualitesDelete',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
       });
@@ -139,7 +139,7 @@ Route::group(['middleware' => 'web'], function () {
       Route::group(['prefix' => 'boiteoutils'], function () {
 
           Route::get('/index', [
-            'as' => 'actualitesIndex',
+            'as' => 'boiteoutilsIndex',
             'uses' => 'Intranet\Boiteoutils\BoiteoutilsController@index'
           ]);
 

@@ -13,8 +13,12 @@
 
     <!-- Styles -->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{{ asset('css/materialize.min.css') }}" rel='stylesheet' type='text/css'>
     <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <style>
         body {
@@ -26,93 +30,65 @@
         }
     </style>
 </head>
-<body id="app-layout">
-    <div class="container">
-            <header>
-                <section>
-                    <div class="row">
-                        <div class="col s9">
-                            <div class="row">
-                                <div class="col s5 color">
-                                      <a href="{{ route('accueilIndex') }}" class="brand-logo"><img src="{{ asset('img/logo_ipssi.png') }}" class="center"></a>
-                                </div>
-                                <div class="col s7"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span></div>
-                            </div>
-                        </div>
-                        <div class="col s3">
-                            <div class="row">
-                                <div class="col s12 tail">
-                                    <nav>
-                                        <div class="nav-wrapper">
-                                          <form>
-                                            <div class="input-field blue-input">
-                                              <input id="search" type="search" required>
-                                              <label for="search"><i class="material-icons">search</i></label>
+<body id="intranet-layout">
+    <div>
+        <header>
+            <div class="row">
+              <div class="col-s-12">
 
-                                            </div>
-                                          </form>
-                                        </div>
-                                     </nav>
-                                </div>
-                                <div class="col s12 marginTop">
-                                    <a class="btn waves-effect waves-light large" href="{{ url('/login') }}">Mon IPSSI
-                                  </a>
-                                </div>
-                            </div>
-                        </div>
+
+                <nav class="navbar navbar-default">
+                  <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                      </button>
+                      <a class="navbar-brand" href="#">INTRANET</a>
                     </div>
-                </section>
 
-                <section >
-                    <div class="row">
-
-                        <div class="col s12 z-depth-1">
-                          <a href="{{ route('groupeIndex') }}" class="menu">Le groupe</a>
-                          <ul class=""> <!-- class="tabs" -->
-                              <li class="tab col s2"><a href="{{ route('accueilIndex') }}" class="menu">Home</a></li>
-                              <li class="tab col s2"><a href="{{ route('groupeIndex') }}" class="menu">Le groupe</a></li>
-                              <li class="tab col s2"><a href="{{-- route('accueilIndex') --}}" class="menu">L'activité</a></li>
-                              <li class="tab col s2"><a href="{{ route('recrutementsIndex') }}" class="menu">Nous rejoindre</a></li>
-                              <li class="tab col s2"><a href="{{ route('collaborateursIndex') }}" class="menu">Espace collaborateur</a></li>
-                              <li class="tab col s2"><a href="{{ route('contactIndex') }}"class="menu">Contact</a></li>  
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav navbar-left">
+                        <li><a href="{{ route('actualitesIndex') }}">Actualités</a>
+                        <li><a href="{{ route('ressourceshumainesIndex') }}">Ressources Humaines</a>
+                        <li><a href="{{ route('boiteoutilsIndex') }}">Boîte à outils</a>
+                        <li><a href="{{ route('parametrageIndex') }}">Paramétrage</a>
+                        <li><a href="{{ route('administrationIndex') }}">Administration</a>
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Utilisateur Connecté <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">Mon Profil</a></li>
+                            <li><a href="#">Deconnexion</a></li>
                           </ul>
+                        </li>
+                      </ul>
+                      <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search">
                         </div>
-                    </div>
-                </section>
-            </header>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                      </form>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
 
-            @yield('content')
+
+              </div>
+            </div>
+        </header>
+    
+        @yield('content')
             
-          <footer class="page-footer">
-            <div class="container">
-              <div class="row">
-                <div class="col l6 s12">
-                  <h5 class="white-text">Footer Content</h5>
-                  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">Links</h5>
-                  <ul>
-                    <li class="footerli"><i class="material-icons">call</i><span>Phone</span></li>
-                    <li  class="footerli"><i class="material-icons">email</i><span>Email</span></li>
-                        <li  class="footerli"><i class="material-icons">home</i><span>Adress</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="footer-copyright">
-              <div class="container">
-              © 2016 Copyright IPSSI
-              </div>
-            </div>
-          </footer>
-        </div>
+          
+    </div>
 
     
 
     <!-- JavaScripts -->
     <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
-    <script src="{{ asset('js/materialize.min.js') }}"></script>
     @yield('javascript')
 </body>
 </html>
