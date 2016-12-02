@@ -11,12 +11,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
-    <!-- Styles -->
+    <!-- Styles
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{{ asset('css/materialize.min.css') }}" rel='stylesheet' type='text/css'>
-    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'>
+    <link href="{{ asset('css/materialize.min.css') }}" rel='stylesheet' type='text/css'>-->
+    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'> 
 
-    <style>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<style>
         body {
             font-family: 'Lato';
         }
@@ -111,8 +118,11 @@
     
 
     <!-- JavaScripts -->
-    <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
-    <script src="{{ asset('js/materialize.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/materialize.min.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
     @yield('javascript')
 </body>
 </html>
