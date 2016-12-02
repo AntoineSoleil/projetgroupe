@@ -25,6 +25,6 @@ class RessourceshuaminesController extends Controller
      */
     public function index()
     {
-        return view('intranet.ressourceshumaines.ressourceshumaines.index');
+        return view('intranet.ressourceshumaines.index');
     }
 }

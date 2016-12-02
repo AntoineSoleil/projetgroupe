@@ -25,6 +25,6 @@ class ActualitesController extends Controller
      */
     public function index()
     {
-        return view('site.actualite.index');
+        return view('intranet.actualite.index');
     }
 }
