@@ -134,7 +134,7 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\CandidaturesController@index'
         ]);
 
-        Route::get('/collaborateurs/index', [
+        Route::get('/collaborateurs', [
           'as' => 'collaborateursIndex',
           'uses' => 'Intranet\Ressourceshumaines\CollaborateursController@index'
         ]);
