@@ -25,6 +25,6 @@ class BoiteoutilsController extends Controller
      */
     public function index()
     {
-        return view('intranet.boiteoutils.boiteoutils.index');
+        return view('intranet.boiteoutils.index');
     }
 }

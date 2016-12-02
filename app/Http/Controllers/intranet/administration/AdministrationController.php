@@ -25,6 +25,6 @@ class AdministrationController extends Controller
      */
     public function index()
     {
-        return view('intranet.administration.administration.index');
+        return view('intranet.administration.index');
     }
 }

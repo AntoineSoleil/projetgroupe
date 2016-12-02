@@ -25,6 +25,6 @@ class ParametrageController extends Controller
      */
     public function index()
     {
-        return view('intranet.parametrage.parametrage.index');
+        return view('intranet.parametrage.index');
     }
 }
