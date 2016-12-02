@@ -47,38 +47,48 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'PlansiteController@index'
     ]);
 
+    Route::get('/recrutements/index', [
+      'as' => 'recrutementsIndex',
+      'uses' => 'RecrutementsController@index'
+    ]);
+
+    Route::get('/collaborateurs/index', [
+      'as' => 'collaborateursIndex',
+      'uses' => 'CollaborateursController@index'
+    ]);
+
     Route::group(['prefix' => 'intranet'], function () {
 
       Route::group(['prefix' => 'actualites'], function () {
 
           Route::get('/index', [
             'as' => 'actualitesIndex',
-            'uses' => 'ActualitesController@index'
+            'uses' => 'Intranet\Actualites\ActualitesController@index'
           ]);
 
           Route::get('/create', [
             'as' => 'actualitesIndex',
-            'uses' => 'ActualitesController@create'
+            'uses' => 'Intranet\Actualites\ActualitesController@create'
           ]);
 
           Route::post('/create', [
             'as' => 'actualitesIndex',
-            'uses' => 'ActualitesController@create'
+            'uses' => 'Intranet\Actualites\ActualitesController@create'
           ]);
 
           Route::get('/update/{id}', [
             'as' => 'actualitesIndex',
-            'uses' => 'ActualitesController@update'
+            'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
 
           Route::put('/update/{id}', [
             'as' => 'actualitesIndex',
-            'uses' => 'ActualitesController@update'
+            'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
 
           Route::delete('/delete/{id}', [
             'as' => 'actualitesIndex',
-            'uses' => 'ActualitesController@update'
+            'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
       });
 
@@ -86,42 +96,42 @@ Route::group(['middleware' => 'web'], function () {
 
         Route::get('/index', [
           'as' => 'ressourceshumainesIndex',
-          'uses' => 'RessourceshumainesController@index'
+          'uses' => 'Intranet\Ressourceshumaines\RessourceshumainesController@index'
           ]);
 
         Route::get('/cra', [
-          'as' => 'craIndex'
-          'uses' => 'CraController@Index'
+          'as' => 'craIndex',
+          'uses' => 'Intranet\Ressourceshumaines\CraController@Index'
         ]);
 
         Route::get('/notesfrais', [
-          'as' => 'notesfraisIndex'
-          'uses' => 'NotesfraisController@Index'
+          'as' => 'notesfraisIndex',
+          'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@Index'
         ]);
 
         Route::get('/conges', [
           'as' => 'congesIndex',
-          'uses' => 'CongesController@index'
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@index'
         ]);
 
         Route::get('/cvtheque', [
           'as' => 'cvthequeIndex',
-          'uses' => 'CvthequeController@index'
+          'uses' => 'Intranet\Ressourceshumaines\CvthequeController@index'
         ]);
 
         Route::get('/offre', [
           'as' => 'offreIndex',
-          'uses' => 'OffreController@index'
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@index'
         ]);
 
         Route::get('/candidatures', [
           'as' => 'candidaturesIndex',
-          'uses' => 'CandidaturesController@index'
+          'uses' => 'Intranet\Ressourceshumaines\CandidaturesController@index'
         ]);
 
         Route::get('/collaborateurs/index', [
           'as' => 'collaborateursIndex',
-          'uses' => 'CollaborateursController@index'
+          'uses' => 'Intranet\Ressourceshumaines\CollaborateursController@index'
         ]);
 
       });
@@ -130,17 +140,17 @@ Route::group(['middleware' => 'web'], function () {
 
           Route::get('/index', [
             'as' => 'actualitesIndex',
-            'uses' => 'BoiteoutilsController@index'
+            'uses' => 'Intranet\Boiteoutils\BoiteoutilsController@index'
           ]);
 
           Route::get('/certifications', [
             'as' => 'certificationsIndex',
-            'uses' => 'BoiteoutilsController@certifications'
+            'uses' => 'Intranet\Boiteoutils\BoiteoutilsController@certifications'
           ]);
 
           Route::get('/documentstravail', [
             'as' => 'documentstravailIndex',
-            'uses' => 'BoiteoutilsController@documents'
+            'uses' => 'Intranet\Boiteoutils\BoiteoutilsController@documents'
           ]);
       });
 
@@ -148,17 +158,17 @@ Route::group(['middleware' => 'web'], function () {
 
           Route::get('/index', [
             'as' => 'parametrageIndex',
-            'uses' => 'ParametrageController@index'
+            'uses' => 'Intranet\Parametrage\ParametrageController@index'
           ]);
 
           Route::get('/ressourceshumaines', [
             'as' => 'parametrageRessourceshumaines',
-            'uses' => 'ParametrageController@ressourceshumaines'
+            'uses' => 'Intranet\Parametrage\ParametrageController@ressourceshumaines'
           ]);
 
           Route::get('/crm', [
             'as' => 'parametrageCrm',
-            'uses' => 'ParametrageController@crm'
+            'uses' => 'Intranet\Parametrage\ParametrageController@crm'
           ]);
       });
 
@@ -166,17 +176,17 @@ Route::group(['middleware' => 'web'], function () {
 
           Route::get('/index', [
             'as' => 'administrationIndex',
-            'uses' => 'AdministrationController@index'
+            'uses' => 'Intranet\Administration\AdministrationController@index'
           ]);
 
           Route::get('/gestionutilisateurs', [
             'as' => 'administrationGestion',
-            'uses' => 'AdministratinController@gestionusers'
+            'uses' => 'Intranet\Administration\AdministratinController@gestionusers'
           ]);
 
           Route::get('/application', [
             'as' => 'administrationApplication',
-            'uses' => 'AdministrationController@Application'
+            'uses' => 'Intranet\Administration\AdministrationController@Application'
           ]);
       });
         
