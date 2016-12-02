@@ -59,6 +59,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['prefix' => 'intranet'], function () {
 
+      Route::get('/index', [
+            'as' => 'intranetIndex',
+            'uses' => 'Intranet\IntranetController@index'
+          ]);
+
       Route::group(['prefix' => 'actualites'], function () {
 
           Route::get('/index', [
