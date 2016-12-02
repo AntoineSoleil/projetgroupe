@@ -55,6 +55,31 @@ Route::group(['middleware' => 'web'], function () {
             'as' => 'actualitesIndex',
             'uses' => 'ActualitesController@index'
           ]);
+
+          Route::get('/create', [
+            'as' => 'actualitesIndex',
+            'uses' => 'ActualitesController@create'
+          ]);
+
+          Route::post('/create', [
+            'as' => 'actualitesIndex',
+            'uses' => 'ActualitesController@create'
+          ]);
+
+          Route::get('/update/{id}', [
+            'as' => 'actualitesIndex',
+            'uses' => 'ActualitesController@update'
+          ]);
+
+          Route::put('/update/{id}', [
+            'as' => 'actualitesIndex',
+            'uses' => 'ActualitesController@update'
+          ]);
+
+          Route::delete('/delete/{id}', [
+            'as' => 'actualitesIndex',
+            'uses' => 'ActualitesController@update'
+          ]);
       });
 
       Route::group(['prefix' => 'ressourceshumaines'], function () {
