@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Intranet\Ressourceshumaines;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ActualitesController extends Controller
+class CongesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,6 +25,6 @@ class ActualitesController extends Controller
      */
     public function index()
     {
-        return view('site.actualite.index');
+        return view('intranet.ressourceshumaines.conges.index');
     }
 }

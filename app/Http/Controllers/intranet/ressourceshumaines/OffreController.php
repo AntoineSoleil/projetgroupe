@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Intranet\Ressourceshumaines;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class CollaborateursController extends Controller
+class OffreController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,6 +25,6 @@ class CollaborateursController extends Controller
      */
     public function index()
     {
-        return view('site.collaborateurs.index');
+        return view('intranet.ressourceshumaines.offre.index');
     }
 }
