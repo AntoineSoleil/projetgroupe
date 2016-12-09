@@ -8,21 +8,11 @@ use App\Http\Controllers\Controller;
 
 class CongesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('intranet.ressourceshumaines.conges.index');
@@ -33,9 +23,13 @@ class CongesController extends Controller
         return view('intranet.ressourceshumaines.conges.view');
     }
 
-
     public function create()
     {
         return view('intranet.ressourceshumaines.conges.create');
+    }
+
+    public function validation()
+    {
+        return view('intranet.ressourceshumaines.conges.validate');
     }
 }

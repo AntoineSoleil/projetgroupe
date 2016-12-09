@@ -35,100 +35,63 @@
 		<div class="row container">
 			<table class="table table-bordered">
   			  <TR>
-  			  	<TD class="col-md-3">Nom</TD>
-  			  	<TD  class="col-md-9"></TD>
+  			  	<TD class="col-md-4">Date de congés ou absence</TD>
+  			  	<TD  class="col-md-1">Du</TD>
+  			  	<TD  class="col-md-3"></TD>
+  			  	<TD  class="col-md-1">Au</TD>
+  			  	<TD  class="col-md-3"></TD>
   			  </TR>
   			  <TR>
   			  	<TD class="col-md-3">Nombre de jours</TD>
-  			  	<TD  class="col-md-9"></TD>
+  			  	<TD class="col-md-9" colspan="4"></TD>
   			  </TR>
   			  <TR>
   			  	<TD class="col-md-3">Type de congés</TD>
-  			  	<TD  class="col-md-9"></TD>
+  			  	<TD class="col-md-9" colspan="4"></TD>
   			  </TR>
 			</table>
 		</div>
-		
-		<!--<div class="row container">
-			<table class="table table-bordered">
-  			  <TR>
-  			  	<TD class="col-md-4">Date de congés ou absence</TD>
-  			  	<TD class="col-md-2">Du</TD>
-  			  	<TD class="col-md-2"></TD>
-  			  	<TD class="col-md-2">Au</TD>
-  			  	<TD class="col-md-2"></TD>
-  			  </TR>
-  			  <TR>
-  			  	<TD class="col-md-3">Nombre de jours</TD>
-  			  	<TD  class="col-md-9"></TD>
-  			  </TR>
-  			  <TR>
-  			  	<TD class="col-md-3">Type de congés</TD>
-  			  	<TD  class="col-md-9"></TD>
-  			  </TR>
-			</table>
-		</div>-->
 
 		<div class="row container">
-		  <div class="col-md-3">
-		    Fait à 
-		  </div>
-		  <div class="col-md-9">
-		    <br>
-		  </div>
-		</div>
-		<div class="row container">
-		  <div class="col-md-3">
-		    Le
-		  </div>
-		  <div class="col-md-9">
-		    <br>
-		  </div>
-		</div>
-		<div class="row container">
-		  <div class="col-md-3">
-		    Signature
-		  </div>
-		  <div class="col-md-9">
-		    <br>
-		  </div>
+			<table>
+  			  <TR>
+  			  	<TD class="col-md-3" style="padding-top: 40px">Fait à</TD>
+  			  	<TD class="col-md-9"></TD>
+  			  </TR>
+  			  <TR>
+  			  	<TD class="col-md-3" style="padding-top: 10px">Le</TD>
+  			  	<TD class="col-md-9"></TD>
+  			  </TR>
+  			  <TR>
+  			  	<TD class="col-md-3" style="padding-top: 10px">Signature</TD>
+  			  	<TD class="col-md-9"></TD>
+  			  </TR>
+			</table>
 		</div>
 
 		<div class="col-md-12">
 		  <h2 style="text-decoration: underline; text-align:center">Réponse</h2>
 		</div>
 
-		<div class="row container" style="text-align:center">
-		  <div class="col-md-6">
-		    Accordé
-		  </div>
-		  <div class="col-md-6">
-		    Refusé
-		  </div>
-		</div>
 		<div class="row container">
-		  <div class="col-md-3">
-		    Date et signature du responsable hiérarchique
-		  </div>
-		  <div class="col-md-9">
-		    <br>
-		  </div>
-		</div>
-		<div class="row container">
-		  <div class="col-md-3">
-		    Date et signature du dirigeant
-		  </div>
-		  <div class="col-md-9">
-		    <br>
-		  </div>
-		</div>
-		<div class="row container">
-		  <div class="col-md-3">
-		    Commentaire en cas de refus
-		  </div>
-		  <div class="col-md-9">
-		    <br>
-		  </div>
+			<table class="table table-bordered">
+			  <TR style="text-align:center">
+			    <TD class="col-md-6">Accordé</TD>
+  			  	<TD class="col-md-6">Refusé</TD>
+			  </TR>
+  			  <TR>
+  			  	<TD class="col-md-3" style="height:100px;">Date et signature du responsable hiérarchique</TD>
+  			  	<TD class="col-md-9"></TD>
+  			  </TR>
+  			  <TR>
+  			  	<TD class="col-md-3" style="height:100px;">Date et signature de dirigeant</TD>
+  			  	<TD class="col-md-9"></TD>
+  			  </TR>
+  			  <TR>
+  			  	<TD class="col-md-3">Commentaire en cas de refus</TD>
+  			  	<TD class="col-md-9"></TD>
+  			  </TR>
+			</table>
 		</div>
 	</div>
 </div>

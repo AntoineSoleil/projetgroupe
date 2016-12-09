@@ -87,17 +87,17 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Actualites\ActualitesController@create'
           ]);
 
-          Route::get('/update/{id}', [
+          Route::get('/update/{:id}', [
             'as' => 'intranetActualitesUpdate',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
 
-          Route::put('/update/{id}', [
+          Route::put('/update/{:id}', [
             'as' => 'intranetActualitesUpdate',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
 
-          Route::delete('/delete/{id}', [
+          Route::delete('/delete/{:id}', [
             'as' => 'intranetActualitesDelete',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
@@ -125,7 +125,7 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\CongesController@index'
         ]);
 
-            Route::get('/conges/{idConges}', [
+            Route::get('/conges/{:idConges}', [
               'as' => 'congesVisualisation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@view'
             ]);
@@ -140,27 +140,32 @@ Route::group(['middleware' => 'web'], function () {
               'uses' => 'Intranet\Ressourceshumaines\CongesController@create'
             ]);
 
-            Route::put('/conges/{idConges}', [
+            Route::get('/conges/{:idConges}/modifier', [
               'as' => 'congesModification',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
             ]);
 
-            Route::delete('/conges/{idConges}', [
+            Route::put('/conges/{:idConges}/modifier', [
+              'as' => 'congesModification',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
+            ]);
+
+            Route::delete('/conges/{:idConges}', [
               'as' => 'congesSuppression',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@delete'
             ]);
 
-            Route::get('/conges/validation/{idConges}', [
+            Route::get('/conges/{:idConges}/validation', [
               'as' => 'congesValidation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
             ]);
 
-            Route::post('/conges/validation/{idConges}', [
+            Route::put('/conges/{:idConges}/validation', [
               'as' => 'congesValidation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
             ]);
 
-            Route::get('/conges/export/{idConges}', [
+            Route::get('/conges/{:idConges}/export', [
               'as' => 'congesExport',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@export'
             ]);
