@@ -57,6 +57,7 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'CollaborateursController@index'
     ]);
 
+    // Routes pour l'intranet
     Route::group(['prefix' => 'intranet'], function () {
 
       Route::get('/index', [
