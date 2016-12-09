@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AccueilController extends Controller
 {
-    /**
+    /**  
      * Create a new controller instance.
      *
      * @return void

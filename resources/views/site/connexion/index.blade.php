@@ -11,18 +11,18 @@ $( document ).ready(function() {
 });
 </script>
 <div>
-	<div class="input-field">
-		<label for="IdUser">Identifiant</label>
-		<input type="text" id="IdUser">
-	</div>
-	<div class="input-field">
-		<label for="Password">Mot de passe</label>
-		<input type="password" id="Password">
-	</div> 
-	<button class="btn waves-effect waves-light" type="submit" style='margin:0 auto;display:table;background-color: #45718A;'>Valider
-	    <i class="material-icons right">send</i>
-	 </button>
-	 <a href="{{ route('inscriptionsIndex') }}" style='margin:0 auto;display:table;'>S'inscrire</a>
+  <div class="input-field">
+    <label for="IdUser">Identifiant</label>
+    <input type="text" id="IdUser">
+  </div>
+  <div class="input-field">
+    <label for="Password">Mot de passe</label>
+    <input type="password" id="Password">
+  </div> 
+  <button class="btn waves-effect waves-light" type="submit" style='margin:0 auto;display:table;background-color: #45718A;'>Valider
+      <i class="material-icons right">send</i>
+   </button>
+   <a href="{{ route('inscriptionsIndex') }}" style='margin:0 auto;display:table;'>S'inscrire</a>
 </div>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg BtModal" data-toggle="modal" data-target="#myModal">
