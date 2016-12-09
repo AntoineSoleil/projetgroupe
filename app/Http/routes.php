@@ -100,7 +100,7 @@ Route::group(['middleware' => 'web'], function () {
 
       Route::group(['prefix' => 'ressourceshumaines'], function () {
 
-        Route::get('/index', [
+        Route::get('/', [
           'as' => 'ressourceshumainesIndex',
           'uses' => 'Intranet\Ressourceshumaines\RessourceshumainesController@index'
           ]);
@@ -144,55 +144,55 @@ Route::group(['middleware' => 'web'], function () {
 
       Route::group(['prefix' => 'boiteoutils'], function () {
 
-          Route::get('/index', [
+          Route::get('/', [
             'as' => 'boiteoutilsIndex',
             'uses' => 'Intranet\Boiteoutils\BoiteoutilsController@index'
           ]);
 
           Route::get('/certifications', [
             'as' => 'certificationsIndex',
-            'uses' => 'Intranet\Boiteoutils\BoiteoutilsController@certifications'
+            'uses' => 'Intranet\Boiteoutils\CertificationsController@index'
           ]);
 
           Route::get('/documentstravail', [
             'as' => 'documentstravailIndex',
-            'uses' => 'Intranet\Boiteoutils\BoiteoutilsController@documents'
+            'uses' => 'Intranet\Boiteoutils\DocumentsController@index'
           ]);
       });
 
       Route::group(['prefix' => 'parametrage'], function () {
 
-          Route::get('/index', [
+          Route::get('/', [
             'as' => 'parametrageIndex',
             'uses' => 'Intranet\Parametrage\ParametrageController@index'
           ]);
 
           Route::get('/ressourceshumaines', [
             'as' => 'parametrageRessourceshumaines',
-            'uses' => 'Intranet\Parametrage\ParametrageController@ressourceshumaines'
+            'uses' => 'Intranet\Parametrage\RessourcesController@index'
           ]);
 
           Route::get('/crm', [
             'as' => 'parametrageCrm',
-            'uses' => 'Intranet\Parametrage\ParametrageController@crm'
+            'uses' => 'Intranet\Parametrage\CrmController@index'
           ]);
       });
 
       Route::group(['prefix' => 'administration'], function () {
 
-          Route::get('/index', [
+          Route::get('/', [
             'as' => 'administrationIndex',
             'uses' => 'Intranet\Administration\AdministrationController@index'
           ]);
 
           Route::get('/gestionutilisateurs', [
             'as' => 'administrationGestion',
-            'uses' => 'Intranet\Administration\AdministratinController@gestionusers'
+            'uses' => 'Intranet\Administration\GestionController@index'
           ]);
 
           Route::get('/application', [
             'as' => 'administrationApplication',
-            'uses' => 'Intranet\Administration\AdministrationController@Application'
+            'uses' => 'Intranet\Administration\ApplicationController@index'
           ]);
       });
         
