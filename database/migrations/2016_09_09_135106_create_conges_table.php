@@ -9,11 +9,18 @@ class CreateCongesTable extends Migration {
 	{
 		Schema::create('conges', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('auteur')->unsigned();
-			$table->date('creation');
+			$table->string('nom', 50);
+			$table->string('prenom', 50);
+			$table->string('fonction', 255);
+			$table->string('lieuInter', 255);
+			$table->string('responsable', 100);
 			$table->date('date_debut');
 			$table->date('date_fin');
-			$table->tinyInteger('validation_rh')->default('0');
+			$table->integer('nombre_jours')->unsigned();
+			$table->string('type_conges', 100);
+			$table->date('date_creation');
+			$table->date('lieu_creation');
+			$table->tinyInteger('signature');
 		});
 	}
 

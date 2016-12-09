@@ -43,11 +43,6 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
-		Schema::table('conges', function(Blueprint $table) {
-			$table->foreign('auteur')->references('id')->on('ipFormation')
-						->onDelete('restrict')
-						->onUpdate('restrict');
-		});
 		Schema::table('actualites', function(Blueprint $table) {
 			$table->foreign('auteur')->references('id')->on('ipFormation')
 						->onDelete('restrict')
@@ -117,9 +112,6 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('cras', function(Blueprint $table) {
 			$table->dropForeign('cras_auteur_foreign');
-		});
-		Schema::table('conges', function(Blueprint $table) {
-			$table->dropForeign('conges_auteur_foreign');
 		});
 		Schema::table('actualites', function(Blueprint $table) {
 			$table->dropForeign('actualites_auteur_foreign');
