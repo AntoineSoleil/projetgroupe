@@ -60,40 +60,40 @@ Route::group(['middleware' => 'web'], function () {
     // Routes pour l'intranet
     Route::group(['prefix' => 'intranet'], function () {
 
-      Route::get('/index', [
+      Route::get('/', [
             'as' => 'intranetIndex',
             'uses' => 'Intranet\IntranetController@index'
           ]);
 
       Route::group(['prefix' => 'actualites'], function () {
 
-          Route::get('/index', [
-            'as' => 'actualitesIndex',
+          Route::get('/', [
+            'as' => 'intranetActualitesIndex',
             'uses' => 'Intranet\Actualites\ActualitesController@index'
           ]);
 
           Route::get('/create', [
-            'as' => 'actualitesCreate',
+            'as' => 'intranetActualitesCreate',
             'uses' => 'Intranet\Actualites\ActualitesController@create'
           ]);
 
           Route::post('/create', [
-            'as' => 'actualitesCreate',
+            'as' => 'intranetActualitesCreate',
             'uses' => 'Intranet\Actualites\ActualitesController@create'
           ]);
 
           Route::get('/update/{id}', [
-            'as' => 'actualitesUpdate',
+            'as' => 'intranetActualitesUpdate',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
 
           Route::put('/update/{id}', [
-            'as' => 'actualitesUpdate',
+            'as' => 'intranetActualitesUpdate',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
 
           Route::delete('/delete/{id}', [
-            'as' => 'actualitesDelete',
+            'as' => 'intranetActualitesDelete',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
       });
@@ -150,12 +150,12 @@ Route::group(['middleware' => 'web'], function () {
           ]);
 
           Route::get('/certifications', [
-            'as' => 'certificationsIndex',
+            'as' => 'boiteOutilsCertificationsIndex',
             'uses' => 'Intranet\Boiteoutils\CertificationsController@index'
           ]);
 
           Route::get('/documentstravail', [
-            'as' => 'documentstravailIndex',
+            'as' => 'boiteOutilsDocumentsTravailIndex',
             'uses' => 'Intranet\Boiteoutils\DocumentsController@index'
           ]);
       });
@@ -168,12 +168,12 @@ Route::group(['middleware' => 'web'], function () {
           ]);
 
           Route::get('/ressourceshumaines', [
-            'as' => 'parametrageRessourceshumaines',
+            'as' => 'parametrageRessourcesHumainesIndex',
             'uses' => 'Intranet\Parametrage\RessourcesController@index'
           ]);
 
           Route::get('/crm', [
-            'as' => 'parametrageCrm',
+            'as' => 'parametrageCrmIndex',
             'uses' => 'Intranet\Parametrage\CrmController@index'
           ]);
       });
@@ -186,12 +186,12 @@ Route::group(['middleware' => 'web'], function () {
           ]);
 
           Route::get('/gestionutilisateurs', [
-            'as' => 'administrationGestion',
+            'as' => 'administrationGestionIndex',
             'uses' => 'Intranet\Administration\GestionController@index'
           ]);
 
           Route::get('/application', [
-            'as' => 'administrationApplication',
+            'as' => 'administrationApplicationIndex',
             'uses' => 'Intranet\Administration\ApplicationController@index'
           ]);
       });
