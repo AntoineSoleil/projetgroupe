@@ -27,4 +27,15 @@ class CongesController extends Controller
     {
         return view('intranet.ressourceshumaines.conges.index');
     }
+
+    public function view()
+    {
+        return view('intranet.ressourceshumaines.conges.view');
+    }
+
+
+    public function create()
+    {
+        return view('intranet.ressourceshumaines.conges.create');
+    }
 }

@@ -27,6 +27,11 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'ContactController@index'
     ]);
 
+    Route::get('/connexion/index', [
+      'as' => 'contactIndex',
+      'uses' => 'ContactController@index'
+    ]);
+
     Route::get('/activite/index', [
       'as' => 'activiteIndex',
       'uses' => 'ActiviteController@index'
@@ -119,6 +124,47 @@ Route::group(['middleware' => 'web'], function () {
           'as' => 'congesIndex',
           'uses' => 'Intranet\Ressourceshumaines\CongesController@index'
         ]);
+
+            Route::get('/conges/{idConges}', [
+              'as' => 'congesVisualisation',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@view'
+            ]);
+
+            Route::get('/conges/nouveau', [
+              'as' => 'congesNouveau',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@create'
+            ]);
+
+            Route::post('/conges/nouveau', [
+              'as' => 'congesNouveau',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@create'
+            ]);
+
+            Route::put('/conges/{idConges}', [
+              'as' => 'congesModification',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
+            ]);
+
+            Route::delete('/conges/{idConges}', [
+              'as' => 'congesSuppression',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@delete'
+            ]);
+
+            Route::get('/conges/validation/{idConges}', [
+              'as' => 'congesValidation',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
+            ]);
+
+            Route::post('/conges/validation/{idConges}', [
+              'as' => 'congesValidation',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
+            ]);
+
+            Route::get('/conges/export/{idConges}', [
+              'as' => 'congesExport',
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@export'
+            ]);
+
 
         Route::get('/cvtheque', [
           'as' => 'cvthequeIndex',
