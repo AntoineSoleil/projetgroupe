@@ -63,7 +63,7 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
     // Routes pour l'intranet
-    Route::group(['prefix' => 'intranet'], function () {
+    Route::group(['prefix' => 'intranet', 'middleware' => ['auth']], function () {
 
       Route::get('/', [
             'as' => 'intranetIndex',
