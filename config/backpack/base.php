@@ -12,7 +12,7 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'Backpack',
+    'project_name' => 'IT-Akademy',
 
     // Menu logos
     'logo_lg'   => '<b>Back</b>pack',
@@ -57,7 +57,7 @@ return [
     */
 
     // The prefix used in all base routes (the 'admin' in admin/dashboard)
-    'route_prefix' => 'admin',
+    'route_prefix' => 'intranet',
 
     // Set this to false if you would like to use your own AuthController and PasswordController
     // (you then need to setup your auth routes manually in your routes.php file)
