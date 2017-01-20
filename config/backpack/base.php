@@ -15,8 +15,8 @@ return [
     'project_name' => 'IT-Akademy',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => '<b>IT-A</b>kademy',
+    'logo_mini' => '<b>IT-A</b>p',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Cristian Tabacitu',

@@ -19,8 +19,12 @@
           <!-- ================================================ -->
           <!-- ==== Recommended place for admin menu items ==== -->
           <!-- ================================================ -->
-          <li><a href="{{ url('intranet/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
-
+          <li><a href="{{ url('intranet/dashboard') }}"><span>Accueil</span></a></li>
+	  <li><a href="{{ url('intranet/actualites') }}"></i> <span>Actualités</span></a></li>
+	  <li><a href="{{ url('intranet/ressourceshumaines') }}"><span>Ressources humaines</span></a></li>
+	  <li><a href="{{ url('intranet/boiteoutils') }}"></i> <span>Boite à outils</span></a></li>
+	  <li><a href="{{ url('intranet/parametrage') }}"></i> <span>Paramétrage</span></a></li>
+	  <li><a href="{{ url('intranet/administration') }}"></i> <span>Administration</span></a></li>
 
           <!-- ======================================= -->
           <li class="header">{{ trans('backpack::base.user') }}</li>
