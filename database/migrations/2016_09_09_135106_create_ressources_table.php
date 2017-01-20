@@ -14,7 +14,7 @@ class CreateRessourcesTable extends Migration
     {
         Schema::create('ressources', function($table) {
             $table->increments('id');
-            $table->string('name', 40);
+            $table->string('name', 255);
             $table->string('description', 255);
             $table->timestamps();
         });
