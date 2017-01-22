@@ -16,7 +16,8 @@ class CreateRessourcesTable extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->string('description', 255);
-            $table->timestamps();
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
     }
     /**
@@ -26,6 +27,6 @@ class CreateRessourcesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ressource');
+        Schema::drop('ressources');
     }
 }

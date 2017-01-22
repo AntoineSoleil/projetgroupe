@@ -11,22 +11,22 @@ class RessourcesTableSeeder extends Seeder
         Ressources::create([
             'id'            => 1,
             'name'          => 'intranet-actualites-read',
-            'description'   => ''
+            'description'   => 'Droit de lecture pour la page /intranet/actualites'
         ]);
 	Ressources::create([
             'id'            => 2,
             'name'          => 'intranet-actualites-create',
-            'description'   => ''
+            'description'   => 'Droit de créer pour la page /intranet/actualites'
         ]);
 	Ressources::create([
             'id'            => 3,
             'name'          => 'intranet-actualites-update',
-            'description'   => ''
+            'description'   => 'Droit de modifier pour la page /intranet/actualites'
         ]);
 	Ressources::create([
             'id'            => 4,
             'name'          => 'intranet-actualites-delete',
-            'description'   => ''
+            'description'   => 'Droit de supprimer pour la page /intranet/actualites'
         ]);
 	Ressources::create([
             'id'            => 5,
@@ -133,84 +133,274 @@ class RessourcesTableSeeder extends Seeder
             'name'          => 'intranet-ressourceshumaines-cra-validate',
             'description'   => ''
         ]);
-	Ressources::create([
+    Ressources::create([
             'id'            => 26,
-            'name'          => 'intranet-ressourceshumaines-cvtheque-read',
+            'name'          => 'intranet-ressourceshumaines-cra-search',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 27,
-            'name'          => 'intranet-ressourceshumaines-cvtheque-create',
+            'name'          => 'intranet-ressourceshumaines-cvtheque-read',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 28,
-            'name'          => 'intranet-ressourceshumaines-cvtheque-update',
+            'name'          => 'intranet-ressourceshumaines-cvtheque-create',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 29,
-            'name'          => 'intranet-ressourceshumaines-cvtheque-delete',
+            'name'          => 'intranet-ressourceshumaines-cvtheque-update',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 30,
-            'name'          => 'intranet-ressourceshumaines-cvtheque-validate',
+            'name'          => 'intranet-ressourceshumaines-cvtheque-delete',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 31,
-            'name'          => 'intranet-ressourceshumaines-notesfrais-read',
+            'name'          => 'intranet-ressourceshumaines-cvtheque-validate',
             'description'   => ''
         ]);
-	Ressources::create([
+    Ressources::create([
             'id'            => 32,
-            'name'          => 'intranet-ressourceshumaines-notesfrais-create',
+            'name'          => 'intranet-ressourceshumaines-cvtheque-search',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 33,
-            'name'          => 'intranet-ressourceshumaines-notesfrais-update',
+            'name'          => 'intranet-ressourceshumaines-notesfrais-read',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 34,
-            'name'          => 'intranet-ressourceshumaines-notesfrais-delete',
+            'name'          => 'intranet-ressourceshumaines-notesfrais-create',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 35,
-            'name'          => 'intranet-ressourceshumaines-notesfrais-validate',
+            'name'          => 'intranet-ressourceshumaines-notesfrais-update',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 36,
-            'name'          => 'intranet-ressourceshumaines-offres-read',
+            'name'          => 'intranet-ressourceshumaines-notesfrais-delete',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 37,
-            'name'          => 'intranet-ressourceshumaines-offres-create',
+            'name'          => 'intranet-ressourceshumaines-notesfrais-validate',
             'description'   => ''
         ]);
-	Ressources::create([
+    Ressources::create([
             'id'            => 38,
-            'name'          => 'intranet-ressourceshumaines-offres-update',
+            'name'          => 'intranet-ressourceshumaines-notesfrais-search',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 39,
-            'name'          => 'intranet-ressourceshumaines-offres-delete',
+            'name'          => 'intranet-ressourceshumaines-offres-read',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 40,
-            'name'          => 'intranet-ressourceshumaines-offres-validate',
+            'name'          => 'intranet-ressourceshumaines-offres-create',
             'description'   => ''
         ]);
 	Ressources::create([
             'id'            => 41,
+            'name'          => 'intranet-ressourceshumaines-offres-update',
+            'description'   => ''
+        ]);
+	Ressources::create([
+            'id'            => 42,
+            'name'          => 'intranet-ressourceshumaines-offres-delete',
+            'description'   => ''
+        ]);
+	Ressources::create([
+            'id'            => 43,
+            'name'          => 'intranet-ressourceshumaines-offres-validate',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 44,
+            'name'          => 'intranet-ressourceshumaines-offres-search',
+            'description'   => ''
+        ]);
+	Ressources::create([
+            'id'            => 45,
             'name'          => 'intranet-boiteoutils-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 46,
+            'name'          => 'intranet-boiteoutils-certifications-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 47,
+            'name'          => 'intranet-boiteoutils-certifications-create',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 48,
+            'name'          => 'intranet-boiteoutils-certifications-update',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 49,
+            'name'          => 'intranet-boiteoutils-certifications-delete',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 50,
+            'name'          => 'intranet-boiteoutils-certifications-search',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 51,
+            'name'          => 'intranet-boiteoutils-documentstravail-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 52,
+            'name'          => 'intranet-boiteoutils-documentstravail-create',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 53,
+            'name'          => 'intranet-boiteoutils-documentstravail-update',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 54,
+            'name'          => 'intranet-boiteoutils-documentstravail-delete',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 55,
+            'name'          => 'intranet-boiteoutils-documentstravail-search',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 56,
+            'name'          => 'intranet-administration-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 57,
+            'name'          => 'intranet-administration-application-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 58,
+            'name'          => 'intranet-administration-application-create',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 59,
+            'name'          => 'intranet-administration-application-update',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 60,
+            'name'          => 'intranet-administration-application-delete',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 61,
+            'name'          => 'intranet-administration-gestionutilisateur-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 62,
+            'name'          => 'intranet-administration-gestionutilisateur-create',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 63,
+            'name'          => 'intranet-administration-gestionutilisateur-update',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 64,
+            'name'          => 'intranet-administration-gestionutilisateur-delete',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 65,
+            'name'          => 'intranet-administration-gestionrole-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 66,
+            'name'          => 'intranet-administration-gestionrole-create',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 67,
+            'name'          => 'intranet-administration-gestionrole-update',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 68,
+            'name'          => 'intranet-administration-gestionrole-delete',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 69,
+            'name'          => 'intranet-administration-gestionattributionrole-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 70,
+            'name'          => 'intranet-administration-gestionattributionrole-create',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 71,
+            'name'          => 'intranet-administration-gestionattributionrole-update',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 72,
+            'name'          => 'intranet-administration-gestionattributionrole-delete',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 73,
+            'name'          => 'intranet-administration-gestionattributionressource-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 74,
+            'name'          => 'intranet-administration-gestionattributionressource-create',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 75,
+            'name'          => 'intranet-administration-gestionattributionressource-update',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 76,
+            'name'          => 'intranet-administration-gestionattributionressource-delete',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 77,
+            'name'          => 'intranet-parametrage-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 78,
+            'name'          => 'intranet-parametrage-ressourceshumaines-read',
+            'description'   => ''
+        ]);
+    Ressources::create([
+            'id'            => 79,
+            'name'          => 'intranet-parametrage-crm-read',
             'description'   => ''
         ]);
     }

@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UsersRoles extends Model {
+class RolesRessources extends Model {
 
-	protected $table = 'users_roles';
+	protected $table = 'roles_ressources';
 	public $timestamps = false;
 
 }
