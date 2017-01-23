@@ -90,7 +90,7 @@ class RolesRessourcesTableSeeder extends Seeder
         ]);
         RolesRessources::create([
             'id_roles'      => 1,
-            'id_ressources' => 1,
+            'id_ressources' => 21,
         ]);
         RolesRessources::create([
             'id_roles'      => 1,
