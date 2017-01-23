@@ -39,3 +39,27 @@
 .collaborateurUl>li {
 	list-style-type: circle;
 }
+
+
+
+
+
+
+/************************************
+* Utilisé dans l'intranet
+************************************/
+.titreGestionUsers {
+	text-align: center;
+	font-size: 40px;
+	text-decoration: underline;
+	margin-bottom: 50px;
+}
+.titreTableauGestionUsers {
+	text-align: center;
+	font-size: 18px;
+	text-decoration: underline;
+}
+.boutonTableauGestionUsers {
+	margin: 0 auto;
+	display: none;
+}

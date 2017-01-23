@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Intranet\Administration;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\GestionUsersRepository;
 
-class GestionController extends Controller
+class GestionUsersController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,6 +26,10 @@ class GestionController extends Controller
      */
     public function index()
     {
-        return view('intranet.administration.gestion.index');
+		$repoGestionUsers = new GestionUsersRepository;
+
+
+		$usersList = $repoGestionUsers->getUsersList();
+        return view('intranet.administration.gestionusers.index', ['usersList' => $usersList]);
     }
 }

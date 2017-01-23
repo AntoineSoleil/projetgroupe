@@ -237,8 +237,13 @@ Route::group(['middleware' => 'web'], function () {
           ]);
 
           Route::get('/gestionutilisateurs', [
-            'as' => 'administrationGestionIndex',
-            'uses' => 'Intranet\Administration\GestionController@index'
+            'as' => 'administrationGestionUsersIndex',
+            'uses' => 'Intranet\Administration\GestionUsersController@index'
+          ]);
+
+		  Route::get('/gestionroles', [
+            'as' => 'administrationGestionRolesIndex',
+            'uses' => 'Intranet\Administration\GestionRolesController@index'
           ]);
 
           Route::get('/application', [
