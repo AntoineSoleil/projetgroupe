@@ -241,6 +241,16 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Administration\GestionUsersController@index'
           ]);
 
+			  Route::get('/gestionutilisateurs/ajouterutilisateur', [
+		        'as' => 'administrationGestionAddUserIndex',
+		        'uses' => 'Intranet\Administration\GestionUsersController@addUser'
+		      ]);
+
+			  Route::delete('/gestionutilisateurs/supprimerutilisateur', [
+		        'as' => 'administrationGestionDeleteUserIndex',
+		        'uses' => 'Intranet\Administration\GestionUsersController@deleteUser'
+		      ]);
+
 		      Route::get('/gestionutilisateurs/{idUser}/modifierroles', [
 		        'as' => 'administrationGestionUsersUpdateRoles',
 		        'uses' => 'Intranet\Administration\GestionUsersController@updateRoles'

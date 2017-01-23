@@ -31,6 +31,11 @@ class GestionUsersController extends Controller
         return view('intranet.administration.gestionusers.index', ['usersList' => $usersList]);
     }
 
+	public function addUser()
+    {
+        return view('intranet.administration.gestionusers.addUser');
+    }
+
 	public function updateRoles()
     {
         return view('intranet.administration.gestionusers.updateRoles');
