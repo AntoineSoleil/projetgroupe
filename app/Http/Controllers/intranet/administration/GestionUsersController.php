@@ -27,9 +27,12 @@ class GestionUsersController extends Controller
     public function index()
     {
 		$repoGestionUsers = new GestionUsersRepository;
-
-
 		$usersList = $repoGestionUsers->getUsersList();
         return view('intranet.administration.gestionusers.index', ['usersList' => $usersList]);
+    }
+
+	public function updateRoles()
+    {
+        return view('intranet.administration.gestionusers.updateRoles');
     }
 }

@@ -21,7 +21,7 @@
 				<TD><?php echo $user->name ?></TD>
 				<TD><?php echo $user->email ?></TD>
 				<TD><?php echo $user->roles ?></TD>
-				<TD><button type="button" class="btn btn-primary boutonTableauGestionUsers" href="#">Ajouter ou supprimer un rôle</button></TD>
+				<TD><a href="/intranet/administration/gestionutilisateurs/<?php echo $user->userId ?>/modifierroles"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Ajouter ou supprimer un rôle</button></a></TD>
 			</TR>
 		<?php endforeach; ?>
 		</TABLE>

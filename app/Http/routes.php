@@ -125,7 +125,7 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\CongesController@index'
         ]);
 
-            Route::get('/conges/{:idConges}', [
+            Route::get('/conges/{idConges}', [
               'as' => 'congesVisualisation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@view'
             ]);
@@ -140,32 +140,32 @@ Route::group(['middleware' => 'web'], function () {
               'uses' => 'Intranet\Ressourceshumaines\CongesController@create'
             ]);
 
-            Route::get('/conges/{:idConges}/modifier', [
+            Route::get('/conges/{idConges}/modifier', [
               'as' => 'congesModification',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
             ]);
 
-            Route::put('/conges/{:idConges}/modifier', [
+            Route::put('/conges/{idConges}/modifier', [
               'as' => 'congesModification',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
             ]);
 
-            Route::delete('/conges/{:idConges}', [
+            Route::delete('/conges/{idConges}', [
               'as' => 'congesSuppression',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@delete'
             ]);
 
-            Route::get('/conges/{:idConges}/validation', [
+            Route::get('/conges/{idConges}/validation', [
               'as' => 'congesValidation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
             ]);
 
-            Route::put('/conges/{:idConges}/validation', [
+            Route::put('/conges/{idConges}/validation', [
               'as' => 'congesValidation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
             ]);
 
-            Route::get('/conges/{:idConges}/export', [
+            Route::get('/conges/{idConges}/export', [
               'as' => 'congesExport',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@export'
             ]);
@@ -240,6 +240,11 @@ Route::group(['middleware' => 'web'], function () {
             'as' => 'administrationGestionUsersIndex',
             'uses' => 'Intranet\Administration\GestionUsersController@index'
           ]);
+
+		      Route::get('/gestionutilisateurs/{idUser}/modifierroles', [
+		        'as' => 'administrationGestionUsersUpdateRoles',
+		        'uses' => 'Intranet\Administration\GestionUsersController@updateRoles'
+		      ]);
 
 		  Route::get('/gestionroles', [
             'as' => 'administrationGestionRolesIndex',
