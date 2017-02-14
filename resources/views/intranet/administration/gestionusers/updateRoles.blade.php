@@ -20,11 +20,14 @@
 				<TD><?php echo $role->name ?></TD>
 				<TD><?php echo $role->description ?></TD>
 				<TD align="center">
-					<TD><a href="/intranet/administration/gestionutilisateurs/<?php echo $user->userId ?>/modifierroles"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Ajouter ou supprimer un rôle</button></a></TD>
+					
 				</TD>
 			</TR>
 			<?php endforeach; ?>
 		</TABLE>
+		<div align="center">
+			<a href="http://localhost:8000/intranet/administration/gestionutilisateurs"><button type="button" class="btn btn-primary boutonTableauGestionUsers" style="margin-top:10px;">Retour</button></a>
+		</div>
 	</div>
 </div>
 

@@ -55,6 +55,17 @@ class GestionUsersController extends Controller
         return view('intranet.administration.gestionusers.addUser');
     }
 
+    public function addRolePost(Request $request)
+    {
+        //$roleName = $request->roleName;
+        //$roleDesc = $request->roleDesc;
+
+        $repoGestionUsers = new GestionUsersRepository;
+        $repoGestionUsers->addUser();
+
+        return redirect('/intranet/administration/gestionusers');
+    }
+
 	public function updateRoles()
     {
         $authUserId = Auth::user()->id;
@@ -68,10 +79,6 @@ class GestionUsersController extends Controller
         $repoGestionUsers = new GestionUsersRepository;
         $rolesList = $repoGestionUsers->getRoleList();
         $userRoles = $repoGestionUsers->getUserRoles($authUserId);
-
-
-        //$userRoles = $repoGestionUsers->addRoleToUser(3, 5);
-        $userRoles = $repoGestionUsers->deleteRoleToUser(3, 5);
 
         return view('intranet.administration.gestionusers.updateRoles', ['authUser' => Auth::user(), 'rolesList' => $rolesList, 'userRoles' => $userRoles]);
     }

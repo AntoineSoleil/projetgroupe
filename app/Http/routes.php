@@ -246,6 +246,10 @@ Route::group(['middleware' => 'web'], function () {
 		        'uses' => 'Intranet\Administration\GestionUsersController@addUser'
 		      ]);
 
+            Route::post('/gestionutilisateurs/ajouterutilisateur', [
+              'uses' => 'Intranet\Administration\GestionRolesController@addUserPost'
+            ]);
+
 			      Route::delete('/gestionutilisateurs/supprimerutilisateur', [
 		          'as' => 'administrationGestionDeleteUserIndex',
 		          'uses' => 'Intranet\Administration\GestionUsersController@deleteUser'
