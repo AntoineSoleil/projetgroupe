@@ -10,3 +10,4 @@ sudo wget https://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-en
 sudo dpkg -i /tmp/docker-engine_1.9.1-0~jessie_amd64.deb
 sudo docker build -t php7 -f Dockerfile.php7 .
 sudo docker run -dit -p 80:80 -v $(pwd):/var/www/html/ --name php7-test php7
+sudo docker exec -t -i php7-test /bin/bash
