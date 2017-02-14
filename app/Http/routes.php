@@ -241,18 +241,17 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Administration\GestionUsersController@index'
           ]);
 
-			  Route::get('/gestionutilisateurs/ajouterutilisateur', [
+			    Route::get('/gestionutilisateurs/ajouterutilisateur', [
 		        'as' => 'administrationGestionAddUserIndex',
 		        'uses' => 'Intranet\Administration\GestionUsersController@addUser'
 		      ]);
 
-			  Route::delete('/gestionutilisateurs/supprimerutilisateur', [
-		        'as' => 'administrationGestionDeleteUserIndex',
-		        'uses' => 'Intranet\Administration\GestionUsersController@deleteUser'
-		      ]);
+			      Route::delete('/gestionutilisateurs/supprimerutilisateur', [
+		          'as' => 'administrationGestionDeleteUserIndex',
+		          'uses' => 'Intranet\Administration\GestionUsersController@deleteUser'
+		        ]);
 
 		      Route::get('/gestionutilisateurs/{idUser}/modifierroles', [
-		        'as' => 'administrationGestionUsersUpdateRoles',
 		        'uses' => 'Intranet\Administration\GestionUsersController@updateRoles'
 		      ]);
 
@@ -264,15 +263,21 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Administration\GestionUsersController@deleteRoleToUserAjax'
             ]);
 
-		  Route::get('/gestionroles', [
+		      Route::get('/gestionroles', [
             'as' => 'administrationGestionRolesIndex',
             'uses' => 'Intranet\Administration\GestionRolesController@index'
+          ]);
+
+          Route::get('/gestionroles/{idRole}/modifierressources', [
+            'uses' => 'Intranet\Administration\GestionRolesController@updateRessources'
           ]);
 
           Route::get('/application', [
             'as' => 'administrationApplicationIndex',
             'uses' => 'Intranet\Administration\ApplicationController@index'
           ]);
+
+
       });
         
     });

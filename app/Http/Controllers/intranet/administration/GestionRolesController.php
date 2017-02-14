@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Intranet\Administration;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\GestionRolesRepository;
+use App\Repositories\AccesControlRepository;
+use Auth;
 
 class GestionRolesController extends Controller
 {
@@ -25,7 +28,21 @@ class GestionRolesController extends Controller
      */
     public function index()
     {
+        $authUserId = Auth::user()->id;
+        $repoAccesControl = new AccesControlRepository;
+        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionutilisateur-read');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
 
-        return view('intranet.administration.gestionroles.index');
+        $repoGestionRoles = new GestionRolesRepository;
+        $rolesList = $repoGestionRoles->getRoleList();
+        return view('intranet.administration.gestionroles.index', ['rolesList' => $rolesList]);
+    }
+
+    public function updateRessources()
+    {
+        return view('intranet.administration.gestionroles.updateRessources');
     }
 }

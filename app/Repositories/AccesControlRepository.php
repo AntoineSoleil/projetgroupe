@@ -32,7 +32,6 @@ class AccesControlRepository
 			WHERE ur.id_users = " . $authUserId . "
 			ORDER BY res.name");
 
-
 		foreach($userRessource as $ressource)
 		{
 			if($ressource->name == $ressourceTested)

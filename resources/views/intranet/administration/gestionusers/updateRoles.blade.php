@@ -20,8 +20,7 @@
 				<TD><?php echo $role->name ?></TD>
 				<TD><?php echo $role->description ?></TD>
 				<TD align="center">
-					<a href="#"><button id="btn-<?php echo $role->id ?>-del" type="button" class="btn btn-primary">Supprimer</button></a>
-					<a href="#"><button id="btn-<?php echo $role->id ?>-add" type="button" class="btn btn-primary">Ajouter</button></a>
+					<TD><a href="/intranet/administration/gestionutilisateurs/<?php echo $user->userId ?>/modifierroles"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Ajouter ou supprimer un rôle</button></a></TD>
 				</TD>
 			</TR>
 			<?php endforeach; ?>
