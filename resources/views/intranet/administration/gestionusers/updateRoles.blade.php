@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-md-8 offset-md-2" >
+	<div class="col-md-12" >
 		<TABLE class="table">
 			<TR>
 				<TD class="col-md-4 titreTableauGestionUsers">Nom de la ressource</TD>
@@ -19,9 +19,9 @@
 			<TR>
 				<TD><?php echo $role->name ?></TD>
 				<TD><?php echo $role->description ?></TD>
-				<TD>
-					<a href="#"><button id="btn-<?php echo $role->name ?>-del" type="button" class="btn btn-primary">Supprimer</button></a>
-					<a href="#"><button id="btn-<?php echo $role->name ?>-add" type="button" class="btn btn-primary">Ajouter</button></a>
+				<TD align="center">
+					<a href="#"><button id="btn-<?php echo $role->id ?>-del" type="button" class="btn btn-primary">Supprimer</button></a>
+					<a href="#"><button id="btn-<?php echo $role->id ?>-add" type="button" class="btn btn-primary">Ajouter</button></a>
 				</TD>
 			</TR>
 			<?php endforeach; ?>
@@ -35,7 +35,4 @@ $( document ).ready(function() {
     
 });
 </script>
-
-
-
 @endsection

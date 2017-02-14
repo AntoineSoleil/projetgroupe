@@ -20,7 +20,7 @@ class GestionUsersRepository
 
 	public function getRoleList()
 	{
-		$roleList = DB::select("SELECT rol.name, rol.description
+		$roleList = DB::select("SELECT rol.id, rol.name, rol.description
 			FROM roles AS rol");
 		return $roleList;
 	}
@@ -47,4 +47,15 @@ class GestionUsersRepository
 		return $userRessource;
 	}
     
+    public function addRoleToUser($userId, $roleId)
+    {
+    	DB::insert("INSERT INTO users_roles (id_users, id_roles)
+ 			VALUES (". $userId . ", ". $roleId . ")");
+    }
+
+    public function deleteRoleToUser($userId, $roleId)
+    {
+    	DB::delete("DELETE FROM users_roles
+ 			WHERE id_users = ". $userId . " AND id_roles = ". $roleId);
+    }
 }

@@ -256,6 +256,14 @@ Route::group(['middleware' => 'web'], function () {
 		        'uses' => 'Intranet\Administration\GestionUsersController@updateRoles'
 		      ]);
 
+            Route::post('/gestionutilisateurs/{idUser}/modifierroles', [
+            'uses' => 'Intranet\Administration\GestionUsersController@addRoleToUserAjax'
+            ]);
+
+            Route::delete('/gestionutilisateurs/{idUser}/modifierroles', [
+            'uses' => 'Intranet\Administration\GestionUsersController@deleteRoleToUserAjax'
+            ]);
+
 		  Route::get('/gestionroles', [
             'as' => 'administrationGestionRolesIndex',
             'uses' => 'Intranet\Administration\GestionRolesController@index'

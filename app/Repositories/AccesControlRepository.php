@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\DB;
 
 class AccesControlRepository
 {
-	public function isAllowedOrRedirect($authUserId, $ressourceTested)
+	public function isAllowed($authUserId, $ressourceTested)
 	{
 		$userRessource = DB::select("SELECT DISTINCT(res.name) 
 			FROM ressources AS res

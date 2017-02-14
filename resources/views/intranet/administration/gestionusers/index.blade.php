@@ -14,7 +14,7 @@
 				<TD class="col-lg-4 titreTableauGestionUsers">Nom de l'utilisateur</TD>
 				<TD class="col-lg-4 titreTableauGestionUsers">Adresse mail</TD>
 				<TD class="col-lg-2 titreTableauGestionUsers">Rôle(s) associé(s)</TD>
-				<TD class="col-lg-2 titreTableauGestionUsers"></TD>
+				<TD class="col-lg-2 titreTableauGestionUsers"><a href="/intranet/administration/gestionutilisateurs/ajouterutilisateur"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Ajouter un Utilisateur</button></a></TD>
 			</TR>
 		<?php foreach($usersList as $user): ?>
 			<TR>
