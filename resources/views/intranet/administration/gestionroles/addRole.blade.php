@@ -18,7 +18,10 @@
     	<label for="roleDesc">Description du rôle</label>
     	<input type="text" class="form-control" id="roleDesc" name="roleDesc" placeholder="Description du rôle">
     	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-    	<button type="submit" class="btn btn-primary" style="float:right; margin-top:10px;">Submit</button>
+    	<div align="center">
+    		<a href="/intranet/administration/gestionroles"><button type="button" class="btn btn-primary boutonTableauGestionUsers" style="margin-top:10px;">Retour</button></a>
+    		<button type="submit" class="btn btn-primary" style="margin-top:10px;">Ajouter</button>
+    	</div>
 		</form>
 	</div>
 	<div class="col-md-3">
