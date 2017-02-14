@@ -1,14 +1,14 @@
 @extends('vendor.backpack.base.dashboard')
 
 @section('header')
-<div class="col-lg-12 titreGestionUsers">
+<div class="col-md-12 titreGestionUsers">
 	Gestion des utilisateurs
 </div>
 @endsection
 
 @section('content')
-<div class="col-lg-12">
-	<div class="row">
+<div class="row">
+	<div class="col-md-12">
 		<TABLE class="table">
 			<TR>
 				<TD class="col-lg-4 titreTableauGestionUsers">Nom de l'utilisateur</TD>
