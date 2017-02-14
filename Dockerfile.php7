@@ -1,0 +1,42 @@
+# docker run -dit -p 8080:80 -v $(pwd):/tmp/ --name jessie debian:jessie
+# docker build -t php7 -f Dockerfile.php7 .
+# docker run -dit -p 4100:80 -v $(pwd):/var/www/html/ --name php7-test php7
+# docker rm -f $(docker ps -a -q)
+# docker rmi $(docker images)
+# docker exec -t -i php7-test /bin/bash
+
+FROM debian:jessie
+
+RUN apt-get update \
+ && apt-get upgrade \
+ && apt-get install -y \
+    apt-utils \
+    wget \
+ && echo "deb http://packages.dotdeb.org jessie all\ndeb-src http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list \
+ && wget https://www.dotdeb.org/dotdeb.gpg \
+ && apt-key add dotdeb.gpg \
+ && rm dotdeb.gpg \
+ && apt-get update \
+ && apt-get install -y \
+    git \
+    mariadb-client \
+    apache2 \
+    libapache2-mod-php \
+    php7.0 \
+    php7.0-fpm \
+    php7.0-mysql \
+    php7.0-mbstring \
+    php7.0-dom \
+ && rm /var/www/html/* \
+ && rm -rf /var/lib/apt/lists/* \
+ && sed -i 's:DocumentRoot /var/www/html:DocumentRoot /var/www/html/public\n\t<Directory\ "/var/www/html/public">\n\t\tAllowOverride\ all\n\t</Directory>:g' /etc/apache2/sites-enabled/000-default.conf \
+ && a2enmod rewrite \
+ && a2enmod proxy_fcgi setenvif \
+ && a2enconf php7.0-fpm
+ #&& php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+ #&& php -r "if (hash_file('SHA384', 'composer-setup.php') === '55d6ead61b29c7bdee5cccfb50076874187bd9f21f65d8991d46ec5cc90518f447387fb9f76ebae1fbbacf329e583e30') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+ #&& php composer-setup.php --install-dir=bin \
+ #&& php -r "unlink('composer-setup.php');"
+
+EXPOSE 80 443
+CMD ["apachectl", "-DFOREGROUND"]
