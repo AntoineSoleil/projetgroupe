@@ -272,6 +272,14 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Administration\GestionRolesController@updateRessources'
           ]);
 
+          Route::get('/gestionroles/ajouterrole', [
+            'uses' => 'Intranet\Administration\GestionRolesController@addRole'
+          ]);
+
+            Route::post('/gestionroles/ajouterrole', [
+              'uses' => 'Intranet\Administration\GestionRolesController@addRolePost'
+            ]);
+
           Route::get('/application', [
             'as' => 'administrationApplicationIndex',
             'uses' => 'Intranet\Administration\ApplicationController@index'

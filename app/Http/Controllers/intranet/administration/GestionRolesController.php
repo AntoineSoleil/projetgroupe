@@ -45,4 +45,20 @@ class GestionRolesController extends Controller
     {
         return view('intranet.administration.gestionroles.updateRessources');
     }
+
+    public function addRole()
+    {
+        return view('intranet.administration.gestionroles.addRole');
+    }
+
+    public function addRolePost(Request $request)
+    {
+        $roleName = $request->roleName;
+        $roleDesc = $request->roleDesc;
+
+        $repoGestionRoles = new GestionRolesRepository;
+        $repoGestionRoles->addRole($roleName, $roleDesc);
+
+        return redirect('/intranet/administration/gestionroles');
+    }
 }

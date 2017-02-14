@@ -14,4 +14,10 @@ class GestionRolesRepository
 			FROM roles AS rol");
 		return $roleList;
 	}
+
+	public function addRole($roleName, $roleDesc)
+    {
+    	DB::insert("INSERT INTO roles (name, description, created_at, updated_at)
+ 			VALUES ('". $roleName . "', '". $roleDesc . "', '" . date("Y-m-d H:i:s") . "', '" . date("Y-m-d H:i:s") . "')");
+    }
 }
