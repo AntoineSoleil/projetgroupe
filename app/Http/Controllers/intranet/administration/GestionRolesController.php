@@ -61,6 +61,14 @@ class GestionRolesController extends Controller
 
     public function addRole()
     {
+        $authUserId = Auth::user()->id;
+        $repoAccesControl = new AccesControlRepository;
+        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionrole-create');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
         return view('intranet.administration.gestionroles.addRole');
     }
 

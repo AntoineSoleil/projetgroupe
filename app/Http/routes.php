@@ -128,7 +128,7 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('/conges/{idConges}', [
               'as' => 'congesVisualisation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@view'
-            ]);
+            ])->where('idConges' , '[0-9]+');
 
             Route::get('/conges/nouveau', [
               'as' => 'congesNouveau',
@@ -143,32 +143,32 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('/conges/{idConges}/modifier', [
               'as' => 'congesModification',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
-            ]);
+            ])->where('idConges' , '[0-9]+');
 
             Route::put('/conges/{idConges}/modifier', [
               'as' => 'congesModification',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
-            ]);
+            ])->where('idConges' , '[0-9]+');
 
             Route::delete('/conges/{idConges}', [
               'as' => 'congesSuppression',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@delete'
-            ]);
+            ])->where('idConges' , '[0-9]+');
 
             Route::get('/conges/{idConges}/validation', [
               'as' => 'congesValidation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
-            ]);
+            ])->where('idConges' , '[0-9]+');
 
             Route::put('/conges/{idConges}/validation', [
               'as' => 'congesValidation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
-            ]);
+            ])->where('idConges' , '[0-9]+');
 
             Route::get('/conges/{idConges}/export', [
               'as' => 'congesExport',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@export'
-            ]);
+            ])->where('idConges' , '[0-9]+');
 
 
         Route::get('/cvtheque', [
@@ -257,15 +257,15 @@ Route::group(['middleware' => 'web'], function () {
 
 		      Route::get('/gestionutilisateurs/{idUser}/modifierroles', [
 		        'uses' => 'Intranet\Administration\GestionUsersController@updateRoles'
-		      ]);
+		      ])->where('idUser' , '[0-9]+');
 
             Route::post('/gestionutilisateurs/{idUser}/modifierroles', [
             'uses' => 'Intranet\Administration\GestionUsersController@addRoleToUserAjax'
-            ]);
+            ])->where('idUser' , '[0-9]+');
 
             Route::delete('/gestionutilisateurs/{idUser}/modifierroles', [
             'uses' => 'Intranet\Administration\GestionUsersController@deleteRoleToUserAjax'
-            ]);
+            ])->where('idUser' , '[0-9]+');
 
 		      Route::get('/gestionroles', [
             'as' => 'administrationGestionRolesIndex',
@@ -274,7 +274,7 @@ Route::group(['middleware' => 'web'], function () {
 
           Route::get('/gestionroles/{idRole}/modifierressources', [
             'uses' => 'Intranet\Administration\GestionRolesController@updateRessources'
-          ]);
+          ])->where('idRole' , '[0-9]+');
 
           Route::get('/gestionroles/ajouterrole', [
             'uses' => 'Intranet\Administration\GestionRolesController@addRole'

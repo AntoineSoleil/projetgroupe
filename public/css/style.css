@@ -63,3 +63,8 @@
 	margin: 0 auto;
 	display: none;
 }
+.titreConges {
+	text-align: center;
+	font-size: 18px;
+	text-decoration: underline;
+}

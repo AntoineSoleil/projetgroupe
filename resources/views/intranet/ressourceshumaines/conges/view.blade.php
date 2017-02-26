@@ -6,11 +6,7 @@
 		<div class="row container">
 			<table class="table table-bordered">
   			  <TR>
-  			  	<TD class="col-md-3">Nom</TD>
-  			  	<TD  class="col-md-9"></TD>
-  			  </TR>
-  			  <TR>
-  			  	<TD class="col-md-3">Prénom</TD>
+  			  	<TD class="col-md-3">Nom Prénom</TD>
   			  	<TD  class="col-md-9"></TD>
   			  </TR>
   			  <TR>
