@@ -11,7 +11,7 @@
 	<div class="col-md-12" >
 		<TABLE class="table">
 			<TR>
-				<TD class="col-md-4 titreTableauGestionUsers">Nom de la ressource</TD>
+				<TD class="col-md-4 titreTableauGestionUsers">Nom du rôle</TD>
 				<TD class="col-md-4 titreTableauGestionUsers">Description</TD>
 				<TD class="col-md-2 titreTableauGestionUsers">Ajouter / Supprimer</TD>
 			</TR>
@@ -26,7 +26,7 @@
 			<?php endforeach; ?>
 		</TABLE>
 		<div align="center">
-			<a href="http://localhost:8000/intranet/administration/gestionutilisateurs"><button type="button" class="btn btn-primary boutonTableauGestionUsers" style="margin-top:10px;">Retour</button></a>
+			<a href="/intranet/administration/gestionutilisateurs"><button type="button" class="btn btn-primary boutonTableauGestionUsers" style="margin-top:10px;">Retour</button></a>
 		</div>
 	</div>
 </div>

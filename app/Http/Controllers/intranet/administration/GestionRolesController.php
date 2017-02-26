@@ -30,7 +30,7 @@ class GestionRolesController extends Controller
     {
         $authUserId = Auth::user()->id;
         $repoAccesControl = new AccesControlRepository;
-        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionutilisateur-read');
+        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionrole-read');
         if($userAllowed == false)
         {
             return redirect('/intranet');
@@ -41,9 +41,22 @@ class GestionRolesController extends Controller
         return view('intranet.administration.gestionroles.index', ['rolesList' => $rolesList]);
     }
 
-    public function updateRessources()
+    public function updateRessources(Request $request)
     {
-        return view('intranet.administration.gestionroles.updateRessources');
+        $authUserId = Auth::user()->id;
+        $repoAccesControl = new AccesControlRepository;
+        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionrole-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $idRole = $request->idRole;
+        $repoGestionRoles = new GestionRolesRepository;
+        $role = $repoGestionRoles->getRoleById($idRole);
+        $ressourcesList = $repoGestionRoles->getRessourcesForRole($idRole);
+
+        return view('intranet.administration.gestionroles.updateRessources', ['role' => $role, 'ressourcesList' => $ressourcesList]);
     }
 
     public function addRole()
