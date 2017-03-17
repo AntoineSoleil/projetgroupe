@@ -14,7 +14,7 @@ class RechercheController extends Controller
      */
     public function __construct()
     {
-        
+        //coco
     }
 
     /**
