@@ -1,19 +1,18 @@
 <?php
-
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
-  /**
-   * Run the database seeds.
-   *
-   * @return void
-   */
-  public function run()
-  {
-    DB::table('users')->insert([
-      'username' => 'User Test',
-      'password' => bcrypt('password'),
-    ]);
-  }
+    public function run()
+    {
+        DB::table('users')->truncate();
+    	User::create([
+            'id'            => 1,
+            'name'          => 'jonathan clairet',
+            'email'   => 'sangoku0516@hotmail.fr',
+            'password' => bcrypt('dragon16')
+        ]);
+    }
 }

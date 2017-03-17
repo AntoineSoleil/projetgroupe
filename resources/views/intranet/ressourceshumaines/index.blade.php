@@ -1,4 +1,4 @@
-@extends('layouts.intranet')
+@extends('vendor.backpack.base.dashboard')
 
 @section('content')
 <div class="row">
