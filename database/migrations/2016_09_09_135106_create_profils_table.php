@@ -9,14 +9,14 @@ class CreateProfilsTable extends Migration {
 	{
 		Schema::create('profils', function(Blueprint $table) {
 			$table->integer('id_users');
-            $table->string('birthday', 50);
-            $table->string('adresse', 255);
-			$table->integer('code_postal');
-            $table->string('ville', 255);
-			$table->integer('telephone');
-            $table->string('fonction', 255);
-			$table->integer('responsable');
-            $table->string('entreprise', 255);
+            $table->string('birthday', 50)->nullable();
+            $table->string('adresse', 255)->nullable();
+			$table->integer('code_postal')->nullable();
+            $table->string('ville', 255)->nullable();
+			$table->integer('telephone')->nullable();
+            $table->string('fonction', 255)->nullable();
+			$table->integer('responsable')->nullable();
+            $table->string('entreprise', 255)->nullable();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
 		});

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\AccesControlRepository;
 use App\Repositories\CongesRepository;
+use App\Repositories\ValidationCongesRepository;
 use Auth;
 
 class CongesController extends Controller
@@ -20,6 +21,7 @@ class CongesController extends Controller
     {
         $this->repoAccesControl = new AccesControlRepository;
         $this->repoConges = new CongesRepository;
+        $this->repoValidationConges = new ValidationCongesRepository;
         $this->authUserId = Auth::user()->id;
     }
 
@@ -51,6 +53,21 @@ class CongesController extends Controller
         }
         
         return view('intranet.ressourceshumaines.conges.create', ['currentUser' => Auth::user()]);
+    }
+
+    public function createConges(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-create');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $insertId = $this->repoConges->createConges($this->authUserId, $request->lieuIntervention, $request->responsable, date("Y-m-d", strtotime($request->debutConges)), date("Y-m-d", strtotime($request->finConges)), $request->TypeConges, $request->LieuCreation, $request->signatureDemandeur);
+
+        $this->repoValidationConges->createValidationConges($insertId);
+
+        return redirect('/intranet/ressourceshumaines/conges');
     }
 
     public function update(Request $request)

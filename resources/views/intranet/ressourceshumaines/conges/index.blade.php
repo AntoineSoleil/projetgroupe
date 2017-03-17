@@ -2,7 +2,7 @@
 
 @section('header')
 <div class="col-md-12 titreGestionUsers">
-	Congès
+	Congés
 </div>
 @endsection
 
@@ -12,7 +12,7 @@
 		<div class="titreConges">
 			Mes congés
 			<div style="float: right">
-				<a href="/intranet/ressourceshumaines/conges/nouveau"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Nouvelle demande</button></a>
+				<a href="/intranet/ressourceshumaines/conges/nouveau" class="btn btn-primary boutonTableauGestionUsers">Nouvelle demande</a>
 			</div>
 		</div>
 
@@ -89,7 +89,7 @@
 						</td>
 						<td>
 							<?php if($waitingValidationConges->status == 2): ?>
-							<a href="#"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Valider</button></a>
+							<a href="/intranet/ressourceshumaines/conges/<?php echo $waitingValidationConges->congesId ?>/validation"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Valider</button></a>
 						<?php endif; ?>
 
 						</td>

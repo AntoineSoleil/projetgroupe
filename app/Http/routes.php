@@ -137,7 +137,7 @@ Route::group(['middleware' => 'web'], function () {
 
             Route::post('/conges/nouveau', [
               'as' => 'congesNouveau',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@create'
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@createConges'
             ]);
 
             Route::get('/conges/{idConges}/modifier', [

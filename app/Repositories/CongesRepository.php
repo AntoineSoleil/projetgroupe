@@ -19,7 +19,7 @@ class CongesRepository
 
 	public function getWaitingValidationCongesList()
 	{
-		$waitingValidationCongesList = DB::select("SELECT conges.id, conges.debutConges AS debutConges, conges.finConges AS finConges, conges_validation.status AS status, users.name AS userName
+		$waitingValidationCongesList = DB::select("SELECT conges.id AS congesId, conges.debutConges AS debutConges, conges.finConges AS finConges, conges_validation.status AS status, users.name AS userName
 			FROM conges AS conges
 			INNER JOIN conges_validation AS conges_validation ON conges.id = conges_validation.id_conges
 			INNER JOIN users as users ON conges.id_users = users.id
@@ -34,6 +34,21 @@ class CongesRepository
 			INNER JOIN users AS users ON users.id = conges.id_users
 			WHERE conges.id = " . $idConges);
 		return $conges;
+	}
+
+	public function createConges($idUser, $lieuIntervention, $responsable, $debutConges, $finConges, $typeConges, $lieuCreation, $signature)
+	{
+		$insertId = DB::table('conges')->insertGetId([
+			'id_users' => $idUser,
+			'lieu_intervention' => $lieuIntervention,
+			'responsable' => $responsable,
+			'debutConges' => $debutConges,
+			'finConges' => $finConges,
+			'type' => $typeConges,
+			'lieuCreation' => $lieuCreation,
+			'Signature' => $signature,
+		]);
+		return $insertId;
 	}
 
 }

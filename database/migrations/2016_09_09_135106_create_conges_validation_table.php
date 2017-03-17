@@ -15,13 +15,13 @@ class CreateCongesValidationTable extends Migration
         Schema::create('conges_validation', function($table) {
             $table->increments('id');
             $table->integer('id_conges')->unsigned();
-            $table->integer('id_validateur')->nullable;
-            $table->integer('status')->nullable;
-            $table->dateTime('date_signature_responsable')->nullable;;
-            $table->string('signature_responsable', 255)->nullable;;
-            $table->dateTime('date_signature_dirigeant')->nullable;;
-            $table->string('signature_dirigeant', 255)->nullable;;
-            $table->text('commentaire');
+            $table->integer('id_validateur')->nullable();
+            $table->integer('status')->nullable();
+            $table->dateTime('date_signature_responsable')->nullable();
+            $table->string('signature_responsable', 255)->nullable();
+            $table->dateTime('date_signature_dirigeant')->nullable();
+            $table->string('signature_dirigeant', 255)->nullable();
+            $table->text('commentaire')->nullable();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });
@@ -33,6 +33,6 @@ class CreateCongesValidationTable extends Migration
      */
     public function down()
     {
-        Schema::drop('conges-validation');
+        Schema::drop('conges_validation');
     }
 }
