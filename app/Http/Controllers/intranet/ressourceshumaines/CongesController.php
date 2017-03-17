@@ -53,6 +53,19 @@ class CongesController extends Controller
         return view('intranet.ressourceshumaines.conges.create', ['currentUser' => Auth::user()]);
     }
 
+    public function update(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+        
+        $idConges = $request->idConges;
+        $conges = $this->repoConges->getConges($idConges);
+        return view('intranet.ressourceshumaines.conges.update', ['conges' => $conges]);
+    }
+
     public function validation()
     {
         return view('intranet.ressourceshumaines.conges.validate');

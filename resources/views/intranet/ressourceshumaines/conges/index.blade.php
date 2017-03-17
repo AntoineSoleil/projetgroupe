@@ -50,7 +50,7 @@
 						</td>
 						<td>
 							<?php if($myConges->status == 2): ?>
-							<a href="#"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Modifier</button></a>
+							<a href="/intranet/ressourceshumaines/conges/<?php echo $myConges->congesId ?>/modifier"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Modifier</button></a>
 							<a href="#""><button type="button" class="btn btn-primary boutonTableauGestionUsers">Supprimer</button></a>
 						<?php endif; ?>
 

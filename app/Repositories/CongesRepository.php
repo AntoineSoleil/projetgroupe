@@ -10,7 +10,7 @@ class CongesRepository
 {
 	public function getMyCongesList($idUser)
 	{
-		$myCongesList = DB::select("SELECT conges.id, conges.debutConges AS debutConges, conges.finConges AS finConges, conges_validation.status AS status
+		$myCongesList = DB::select("SELECT conges.id AS congesId, conges.debutConges AS debutConges, conges.finConges AS finConges, conges_validation.status AS status
 			FROM conges AS conges
 			INNER JOIN conges_validation AS conges_validation ON conges.id = conges_validation.id_conges
 			WHERE conges.id_users = " . $idUser);
@@ -25,6 +25,15 @@ class CongesRepository
 			INNER JOIN users as users ON conges.id_users = users.id
 			WHERE conges_validation.status = 2");
 		return $waitingValidationCongesList;
+	}
+
+	public function getConges($idConges)
+	{
+		$conges = DB::select("SELECT conges.id AS congesId, conges.debutConges AS debutConges, conges.finConges AS finConges, conges.type AS type, users.name AS userName
+			FROM conges AS conges
+			INNER JOIN users AS users ON users.id = conges.id_users
+			WHERE conges.id = " . $idConges);
+		return $conges;
 	}
 
 }

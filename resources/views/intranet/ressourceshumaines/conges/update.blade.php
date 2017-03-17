@@ -6,24 +6,20 @@
     <div class="row container">
       <table class="table table-bordered">
           <TR>
-            <TD class="col-md-3">Nom</TD>
-            <TD  class="col-md-9" class="form-group"><input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"></TD>
-          </TR>
-          <TR>
-            <TD class="col-md-3">Prénom</TD>
-            <TD  class="col-md-9" class="form-group"><input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom"></TD>
+            <TD class="col-md-3">Nom Prénom</TD>
+            <TD  class="col-md-9"><?php echo $conges[0]->userName ?></TD>
           </TR>
           <TR>
             <TD class="col-md-3">Fonction</TD>
-            <TD  class="col-md-9" class="form-group"><input type="text" class="form-control" id="fonction" name="fonction" placeholder="Fonction"></TD>
+            <TD  class="col-md-9"></TD>
           </TR>
           <TR>
             <TD class="col-md-3">Lieu d'intervention</TD>
-            <TD  class="col-md-9" class="form-group"><input type="text" class="form-control" id="lieuInter" name="lieuInter" placeholder="Lieu d'intervention"></TD>
+            <TD  class="col-md-9"></TD>
           </TR>
           <TR>
             <TD class="col-md-3">Responsable hiérarchique</TD>
-            <TD  class="col-md-9" class="form-group"><input type="text" class="form-control" id="responsable" name="responsable" placeholder="Responsable hiérarchique"></TD>
+            <TD  class="col-md-9"></TD>
           </TR>
       </table>
     </div>
@@ -37,9 +33,9 @@
           <TR>
             <TD class="col-md-4">Date de congés ou absence</TD>
             <TD  class="col-md-1">Du</TD>
-            <TD  class="col-md-3" class="form-group"><input type="text" class="form-control" id="debutConges" name="debutConges" placeholder="JJ/MM/AAAA"></TD>
+            <TD  class="col-md-3" class="form-group"><input type="text" class="form-control" id="debutConges" name="debutConges" placeholder="JJ/MM/AAAA" value="<?php echo $conges[0]->debutConges  ?>"></TD>
             <TD  class="col-md-1">Au</TD>
-            <TD  class="col-md-3" class="form-group"><input type="text" class="form-control" id="finConges" name="finConges" placeholder="JJ/MM/AAAA"></TD>
+            <TD  class="col-md-3" class="form-group"><input type="text" class="form-control" id="finConges" name="finConges" placeholder="JJ/MM/AAAA" value="<?php echo $conges[0]->finConges  ?>"></TD>
           </TR>
           <TR>
             <TD class="col-md-3">Nombre de jours</TD>
@@ -73,7 +69,11 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-default" style="text-align:center; display:table; margin:0 auto">Valider demande</button>
+    <div style="text-align:center; display:table; margin:0 auto">
+      <button type="submit" class="btn btn-default">Valider demande</button>
+      <a href="/intranet/ressourceshumaines/conges" class="btn btn-default" style="margin-left: 20px">Retour</a>
+    </div>
+    
 
   </div>
 </div>
