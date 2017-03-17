@@ -13,6 +13,8 @@ class ValidationCongesRepository
 		DB::table('conges_validation')->insert([
 			'id_conges' => $idConges,
 			'status' => 2,
+			'created_at' => Carbon::now(),
+			'updated_at' => Carbon::now(),
 		]);
 	}
 

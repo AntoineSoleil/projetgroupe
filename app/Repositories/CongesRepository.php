@@ -47,6 +47,8 @@ class CongesRepository
 			'type' => $typeConges,
 			'lieuCreation' => $lieuCreation,
 			'Signature' => $signature,
+			'created_at' => Carbon::now(),
+			'updated_at' => Carbon::now(),
 		]);
 		return $insertId;
 	}
