@@ -15,6 +15,8 @@ class CreateCongesTable extends Migration
         Schema::create('conges', function($table) {
             $table->increments('id');
             $table->integer('id_users')->unsigned();
+            $table->string('lieu_intervention', 255);
+            $table->string('responsable', 255);
             $table->date('debutConges')->nullable;
             $table->date('finConges')->nullable;
             $table->string('type', 255);

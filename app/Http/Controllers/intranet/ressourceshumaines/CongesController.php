@@ -6,26 +6,35 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\AccesControlRepository;
+use App\Repositories\CongesRepository;
 use Auth;
 
 class CongesController extends Controller
 {
+    protected $repoAccesControl;
+    protected $repoConges;
+    protected $authUserId;
+
+
     public function __construct()
     {
-        
+        $this->repoAccesControl = new AccesControlRepository;
+        $this->repoConges = new CongesRepository;
+        $this->authUserId = Auth::user()->id;
     }
 
     public function index()
     {
-        $authUserId = Auth::user()->id;
-        $repoAccesControl = new AccesControlRepository;
-        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-ressourceshumaines-conges-read');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-read');
         if($userAllowed == false)
         {
             return redirect('/intranet');
         }
 
-        return view('intranet.ressourceshumaines.conges.index');
+        $myCongesList = $this->repoConges->getMyCongesList($this->authUserId);
+        $waitingValidationCongesList = $this->repoConges->getWaitingValidationCongesList();
+
+        return view('intranet.ressourceshumaines.conges.index', ['myCongesList' => $myCongesList, 'waitingValidationCongesList' => $waitingValidationCongesList]);
     }
 
     public function view()
@@ -35,9 +44,7 @@ class CongesController extends Controller
 
     public function create()
     {
-        $authUserId = Auth::user()->id;
-        $repoAccesControl = new AccesControlRepository;
-        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-ressourceshumaines-conges-create');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-create');
         if($userAllowed == false)
         {
             return redirect('/intranet');
