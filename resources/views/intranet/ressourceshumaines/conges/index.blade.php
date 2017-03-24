@@ -74,7 +74,7 @@
 					<table class="table">
 					  <thead>
 					    <tr>
-					      <th class="col-md-4">Mes demandes</th>
+					      <th class="col-md-4">Demandes</th>
 					      <th class="col-md-4">Demandeur</th>
 					      <th class="col-md-4">Options</th>
 					    </tr>

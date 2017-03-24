@@ -110,81 +110,136 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\RessourceshumainesController@index'
           ]);
 
+        /**========================================================
+        *
+        * Routes pour la partie CRA des Ressources Humaines
+        *
+        ===========================================================*/
+
         Route::get('/cra', [
           'as' => 'craIndex',
           'uses' => 'Intranet\Ressourceshumaines\CraController@Index'
         ]);
+
+        Route::get('/cra/nouveau', [
+          'as' => 'craNouveau',
+          'uses' => 'Intranet\Ressourceshumaines\CraController@createView'
+        ]);
+
+        Route::post('/cra/nouveau', [
+          'as' => 'craNouveau',
+          'uses' => 'Intranet\Ressourceshumaines\CraController@create'
+        ]);
+
+
+        /**========================================================
+        *
+        * Routes pour la partie Notes de frais des Ressources Humaines
+        *
+        ===========================================================*/
 
         Route::get('/notesfrais', [
           'as' => 'notesfraisIndex',
           'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@Index'
         ]);
 
+        /**========================================================
+        *
+        * Routes pour la partie Congés des Ressources Humaines
+        *
+        ===========================================================*/
+
         Route::get('/conges', [
           'as' => 'congesIndex',
           'uses' => 'Intranet\Ressourceshumaines\CongesController@index'
         ]);
 
-            Route::get('/conges/{idConges}', [
-              'as' => 'congesVisualisation',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@view'
-            ])->where('idConges' , '[0-9]+');
+        Route::get('/conges/{idConges}', [
+          'as' => 'congesVisualisation',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@view'
+        ])->where('idConges' , '[0-9]+');
 
-            Route::get('/conges/nouveau', [
-              'as' => 'congesNouveau',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@create'
-            ]);
+        Route::get('/conges/nouveau', [
+          'as' => 'congesNouveau',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@create'
+        ]);
 
-            Route::post('/conges/nouveau', [
-              'as' => 'congesNouveau',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@createConges'
-            ]);
+        Route::post('/conges/nouveau', [
+          'as' => 'congesNouveau',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@createConges'
+        ]);
 
-            Route::get('/conges/{idConges}/modifier', [
-              'as' => 'congesModification',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@updateView'
-            ])->where('idConges' , '[0-9]+');
+        Route::get('/conges/{idConges}/modifier', [
+          'as' => 'congesModification',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@updateView'
+        ])->where('idConges' , '[0-9]+');
 
-            Route::post('/conges/{idConges}/modifier', [
-              'as' => 'congesModification',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
-            ])->where('idConges' , '[0-9]+');
+        Route::post('/conges/{idConges}/modifier', [
+          'as' => 'congesModification',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
+        ])->where('idConges' , '[0-9]+');
 
-            Route::delete('/conges/{idConges}', [
-              'as' => 'congesSuppression',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@delete'
-            ])->where('idConges' , '[0-9]+');
+        Route::delete('/conges/{idConges}', [
+          'as' => 'congesSuppression',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@delete'
+        ])->where('idConges' , '[0-9]+');
 
-            Route::get('/conges/{idConges}/validation', [
-              'as' => 'congesValidation',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@validationView'
-            ])->where('idConges' , '[0-9]+');
+        Route::get('/conges/{idConges}/validation', [
+          'as' => 'congesValidation',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@validationView'
+        ])->where('idConges' , '[0-9]+');
 
-            Route::post('/conges/{idConges}/validation', [
-              'as' => 'congesValidation',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
-            ])->where('idConges' , '[0-9]+');
+        Route::post('/conges/{idConges}/validation', [
+          'as' => 'congesValidation',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
+        ])->where('idConges' , '[0-9]+');
 
-            Route::get('/conges/{idConges}/export', [
-              'as' => 'congesExport',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@export'
-            ])->where('idConges' , '[0-9]+');
+        Route::get('/conges/{idConges}/export', [
+          'as' => 'congesExport',
+          'uses' => 'Intranet\Ressourceshumaines\CongesController@export'
+        ])->where('idConges' , '[0-9]+');
 
+        /**========================================================
+        *
+        * Routes pour la CV-thèque
+        *
+        ===========================================================*/
 
         Route::get('/cvtheque', [
           'as' => 'cvthequeIndex',
           'uses' => 'Intranet\Ressourceshumaines\CvthequeController@index'
         ]);
 
+
+        /**========================================================
+        *
+        * Routes pour les offres d'emploi/stages
+        *
+        ===========================================================*/
+
         Route::get('/offre', [
           'as' => 'offreIndex',
           'uses' => 'Intranet\Ressourceshumaines\OffreController@index'
         ]);
 
+
+        /**========================================================
+        *
+        * Routes pour les candidatures
+        *
+        ===========================================================*/
+
         Route::get('/candidatures', [
           'as' => 'candidaturesIndex',
           'uses' => 'Intranet\Ressourceshumaines\CandidaturesController@index'
         ]);
+
+
+        /**========================================================
+        *
+        * Routes pour les collaborateurs
+        *
+        ===========================================================*/
 
         Route::get('/collaborateurs', [
           'as' => 'collaborateursIndex',
