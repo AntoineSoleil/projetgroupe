@@ -7,7 +7,7 @@
 			<table class="table table-bordered">
   			  <TR>
   			  	<TD class="col-md-3">Nom Prénom</TD>
-  			  	<TD  class="col-md-9"></TD>
+  			  	<TD  class="col-md-9"><?php echo $conges[0]->userName ?></TD>
   			  </TR>
   			  <TR>
   			  	<TD class="col-md-3">Fonction</TD>
@@ -33,9 +33,9 @@
   			  <TR>
   			  	<TD class="col-md-4">Date de congés ou absence</TD>
   			  	<TD  class="col-md-1">Du</TD>
-  			  	<TD  class="col-md-3"></TD>
+  			  	<TD  class="col-md-3"><?php echo $conges[0]->debutConges ?></TD>
   			  	<TD  class="col-md-1">Au</TD>
-  			  	<TD  class="col-md-3"></TD>
+  			  	<TD  class="col-md-3"><?php echo $conges[0]->finConges ?></TD>
   			  </TR>
   			  <TR>
   			  	<TD class="col-md-3">Nombre de jours</TD>
@@ -43,7 +43,7 @@
   			  </TR>
   			  <TR>
   			  	<TD class="col-md-3">Type de congés</TD>
-  			  	<TD class="col-md-9" colspan="4"></TD>
+  			  	<TD class="col-md-9" colspan="4"><?php echo $conges[0]->type ?></TD>
   			  </TR>
 			</table>
 		</div>
@@ -52,15 +52,15 @@
 			<table>
   			  <TR>
   			  	<TD class="col-md-3" style="padding-top: 40px">Fait à</TD>
-  			  	<TD class="col-md-9"></TD>
+  			  	<TD class="col-md-9"><?php echo $conges[0]->lieuCreation ?></TD>
   			  </TR>
   			  <TR>
   			  	<TD class="col-md-3" style="padding-top: 10px">Le</TD>
-  			  	<TD class="col-md-9"></TD>
+  			  	<TD class="col-md-9"><?php echo $conges[0]->dateRedaction ?></TD>
   			  </TR>
   			  <TR>
   			  	<TD class="col-md-3" style="padding-top: 10px">Signature</TD>
-  			  	<TD class="col-md-9"></TD>
+  			  	<TD class="col-md-9"><?php echo $conges[0]->signature ?></TD>
   			  </TR>
 			</table>
 		</div>
@@ -72,20 +72,28 @@
 		<div class="row container">
 			<table class="table table-bordered">
 			  <TR style="text-align:center">
-			    <TD class="col-md-6">Accordé</TD>
-  			  	<TD class="col-md-6">Refusé</TD>
+            <?php if($conges[0]->status == 1) : ?>
+                <TD style="color:green; font-size:32px" class="col-md-6">Accordé</TD>
+                <TD class="col-md-6">Refusé</TD>
+            <?php elseif($conges[0]->status == 0): ?>
+                <TD class="col-md-6">Accordé</TD>
+                <TD style="color:red; font-size:32px" class="col-md-6">Refusé</TD>
+            <?php else: ?>
+                <TD class="col-md-6">Accordé</TD>
+                <TD class="col-md-6">Refusé</TD>
+            <?php endif; ?>
 			  </TR>
   			  <TR>
-  			  	<TD class="col-md-3" style="height:100px;">Date et signature du responsable hiérarchique</TD>
-  			  	<TD class="col-md-9"></TD>
+  			  	<TD>Date et signature du responsable hiérarchique</TD>
+  			  	<TD>Validé le <?php echo $conges[0]->dateResponsable ?> par <?php echo $conges[0]->signatureResponsable ?></TD>
   			  </TR>
   			  <TR>
-  			  	<TD class="col-md-3" style="height:100px;">Date et signature de dirigeant</TD>
-  			  	<TD class="col-md-9"></TD>
+  			  	<TD>Date et signature de dirigeant</TD>
+  			  	<TD>Validé le <?php echo $conges[0]->dateDirigeant ?> par <?php echo $conges[0]->signatureDirigeant ?></TD>
   			  </TR>
   			  <TR>
-  			  	<TD class="col-md-3">Commentaire en cas de refus</TD>
-  			  	<TD class="col-md-9"></TD>
+  			  	<TD>Commentaire en cas de refus</TD>
+  			  	<TD><?php echo $conges[0]->commentaire ?></TD>
   			  </TR>
 			</table>
 		</div>

@@ -13,7 +13,8 @@ class CongesRepository
 		$myCongesList = DB::select("SELECT conges.id AS congesId, conges.debutConges AS debutConges, conges.finConges AS finConges, conges_validation.status AS status
 			FROM conges AS conges
 			INNER JOIN conges_validation AS conges_validation ON conges.id = conges_validation.id_conges
-			WHERE conges.id_users = " . $idUser);
+			WHERE conges.id_users = " . $idUser . "
+			ORDER BY conges.created_at DESC");
 		return $myCongesList;
 	}
 
@@ -29,9 +30,19 @@ class CongesRepository
 
 	public function getConges($idConges)
 	{
-		$conges = DB::select("SELECT conges.id AS congesId, conges.debutConges AS debutConges, conges.finConges AS finConges, conges.type AS type, users.name AS userName
+		$conges = DB::select("SELECT conges.id AS congesId, conges.debutConges AS debutConges, conges.finConges AS finConges, conges.type AS type, conges.lieuCreation AS lieuCreation, conges.signature AS signature, conges.updated_at AS dateRedaction, users.name AS userName
 			FROM conges AS conges
 			INNER JOIN users AS users ON users.id = conges.id_users
+			WHERE conges.id = " . $idConges);
+		return $conges;
+	}
+
+	public function getCongesWithValidation($idConges)
+	{
+		$conges = DB::select("SELECT conges.id AS congesId, conges.debutConges AS debutConges, conges.finConges AS finConges, conges.type AS type, conges.lieuCreation AS lieuCreation, conges.signature AS signature, conges.updated_at AS dateRedaction, users.name AS userName, cv.status AS status, cv.date_signature_responsable AS dateResponsable, cv.signature_responsable AS signatureResponsable, cv.date_signature_dirigeant AS dateDirigeant, cv.signature_dirigeant AS signatureDirigeant, cv.commentaire AS commentaire
+			FROM conges AS conges
+			INNER JOIN users AS users ON users.id = conges.id_users
+			INNER JOIN conges_validation AS cv ON cv.id_conges = conges.id
 			WHERE conges.id = " . $idConges);
 		return $conges;
 	}
@@ -51,6 +62,21 @@ class CongesRepository
 			'updated_at' => Carbon::now(),
 		]);
 		return $insertId;
+	}
+
+	public function updateConges($idConges, $debutConges, $finConges, $typeConges, $lieuCreation)
+	{
+		DB::table('conges')->where('id', $idConges)->update([
+			'debutConges' => $debutConges, 
+			'finConges' => $finConges, 
+			'type' => $typeConges, 
+			'LieuCreation' => $lieuCreation
+		]);
+	}
+
+	public function deleteConges($idConges)
+	{
+		DB::table('conges')->where('id', "=", $idConges)->delete();
 	}
 
 }
