@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AccueilController extends Controller
 {
-    /**
+    /**  
      * Create a new controller instance.
      *
      * @return void
@@ -24,6 +24,7 @@ class AccueilController extends Controller
      */
     public function index()
     {
+//toto
         return view('site.accueil.index');
     }
 }
