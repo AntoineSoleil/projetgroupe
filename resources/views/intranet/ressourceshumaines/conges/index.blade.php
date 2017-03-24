@@ -30,7 +30,7 @@
 				    <?php foreach($myCongesList as $myConges): ?>
 					<tr>
 						<td>
-							Congès du <?php echo $myConges->debutConges ?> au <?php echo $myConges->finConges ?>
+							<a href="/intranet/ressourceshumaines/conges/<?php echo $myConges->congesId ?>">Congès du <?php echo $myConges->debutConges ?> au <?php echo $myConges->finConges ?></a>
 						</td>
 						<td>
 							<?php 
@@ -50,8 +50,8 @@
 						</td>
 						<td>
 							<?php if($myConges->status == 2): ?>
-							<a href="/intranet/ressourceshumaines/conges/<?php echo $myConges->congesId ?>/modifier"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Modifier</button></a>
-							<a href="#""><button type="button" class="btn btn-primary boutonTableauGestionUsers">Supprimer</button></a>
+							<a href="/intranet/ressourceshumaines/conges/<?php echo $myConges->congesId ?>/modifier" class="btn btn-primary boutonTableauGestionUsers">Modifier</a>
+							<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="deleteConges(<?php echo $myConges->congesId ?>)">Supprimer</button>
 						<?php endif; ?>
 
 						</td>
@@ -89,7 +89,7 @@
 						</td>
 						<td>
 							<?php if($waitingValidationConges->status == 2): ?>
-							<a href="/intranet/ressourceshumaines/conges/<?php echo $waitingValidationConges->congesId ?>/validation"><button type="button" class="btn btn-primary boutonTableauGestionUsers">Valider</button></a>
+							<a href="/intranet/ressourceshumaines/conges/<?php echo $waitingValidationConges->congesId ?>/validation" class="btn btn-primary boutonTableauGestionUsers">Valider</a>
 						<?php endif; ?>
 
 						</td>
@@ -102,3 +102,26 @@
 	</div>
 </div>
 @endsection
+
+<script type="text/javascript">
+	function deleteConges(idConges) {
+		var confirmation = confirm("Etes-vous sur de vouloir supprimer cette demande de congés ?");
+		if(confirmation == true) {
+			 $.ajax({
+		       url : '/intranet/ressourceshumaines/conges/'+idConges,
+		       type : 'DELETE',
+		       dataType : 'html',
+		       success : function(code_html, statut){ 
+		       		console.log("Succes");
+		       		location.reload();
+		       },
+
+		       error : function(resultat, statut, erreur){
+		       		console.log("Echec");
+		       }
+
+		    });
+		}
+
+	}
+</script>

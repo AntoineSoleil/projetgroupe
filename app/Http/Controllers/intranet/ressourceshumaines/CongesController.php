@@ -39,8 +39,14 @@ class CongesController extends Controller
         return view('intranet.ressourceshumaines.conges.index', ['myCongesList' => $myCongesList, 'waitingValidationCongesList' => $waitingValidationCongesList]);
     }
 
-    public function view()
+    public function view(Request $request)
     {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-read');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
         return view('intranet.ressourceshumaines.conges.view');
     }
 
@@ -70,7 +76,7 @@ class CongesController extends Controller
         return redirect('/intranet/ressourceshumaines/conges');
     }
 
-    public function update(Request $request)
+    public function updateView(Request $request)
     {
         $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-update');
         if($userAllowed == false)
@@ -83,8 +89,53 @@ class CongesController extends Controller
         return view('intranet.ressourceshumaines.conges.update', ['conges' => $conges]);
     }
 
-    public function validation()
+    public function update(Request $request)
     {
-        return view('intranet.ressourceshumaines.conges.validate');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $this->repoConges->updateConges($request->idConges, date("Y-m-d", strtotime($request->debutConges)), date("Y-m-d", strtotime($request->finConges)), $request->TypeConges, $request->LieuCreation);
+        return redirect('/intranet/ressourceshumaines/conges');
+    }
+
+    public function delete(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-delete');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $idConges = $request->idConges;
+        $this->repoConges->deleteConges($idConges);
+        $this->repoValidationConges->deleteValidation($idConges);
+        
+    }
+
+    public function validationView(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-validate');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $conges = $this->repoConges->getConges($request->idConges);
+        return view('intranet.ressourceshumaines.conges.validate', ['conges' => $conges]);
+    }
+
+    public function validation(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-validate');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $this->repoValidationConges->validateConges($request->idConges, $this->authUserId, $request->validation, $request->signatureResponsable, $request->signatureDirigeant, $request->commentaire);
+        return redirect('/intranet/ressourceshumaines/conges');
     }
 }

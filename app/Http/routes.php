@@ -142,10 +142,10 @@ Route::group(['middleware' => 'web'], function () {
 
             Route::get('/conges/{idConges}/modifier', [
               'as' => 'congesModification',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@updateView'
             ])->where('idConges' , '[0-9]+');
 
-            Route::put('/conges/{idConges}/modifier', [
+            Route::post('/conges/{idConges}/modifier', [
               'as' => 'congesModification',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@update'
             ])->where('idConges' , '[0-9]+');
@@ -157,10 +157,10 @@ Route::group(['middleware' => 'web'], function () {
 
             Route::get('/conges/{idConges}/validation', [
               'as' => 'congesValidation',
-              'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
+              'uses' => 'Intranet\Ressourceshumaines\CongesController@validationView'
             ])->where('idConges' , '[0-9]+');
 
-            Route::put('/conges/{idConges}/validation', [
+            Route::post('/conges/{idConges}/validation', [
               'as' => 'congesValidation',
               'uses' => 'Intranet\Ressourceshumaines\CongesController@validation'
             ])->where('idConges' , '[0-9]+');
