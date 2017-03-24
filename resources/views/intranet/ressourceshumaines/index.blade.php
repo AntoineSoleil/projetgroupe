@@ -30,7 +30,7 @@
 		    <div class="thumbnail">
 		      <img src="..." alt="...">
 		      <div class="caption">
-		        <h3>Demande de congès</h3>
+		        <h3>Demande de congés</h3>
 		      </div>
 		    </div>
 		   </a>

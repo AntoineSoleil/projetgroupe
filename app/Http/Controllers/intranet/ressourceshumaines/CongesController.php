@@ -46,8 +46,8 @@ class CongesController extends Controller
         {
             return redirect('/intranet');
         }
-
-        return view('intranet.ressourceshumaines.conges.view');
+        $conges = $this->repoConges->getCongesWithValidation($request->idConges);
+        return view('intranet.ressourceshumaines.conges.view', ['conges' => $conges]);
     }
 
     public function create()
@@ -83,9 +83,7 @@ class CongesController extends Controller
         {
             return redirect('/intranet');
         }
-        
-        $idConges = $request->idConges;
-        $conges = $this->repoConges->getConges($idConges);
+        $conges = $this->repoConges->getConges($request->idConges);
         return view('intranet.ressourceshumaines.conges.update', ['conges' => $conges]);
     }
 
