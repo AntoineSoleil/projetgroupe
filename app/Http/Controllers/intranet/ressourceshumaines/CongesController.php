@@ -33,10 +33,12 @@ class CongesController extends Controller
             return redirect('/intranet');
         }
 
+        $canValidate = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-conges-validate');
+
         $myCongesList = $this->repoConges->getMyCongesList($this->authUserId);
         $waitingValidationCongesList = $this->repoConges->getWaitingValidationCongesList();
 
-        return view('intranet.ressourceshumaines.conges.index', ['myCongesList' => $myCongesList, 'waitingValidationCongesList' => $waitingValidationCongesList]);
+        return view('intranet.ressourceshumaines.conges.index', ['myCongesList' => $myCongesList, 'canValidate' => $canValidate, 'waitingValidationCongesList' => $waitingValidationCongesList]);
     }
 
     public function view(Request $request)

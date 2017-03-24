@@ -64,42 +64,46 @@
 	</div>
 
 
-	<div class="col-md-6">
-		<div class="titreConges">
-			Demandes à valider
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<table class="table">
-				  <thead>
-				    <tr>
-				      <th class="col-md-4">Mes demandes</th>
-				      <th class="col-md-4">Demandeur</th>
-				      <th class="col-md-4">Options</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <?php foreach($waitingValidationCongesList as $waitingValidationConges): ?>
-					<tr>
-						<td>
-							Congès du <?php echo $waitingValidationConges->debutConges ?> au <?php echo $waitingValidationConges->finConges ?>
-						</td>
-						<td>
-							<?php echo $waitingValidationConges->userName ?>
-						</td>
-						<td>
-							<?php if($waitingValidationConges->status == 2): ?>
-							<a href="/intranet/ressourceshumaines/conges/<?php echo $waitingValidationConges->congesId ?>/validation" class="btn btn-primary boutonTableauGestionUsers">Valider</a>
-						<?php endif; ?>
+	<?php if($canValidate == true): ?>
+		<div class="col-md-6">
+			<div class="titreConges">
+				Demandes à valider
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table">
+					  <thead>
+					    <tr>
+					      <th class="col-md-4">Mes demandes</th>
+					      <th class="col-md-4">Demandeur</th>
+					      <th class="col-md-4">Options</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <?php foreach($waitingValidationCongesList as $waitingValidationConges): ?>
+						<tr>
+							<td>
+								Congès du <?php echo $waitingValidationConges->debutConges ?> au <?php echo $waitingValidationConges->finConges ?>
+							</td>
+							<td>
+								<?php echo $waitingValidationConges->userName ?>
+							</td>
+							<td>
+								<?php if($waitingValidationConges->status == 2): ?>
+								<a href="/intranet/ressourceshumaines/conges/<?php echo $waitingValidationConges->congesId ?>/validation" class="btn btn-primary boutonTableauGestionUsers">Valider</a>
+							<?php endif; ?>
 
-						</td>
-					</tr>
-					<?php endforeach; ?>
-				  </tbody>
-				</table>
+							</td>
+						</tr>
+						<?php endforeach; ?>
+					  </tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-	</div>
+
+	<?php endif; ?>
+
 </div>
 @endsection
 
