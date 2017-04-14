@@ -22,7 +22,7 @@
 		            <TD class="col-md-2"><input type="text" class="form-control" id="projet" name="projet"></TD>
 		            <TD class="col-md-2">Période Mission</TD>
 		            <TD class="col-md-3"><input type="text" class="form-control" id="debutMission" name="debutMission" placeholder="debut JJ-MM-AAAA"><br>
-		            <input type="email" class="form-control" id="finMission" name="finMission" placeholder="fin JJ-MM-AAAA"></TD>
+		            <input type="text" class="form-control" id="finMission" name="finMission" placeholder="fin JJ-MM-AAAA"></TD>
 		          </TR>
 		          <TR>
 		            <TD class="col-md-2">Responsable Client</TD>

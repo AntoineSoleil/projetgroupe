@@ -9,6 +9,7 @@ class CreateCrasValidationTable extends Migration {
 	{
 		Schema::create('cras_validation', function(Blueprint $table) {
 			$table->increments('id');
+			$table->integer('id_cras')->nullable();
             $table->integer('status')->nullable();
             $table->string('signature_client')->nullable();
             $table->string('signature_fortil')->nullable();

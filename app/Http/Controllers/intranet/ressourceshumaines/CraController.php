@@ -67,13 +67,13 @@ class CraController extends Controller
         }
 
         //Création + Insertion dans la table client + recupération de l'id de l'insertion
-        $insertIdClients = $this->repoClient->createConges($request->nomClient, 
+        $insertIdClients = $this->repoClients->createConges($request->nomClient, 
             $request->projet, 
             $request->debutMission, 
             $request->finMission, 
             $request->nomResponsableClient, 
             $request->fonctionResponsableClient, 
-            $request->$phoneResponsableClient, 
+            $request->phoneResponsableClient, 
             $request->emailResponsableClient, 
             $request->nomResponsableFortil, 
             $request->fonctionResponsableFortil, 
@@ -99,8 +99,8 @@ class CraController extends Controller
 
 
         //creation de la ligne dans la table cras_validation
-        $this->repoCrasValidation->createCrasEvaluation($insertIdCras);
+        $this->repoCrasValidation->createCrasValidation($insertIdCras);
         
-        return view('intranet.ressourceshumaines.cra.create', ['currentUser' => Auth::user()]);
+        return redirect('/intranet/ressourceshumaines/cras');
     }
 }
