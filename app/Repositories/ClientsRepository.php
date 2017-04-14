@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class ClientsRepository
 {
-	public function createConges($nomClient, $nomProjet, $debutMission, $finMission, $nomResponsableClient, $fonctionResponsableClient, $phoneResponsableClient, $emailResponsableClient, $nomResponsableFortil, $fonctionResponsableFortil, $phoneResponsableFortil, $emailResponsableFortil, $nomCollaborateur, $fonctionCollaborateur, $phoneCollaborateur, $emailCollaborateur)
+	public function createClients($nomClient, $nomProjet, $debutMission, $finMission, $nomResponsableClient, $fonctionResponsableClient, $phoneResponsableClient, $emailResponsableClient, $nomResponsableFortil, $fonctionResponsableFortil, $phoneResponsableFortil, $emailResponsableFortil, $nomCollaborateur, $fonctionCollaborateur, $phoneCollaborateur, $emailCollaborateur)
 	{
 		$insertId = DB::table('clients')->insertGetId([
 			'name_client' => $nomClient,

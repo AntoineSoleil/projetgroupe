@@ -10,7 +10,7 @@
 <div class="row">
 	<div class="col-s-12" style="margin:0 auto; display:table; font-size:20px">
 
-		<form form action="/intranet/ressourceshumaines/cra/nouveau" method="POST">
+		<form form action="/intranet/ressourceshumaines/cras/nouveau" method="POST">
     		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
 			<div class="row container">
@@ -95,7 +95,7 @@
 
     		<div style="text-align:center; display:table; margin:0 auto">
       			<button type="submit" class="btn btn-default">Valider nouveau CRA</button>
-      			<a href="/intranet/ressourceshumaines/cra" class="btn btn-default" style="margin-left: 20px">Retour</a>
+      			<a href="/intranet/ressourceshumaines/cras" class="btn btn-default" style="margin-left: 20px">Retour</a>
     		</div>
 
     	</form>

@@ -116,20 +116,30 @@ Route::group(['middleware' => 'web'], function () {
         *
         ===========================================================*/
 
-        Route::get('/cra', [
+        Route::get('/cras', [
           'as' => 'craIndex',
           'uses' => 'Intranet\Ressourceshumaines\CraController@Index'
         ]);
 
-        Route::get('/cra/nouveau', [
+        Route::get('/cras/nouveau', [
           'as' => 'craNouveau',
           'uses' => 'Intranet\Ressourceshumaines\CraController@createView'
         ]);
 
-        Route::post('/cra/nouveau', [
+        Route::post('/cras/nouveau', [
           'as' => 'craNouveau',
           'uses' => 'Intranet\Ressourceshumaines\CraController@create'
         ]);
+
+        Route::get('/cras/{idCra}', [
+          'as' => 'craDetail',
+          'uses' => 'Intranet\Ressourceshumaines\CraController@craView'
+        ])->where('idCra' , '[0-9]+');
+
+        Route::get('/cras/{idCra}/evaluation', [
+          'as' => 'craEvaluation',
+          'uses' => 'Intranet\Ressourceshumaines\CraController@evaluationView'
+        ])->where('idCra' , '[0-9]+');
 
 
         /**========================================================

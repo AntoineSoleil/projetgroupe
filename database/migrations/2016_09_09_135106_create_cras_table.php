@@ -9,6 +9,7 @@ class CreateCrasTable extends Migration {
 	{
 		Schema::create('cras', function(Blueprint $table) {
 			$table->increments('id');
+			$table->integer('id_createur_cras')->nullable();
 			$table->integer('id_clients')->nullable();
             $table->string('rapport')->nullable();
             $table->integer('accident_avec_arret')->nullable();

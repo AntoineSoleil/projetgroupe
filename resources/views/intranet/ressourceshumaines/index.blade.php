@@ -10,7 +10,7 @@
 		    <div class="thumbnail">
 		      <img src="..." alt="...">
 		      <div class="caption">
-		        <h3>Compte rendu d'acitivité</h3>
+		        <h3>Compte rendu d'activité</h3>
 		      </div>
 		    </div>
 		   </a>

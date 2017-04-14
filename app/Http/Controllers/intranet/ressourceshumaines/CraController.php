@@ -44,7 +44,15 @@ class CraController extends Controller
      */
     public function index()
     {
-        return view('intranet.ressourceshumaines.cra.index');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-cra-read');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $myCrasList = $this->repoCras->getMyCrasList($this->authUserId);
+
+        return view('intranet.ressourceshumaines.cra.index', ['myCrasList' => $myCrasList]);
     }
 
     public function createView()
@@ -67,7 +75,7 @@ class CraController extends Controller
         }
 
         //Création + Insertion dans la table client + recupération de l'id de l'insertion
-        $insertIdClients = $this->repoClients->createConges($request->nomClient, 
+        $insertIdClients = $this->repoClients->createClients($request->nomClient, 
             $request->projet, 
             $request->debutMission, 
             $request->finMission, 
@@ -85,7 +93,8 @@ class CraController extends Controller
             $request->emailCollaborateur);
         
         //Création + Insertion dans la table cras
-        $insertIdCras = $this->repoCras->createCras($insertIdClients, 
+        $insertIdCras = $this->repoCras->createCras($this->authUserId,
+            $insertIdClients, 
             $request->rapport, 
             $request->accidentAvecArret, 
             $request->accidentSansArret, 
@@ -102,5 +111,31 @@ class CraController extends Controller
         $this->repoCrasValidation->createCrasValidation($insertIdCras);
         
         return redirect('/intranet/ressourceshumaines/cras');
+    }
+
+    public function craView(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-cra-read');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $cra = $this->repoCras->getCras($request->idCra);
+
+        return view('intranet.ressourceshumaines.cra.craView', ['cra' => $cra[0]]);
+    }
+
+    public function evaluationView(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-cra-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $cra = $this->repoCras->getCras($request->idCra);
+
+        return view('intranet.ressourceshumaines.cra.evaluation', ['cra' => $cra[0]]);
     }
 }

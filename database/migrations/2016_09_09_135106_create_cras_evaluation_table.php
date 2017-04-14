@@ -10,6 +10,7 @@ class CreateCrasEvaluationTable extends Migration {
 		Schema::create('cras_evaluation', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('id_cras')->nullable();
+			$table->integer('status')->nullable();
             $table->integer('satisfaction_client')->nullable();
             $table->integer('satisfaction_consultant')->nullable();
             $table->string('ameliorations')->nullable();

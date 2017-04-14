@@ -50,10 +50,9 @@
 						</td>
 						<td>
 							<?php if($myConges->status == 2): ?>
-							<a href="/intranet/ressourceshumaines/conges/<?php echo $myConges->congesId ?>/modifier" class="btn btn-primary boutonTableauGestionUsers">Modifier</a>
-							<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="deleteConges(<?php echo $myConges->congesId ?>)">Supprimer</button>
-						<?php endif; ?>
-
+								<a href="/intranet/ressourceshumaines/conges/<?php echo $myConges->congesId ?>/modifier" class="btn btn-primary boutonTableauGestionUsers">Modifier</a>
+								<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="deleteConges(<?php echo $myConges->congesId ?>)">Supprimer</button>
+							<?php endif; ?>
 						</td>
 					</tr>
 					<?php endforeach; ?>

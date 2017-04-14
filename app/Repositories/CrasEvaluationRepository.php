@@ -12,6 +12,7 @@ class CrasEvaluationRepository
 	{
 		DB::table('cras_evaluation')->insert([
 			'id_cras' => $idCras,
+			'status' => 0,
 			'created_at' => Carbon::now(),
 			'updated_at' => Carbon::now(),
 		]);
