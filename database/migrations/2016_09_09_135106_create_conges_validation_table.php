@@ -14,7 +14,7 @@ class CreateCongesValidationTable extends Migration
     {
         Schema::create('conges_validation', function($table) {
             $table->increments('id');
-            $table->integer('id_cras')->unsigned();
+            $table->integer('id_conges')->unsigned();
             $table->integer('status')->nullable();
             $table->dateTime('date_signature_responsable')->nullable();
             $table->string('signature_responsable', 255)->nullable();

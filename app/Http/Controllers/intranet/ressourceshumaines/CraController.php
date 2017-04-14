@@ -126,6 +126,31 @@ class CraController extends Controller
         return view('intranet.ressourceshumaines.cra.craView', ['cra' => $cra[0]]);
     }
 
+    public function updateCraView(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-cra-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $cra = $this->repoCras->getCras($request->idCra);
+
+        return view('intranet.ressourceshumaines.cra.updateCraView', ['cra' => $cra[0]]);
+    }
+
+    public function updateCra(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-cra-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        
+        return redirect('/intranet/ressourceshumaines/cras');
+    }
+
     public function evaluationView(Request $request)
     {
         $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-cra-update');

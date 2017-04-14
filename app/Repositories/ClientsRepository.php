@@ -33,4 +33,9 @@ class ClientsRepository
 		return $insertId;
 	}
 
+	public function updateClients($nomClient, $nomProjet, $debutMission, $finMission, $nomResponsableClient, $fonctionResponsableClient, $phoneResponsableClient, $emailResponsableClient, $nomResponsableFortil, $fonctionResponsableFortil, $phoneResponsableFortil, $emailResponsableFortil, $nomCollaborateur, $fonctionCollaborateur, $phoneCollaborateur, $emailCollaborateur)
+	{
+		
+	}
+
 }

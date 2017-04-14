@@ -136,6 +136,16 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\CraController@craView'
         ])->where('idCra' , '[0-9]+');
 
+        Route::get('/cras/{idCra}/modifier', [
+          'as' => 'craUpdateView',
+          'uses' => 'Intranet\Ressourceshumaines\CraController@updateCraView'
+        ])->where('idCra' , '[0-9]+');
+
+        Route::post('/cras/{idCra}/modifier', [
+          'as' => 'craUpdateView',
+          'uses' => 'Intranet\Ressourceshumaines\CraController@updateCra'
+        ])->where('idCra' , '[0-9]+');
+
         Route::get('/cras/{idCra}/evaluation', [
           'as' => 'craEvaluation',
           'uses' => 'Intranet\Ressourceshumaines\CraController@evaluationView'
