@@ -59,6 +59,22 @@ class NotesFraisRepository
 		return $myCrasList;
 	}
 
+	public function getNote($idNote)
+	{
+		$myCrasList = DB::table('note_frais')
+            ->join('users', 'users.id', '=', 'note_frais.id_createur')
+            ->join('users AS responsable', 'users.id', '=', 'id_responsable')
+			->select('note_frais.id AS noteId', 
+				'note_frais.titre', 
+				'note_frais.description', 
+				'note_frais.montant', 
+				'users.name',
+				'responsable.name AS responsable')
+			->where('note_frais.id', $idNote)
+            ->get();
+		return $myCrasList;
+	}
+
 
 	public function getNoteAValider($idUser)
 	{
@@ -73,6 +89,16 @@ class NotesFraisRepository
 			->where('nfv.status', 2)
             ->get();
 		return $myCrasList;
+	}
+
+	public function updateNote($idNote, $titre, $description, $montant)
+	{
+		DB::table('note_frais')->where('id', $idNote)->update([
+			'titre' => $titre,
+			'description' => $description,
+			'montant' => $montant,
+			'updated_at' => Carbon::now(),
+		]);
 	}
 
 }

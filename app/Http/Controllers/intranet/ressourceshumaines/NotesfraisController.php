@@ -134,4 +134,30 @@ class NotesfraisController extends Controller
 
         return redirect('/intranet/ressourceshumaines/notesfrais');
     }
+
+    public function viewUpdate(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $note = $this->repoNotesFrais->getNote($request->idNote);
+
+        return view('intranet.ressourceshumaines.notesfrais.update', ['note' => $note[0]]);
+    }
+
+    public function updateNote(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $this->repoNotesFrais->updateNote($request->idNote, $request->titre, $request->description, $request->montant);
+
+        return redirect('/intranet/ressourceshumaines/notesfrais');
+    }
 }

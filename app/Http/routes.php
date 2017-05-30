@@ -62,13 +62,25 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'CollaborateursController@index'
     ]);
 
-    // Routes pour l'intranet
+    /**========================================================
+    *
+    * Routes ayant le préfixe intranet
+    *
+    ===========================================================*/
+
     Route::group(['prefix' => 'intranet', 'middleware' => ['auth']], function () {
 
       Route::get('/', [
             'as' => 'intranetIndex',
             'uses' => 'Intranet\IntranetController@index'
           ]);
+
+
+      /**========================================================
+      *
+      * Routes ayant le préfixe actualites
+      *
+      ===========================================================*/
 
       Route::group(['prefix' => 'actualites'], function () {
 
@@ -102,6 +114,13 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
       });
+
+
+      /**========================================================
+      *
+      * Routes ayant le préfixe ressourceshumaines
+      *
+      ===========================================================*/
 
       Route::group(['prefix' => 'ressourceshumaines'], function () {
 
@@ -182,6 +201,16 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/notesfrais/{idNote}', [
           'as' => 'notesFraisView',
           'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@viewNote'
+        ])->where('idNote' , '[0-9]+');
+
+        Route::get('/notesfrais/{idNote}/modifier', [
+          'as' => 'notesFraisUpdate',
+          'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@viewUpdate'
+        ])->where('idNote' , '[0-9]+');
+
+        Route::post('/notesfrais/{idNote}/modifier', [
+          'as' => 'notesFraisUpdate',
+          'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@updateNote'
         ])->where('idNote' , '[0-9]+');
 
         Route::get('/notesfrais/{idNote}/validation', [
@@ -304,6 +333,14 @@ Route::group(['middleware' => 'web'], function () {
 
       });
 
+
+
+      /**========================================================
+      *
+      * Routes ayant le préfixe boiteoutils
+      *
+      ===========================================================*/
+
       Route::group(['prefix' => 'boiteoutils'], function () {
 
           Route::get('/', [
@@ -321,6 +358,14 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Boiteoutils\DocumentsController@index'
           ]);
       });
+
+
+
+      /**========================================================
+      *
+      * Routes ayant le préfixe parametrage
+      *
+      ===========================================================*/
 
       Route::group(['prefix' => 'parametrage'], function () {
 
@@ -340,12 +385,24 @@ Route::group(['middleware' => 'web'], function () {
           ]);
       });
 
+
+      /**========================================================
+        *
+        * Routes ayant le préfixe administration
+        *
+        ===========================================================*/
       Route::group(['prefix' => 'administration'], function () {
 
           Route::get('/', [
             'as' => 'administrationIndex',
             'uses' => 'Intranet\Administration\AdministrationController@index'
           ]);
+
+          /**========================================================
+          *
+          * Routes pour la gestion des utilisateurs
+          *
+          ===========================================================*/
 
           Route::get('/gestionutilisateurs', [
             'as' => 'administrationGestionUsersIndex',
@@ -378,6 +435,14 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Administration\GestionUsersController@deleteRoleToUserAjax'
             ])->where('idUser' , '[0-9]+');
 
+
+
+          /**========================================================
+          *
+          * Routes pour la gestion des roles
+          *
+          ===========================================================*/  
+
 		      Route::get('/gestionroles', [
             'as' => 'administrationGestionRolesIndex',
             'uses' => 'Intranet\Administration\GestionRolesController@index'
@@ -394,6 +459,13 @@ Route::group(['middleware' => 'web'], function () {
             Route::post('/gestionroles/ajouterrole', [
               'uses' => 'Intranet\Administration\GestionRolesController@addRolePost'
             ]);
+
+
+          /**========================================================
+          *
+          * Routes pour la gestion de l'application
+          *
+          ===========================================================*/
 
           Route::get('/application', [
             'as' => 'administrationApplicationIndex',
