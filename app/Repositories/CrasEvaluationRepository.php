@@ -18,4 +18,9 @@ class CrasEvaluationRepository
 		]);
 	}
 
+	public function deleteCraEvaluation($idCra)
+    {
+        DB::table('cras_evaluation')->where('id_cras', "=", $idCra)->delete();
+    }
+
 }

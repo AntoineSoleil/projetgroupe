@@ -10,7 +10,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class="titreConges">
-			Mes congés
+			Mes Compte-rendus
 			<div style="float: right">
 				<a href="/intranet/ressourceshumaines/cras/nouveau" class="btn btn-primary boutonTableauGestionUsers">Nouveau CRA</a>
 			</div>
@@ -74,7 +74,7 @@
 	<?php //if($canValidate == true): ?>
 		<div class="col-md-6">
 			<div class="titreConges">
-				Demandes à valider
+				Compte-rendus à valider
 			</div>
 			<div class="row">
 				<div class="col-md-12">

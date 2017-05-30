@@ -12,7 +12,8 @@
 
 		<form form action="/intranet/ressourceshumaines/cras/<?php echo $cra->idCra ?>/modifier" method="POST">
     		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-
+    		<input type="hidden" name="idCra" value="<?php echo $cra->idCra ?>" />
+    		<input type="hidden" name="idClient" value="<?php echo $cra->idClient ?>" />
 			<div class="row container">
 		      	<table class="table table-bordered">
 		          <TR>

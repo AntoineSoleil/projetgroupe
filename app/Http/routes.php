@@ -152,6 +152,12 @@ Route::group(['middleware' => 'web'], function () {
         ])->where('idCra' , '[0-9]+');
 
 
+        Route::delete('/cras/{idCra}', [
+          'as' => 'crasSuppression',
+          'uses' => 'Intranet\Ressourceshumaines\CraController@delete'
+        ])->where('idCra' , '[0-9]+');
+
+
         /**========================================================
         *
         * Routes pour la partie Notes de frais des Ressources Humaines

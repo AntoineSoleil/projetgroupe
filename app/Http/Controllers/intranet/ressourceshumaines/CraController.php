@@ -121,7 +121,7 @@ class CraController extends Controller
             return redirect('/intranet');
         }
 
-        $cra = $this->repoCras->getCras($request->idCra);
+        $cra = $this->repoCras->getCra($request->idCra);
 
         return view('intranet.ressourceshumaines.cra.craView', ['cra' => $cra[0]]);
     }
@@ -134,7 +134,7 @@ class CraController extends Controller
             return redirect('/intranet');
         }
 
-        $cra = $this->repoCras->getCras($request->idCra);
+        $cra = $this->repoCras->getCra($request->idCra);
 
         return view('intranet.ressourceshumaines.cra.updateCraView', ['cra' => $cra[0]]);
     }
@@ -146,6 +146,35 @@ class CraController extends Controller
         {
             return redirect('/intranet');
         }
+
+        //Update dans la table client
+        $this->repoClients->updateClients($request->nomClient, 
+            $request->projet, 
+            $request->debutMission, 
+            $request->finMission, 
+            $request->nomResponsableClient, 
+            $request->fonctionResponsableClient, 
+            $request->phoneResponsableClient, 
+            $request->emailResponsableClient, 
+            $request->nomResponsableFortil, 
+            $request->fonctionResponsableFortil, 
+            $request->phoneResponsableFortil, 
+            $request->emailResponsableFortil, 
+            $request->nomCollaborateur, 
+            $request->fonctionCollaborateur, 
+            $request->phoneCollaborateur, 
+            $request->emailCollaborateur,
+            $request->idClient);
+        
+        //Update dans la table cras
+        $this->repoCras->updateCras($request->rapport, 
+            $request->accidentAvecArret, 
+            $request->accidentSansArret, 
+            $request->accidentTrajet, 
+            $request->arretMaladie, 
+            $request->nbrJourConges, 
+            $request->nbrJourPresence,
+            $request->idCra);
 
         
         return redirect('/intranet/ressourceshumaines/cras');
@@ -163,4 +192,25 @@ class CraController extends Controller
 
         return view('intranet.ressourceshumaines.cra.evaluation', ['cra' => $cra[0]]);
     }
+
+
+    public function delete(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-cra-delete');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $idCra = $request->idCra;
+        $Client = $this->repoCras->getIdClientsFromIdCra($idCra);
+
+        //Suppression dans les tables clients, cras, cras_evaluation et cras_validation
+        $this->repoCrasValidation->deleteCraValidation($idCra);
+        $this->repoCrasEvaluation->deleteCraEvaluation($idCra);
+        $this->repoCras->deleteCra($idCra);
+        $this->repoClients->deleteClientCra($Client[0]->id_clients);
+    }
+
+
 }

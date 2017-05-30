@@ -18,4 +18,9 @@ class CrasValidationRepository
 		]);
 	}
 
+	public function deleteCraValidation($idCra)
+    {
+        DB::table('cras_validation')->where('id_cras', "=", $idCra)->delete();
+    }
+
 }
