@@ -30,25 +30,17 @@
 				    <?php foreach($myNotesList as $note): ?>
 				    	<tr>
 				    		<td>
-				    			<a href="/intranet/ressourceshumaines/notesfrais/<?php echo $cra->craId ?>"><?php echo $cra->nomClient . " - " . $cra->nomProjet ?></a>
+				    			<a href="/intranet/ressourceshumaines/notesfrais/<?php echo $note->noteId ?>"><?php echo $note->titre ?></a>
 				    		</td>
 				    		<td>
 				    			<?php 
-								if($cra->statutEvaluation == 1) 
+								if($note->statutValidation == 1) 
 								{
-									echo "Compte rendu évalué<br>";
-									if($cra->statutValidation == 1)
-									{
-										echo "Compte rendu validé";
-									}
-									else if($cra->statutValidation == 0)
-									{
-										echo "Compte rendu refusé";
-									}
-									else
-									{
-										echo "En attente de validation";
-									}
+									echo "Note de frais validée<br>";
+								}
+								else if($note->statutValidation == 0)
+								{
+									echo "Note de frais refusée<br>";
 								}
 								else 
 								{
@@ -57,9 +49,9 @@
 							?>
 				    		</td>
 				    		<td>
-								<?php if($cra->statutEvaluation != 1): ?>
-									<a href="/intranet/ressourceshumaines/notesfrais/<?php echo $cra->craId ?>/modifier" class="btn btn-primary boutonTableauGestionUsers">Modifier</a>
-									<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="deleteCra(<?php echo $cra->craId ?>)">Supprimer</button>
+								<?php if($note->statutValidation != 1): ?>
+									<a href="/intranet/ressourceshumaines/notesfrais/<?php echo $note->noteId ?>/modifier" class="btn btn-primary boutonTableauGestionUsers">Modifier</a>
+									<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="deleteNotesFrais(<?php echo $note->noteId ?>)">Supprimer</button>
 								<?php endif; ?>
 							</td>
 				    	</tr>

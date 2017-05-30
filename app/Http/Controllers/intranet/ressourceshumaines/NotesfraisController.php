@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\AccesControlRepository;
 use App\Repositories\NotesFraisRepository;
+use App\Repositories\NotesFraisValidationRepository;
 use Auth;
 
 class NotesfraisController extends Controller
 {
     protected $repoAccesControl;
     protected $repoNotesFrais;
+    protected $repoNotesFraisValidation;
     protected $authUserId;
 
 
@@ -26,6 +28,7 @@ class NotesfraisController extends Controller
     {
         $this->repoAccesControl = new AccesControlRepository;
         $this->repoNotesFrais = new NotesFraisRepository;
+        $this->repoNotesFraisValidation = new NotesFraisValidationRepository;
         $this->authUserId = Auth::user()->id;
     }
 
@@ -70,13 +73,23 @@ class NotesfraisController extends Controller
     }
 
 
-    public function createNotesFrais()
+    public function createNotesFrais(Request $request)
     {
         $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-create');
         if($userAllowed == false)
         {
             return redirect('/intranet');
         }
+
+        $idNoteInsered = $this->repoNotesFrais->createNote($this->authUserId,
+            $request->titre,
+            $request->description,
+            $request->montant,
+            $request->responsable);
+
+        $this->repoNotesFraisValidation->createNoteValidation($idNoteInsered);
+
+        return redirect('/intranet/ressourceshumaines/notesfrais');
 
     }
 }

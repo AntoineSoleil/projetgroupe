@@ -8,7 +8,7 @@
       <h2 style="text-decoration: underline; text-align:center">Nouvelle note de frais</h2>
     </div>
 
-    <form form action="/intranet/ressourceshumaines/conges/nouveau" method="POST">
+    <form form action="/intranet/ressourceshumaines/notesfrais/nouveau" method="POST">
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
     <div class="row container">

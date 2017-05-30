@@ -11,7 +11,8 @@ class NotesFraisRepository
 	public function getMyNotesFraisList($idUser)
 	{
 		$myCrasList = DB::table('note_frais')
-			->select('note_frais.titre')
+            ->join('note_frais_validation AS nfv', 'nfv.id_note_frais', '=', 'note_frais.id')
+			->select('note_frais.id AS noteId', 'note_frais.titre', 'nfv.status AS statutValidation')
 			->where('note_frais.id_createur', $idUser)
             ->get();
 		return $myCrasList;
