@@ -13,7 +13,7 @@ class CreateNoteFraisTable extends Migration {
             $table->string('titre');
             $table->string('description')->nullable();
             $table->string('montant')->nullable();
-            $table->string('responsable')->nullable();
+            $table->integer('id_responsable');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
 		});

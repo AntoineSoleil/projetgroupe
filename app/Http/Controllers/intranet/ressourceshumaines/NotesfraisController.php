@@ -46,11 +46,12 @@ class NotesfraisController extends Controller
         }
 
         $myNotesList = $this->repoNotesFrais->getMyNotesFraisList($this->authUserId);
+        $notesAValiderList = $this->repoNotesFrais->getNoteAValider($this->authUserId);
 
-        return view('intranet.ressourceshumaines.notesfrais.index', ['myNotesList' => $myNotesList]);
+        return view('intranet.ressourceshumaines.notesfrais.index', ['myNotesList' => $myNotesList, 'notesAValider' => $notesAValiderList]);
     }
 
-    public function viewNotes()
+    public function viewNote(Request $request)
     {
         $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-read');
         if($userAllowed == false)
@@ -58,7 +59,9 @@ class NotesfraisController extends Controller
             return redirect('/intranet');
         }
 
-        return view('intranet.ressourceshumaines.notesfrais.view');
+        $note = $this->repoNotesFrais->getNoteAndValidation($request->idNote);
+
+        return view('intranet.ressourceshumaines.notesfrais.view', ['note' => $note[0]]);
     }
 
     public function create()
@@ -103,5 +106,19 @@ class NotesfraisController extends Controller
 
         $this->repoNotesFrais->deleteNoteFrais($request->idNote);
         $this->repoNotesFraisValidation->deleteNoteFraisValidation($request->idNote);
+    }
+
+
+    public function validationView(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $note = $this->repoNotesFrais->getNoteAndValidation($request->idNote);
+
+        return view('intranet.ressourceshumaines.notesfrais.validation', ['note' => $note[0]]);
     }
 }

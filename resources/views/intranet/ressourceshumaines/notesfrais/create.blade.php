@@ -32,7 +32,7 @@
           <TR>
             <!-- A remplacer par un SELECT -->
             <TD class="col-md-3">Responsable</TD>
-            <TD class="col-md-9" colspan="4" class="form-group"><input type="text" class="form-control" id="Responsable" name="Responsable"></TD>
+            <TD class="col-md-9" colspan="4" class="form-group"><input type="text" class="form-control" id="responsable" name="responsable"></TD>
           </TR>
       </table>
     </div>

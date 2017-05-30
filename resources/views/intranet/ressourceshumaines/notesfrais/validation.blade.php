@@ -44,24 +44,24 @@
     <div class="row container">
       <table class="table table-bordered">
           <TR style="text-align:center">
-            <?php if($note->statutValidation == 1) : ?>
-                <TD style="color:green; font-size:32px" class="col-md-6">Accordé</TD>
-                <TD class="col-md-6">Refusé</TD>
-            <?php elseif($note->statutValidation == 0): ?>
-                <TD class="col-md-6">Accordé</TD>
-                <TD style="color:red; font-size:32px" class="col-md-6">Refusé</TD>
-            <?php else: ?>
-                <TD class="col-md-6">Accordé</TD>
-                <TD class="col-md-6">Refusé</TD>
-            <?php endif; ?>
-        </TR>
+              <TD class="col-md-6">
+                <label class="radio-inline">
+                  <input type="radio" name="validation" id="validation1" value="1"> Accordé
+                </label>
+              </TD>
+              <TD class="col-md-6">
+                <label class="radio-inline">
+                  <input type="radio" name="validation" id="validation2" value="0"> Refusé
+                </label>
+              </TD>
+          </TR>
           <TR>
             <TD class="col-md-3">Commentaire</TD>
-            <TD class="col-md-9"><?php echo $note->commentaire ?></TD>
+            <TD class="col-md-9"><textarea class="form-control" id="commentaire" name="commentaire" rows="6"></textarea></TD>
           </TR>
           <TR>
             <TD class="col-md-3">Signature Responsable</TD>
-            <TD class="col-md-9"><?php echo $note->signature_responsable ?></TD>
+            <TD class="col-md-9"><input type="text" class="form-control" id="signature" name="signature"></TD>
           </TR>
       </table>
     </div>

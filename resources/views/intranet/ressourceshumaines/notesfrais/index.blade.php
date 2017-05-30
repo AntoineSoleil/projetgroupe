@@ -12,7 +12,7 @@
 		<div class="titreConges">
 			Mes notes de frais
 			<div style="float: right">
-				<a href="/intranet/ressourceshumaines/notesfrais/nouveau" class="btn btn-primary boutonTableauGestionUsers">Nouveau CRA</a>
+				<a href="/intranet/ressourceshumaines/notesfrais/nouveau" class="btn btn-primary boutonTableauGestionUsers">Nouvelle Note de frais</a>
 			</div>
 		</div>
 
@@ -49,7 +49,7 @@
 							?>
 				    		</td>
 				    		<td>
-								<?php if($note->statutValidation != 1): ?>
+								<?php if($note->statutValidation != 1 && $note->statutValidation != 0): ?>
 									<a href="/intranet/ressourceshumaines/notesfrais/<?php echo $note->noteId ?>/modifier" class="btn btn-primary boutonTableauGestionUsers">Modifier</a>
 									<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="deleteNotesFrais(<?php echo $note->noteId ?>)">Supprimer</button>
 								<?php endif; ?>
@@ -63,32 +63,42 @@
 	</div>
 
 
-	<?php //if($canValidate == true): ?>
-		<div class="col-md-6">
-			<div class="titreConges">
-				Notes de frais à valider
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<table class="table">
-					  <thead>
-					    <tr>
-					      <th class="col-md-4">Notes en attente</th>
-					      <th class="col-md-4">Emetteur</th>
-					      <th class="col-md-4">Options</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-						<tr>
-							
-						</tr>
-					  </tbody>
-					</table>
-				</div>
+	<div class="col-md-6">
+		<div class="titreConges">
+			Notes de frais à valider
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th class="col-md-4">Notes en attente</th>
+				      <th class="col-md-4">Emetteur</th>
+				      <th class="col-md-4">Options</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <?php foreach($notesAValider as $noteAValider): ?>
+					<tr>
+						<td>
+							<?php echo $noteAValider->titre ?>
+						</td>
+						<td>
+							<?php echo $noteAValider->createur ?>
+						</td>
+						<td>
+							<?php if($noteAValider->statutValidation == 2): ?>
+							<a href="/intranet/ressourceshumaines/notesfrais/<?php echo $noteAValider->noteId ?>/validation" class="btn btn-primary boutonTableauGestionUsers">Valider</a>
+						<?php endif; ?>
+
+						</td>
+					</tr>
+					<?php endforeach; ?>
+				  </tbody>
+				</table>
 			</div>
 		</div>
-
-	<?php //endif; ?>
+	</div>
 
 </div>
 @endsection
