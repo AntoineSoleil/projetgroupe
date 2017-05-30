@@ -169,6 +169,16 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@Index'
         ]);
 
+        Route::get('/notesfrais/nouveau', [
+          'as' => 'notesFraisNouveau',
+          'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@create'
+        ]);
+
+        Route::post('/notesfrais/nouveau', [
+          'as' => 'notesFraisNouveau',
+          'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@createNotesFrais'
+        ]);
+
         /**========================================================
         *
         * Routes pour la partie Congés des Ressources Humaines

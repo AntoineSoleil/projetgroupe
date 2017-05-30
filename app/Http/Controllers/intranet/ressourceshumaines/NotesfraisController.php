@@ -5,9 +5,18 @@ namespace App\Http\Controllers\Intranet\Ressourceshumaines;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\AccesControlRepository;
+use App\Repositories\NotesFraisRepository;
+use Auth;
 
 class NotesfraisController extends Controller
 {
+    protected $repoAccesControl;
+    protected $repoNotesFrais;
+    protected $authUserId;
+
+
+
     /**
      * Create a new controller instance.
      *
@@ -15,7 +24,9 @@ class NotesfraisController extends Controller
      */
     public function __construct()
     {
-        
+        $this->repoAccesControl = new AccesControlRepository;
+        $this->repoNotesFrais = new NotesFraisRepository;
+        $this->authUserId = Auth::user()->id;
     }
 
     /**
@@ -25,6 +36,47 @@ class NotesfraisController extends Controller
      */
     public function index()
     {
-        return view('intranet.ressourceshumaines.notesfrais.index');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-read');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $myNotesList = $this->repoNotesFrais->getMyNotesFraisList($this->authUserId);
+
+        return view('intranet.ressourceshumaines.notesfrais.index', ['myNotesList' => $myNotesList]);
+    }
+
+    public function viewNotes()
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-read');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        return view('intranet.ressourceshumaines.notesfrais.view');
+    }
+
+    public function create()
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-create');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        return view('intranet.ressourceshumaines.notesfrais.create', ['currentUser' => Auth::user()]);
+    }
+
+
+    public function createNotesFrais()
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-create');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
     }
 }
