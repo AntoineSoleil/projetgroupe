@@ -121,4 +121,17 @@ class NotesfraisController extends Controller
 
         return view('intranet.ressourceshumaines.notesfrais.validation', ['note' => $note[0]]);
     }
+
+    public function validation(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $this->repoNotesFraisValidation->validationNote($request->idNote, $request->validation, $request->commentaire, $request->signature);
+
+        return redirect('/intranet/ressourceshumaines/notesfrais');
+    }
 }

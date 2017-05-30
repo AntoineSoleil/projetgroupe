@@ -189,6 +189,11 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@validationView'
         ])->where('idNote' , '[0-9]+');
 
+        Route::post('/notesfrais/{idNote}/validation', [
+          'as' => 'notesFraisValidation',
+          'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@validation'
+        ])->where('idNote' , '[0-9]+');
+
         Route::delete('/notesfrais/{idNote}', [
           'as' => 'notesFraisSuppression',
           'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@delete'

@@ -70,6 +70,7 @@ class NotesFraisRepository
 				'nfv.status AS statutValidation', 
 				'users.name AS createur')
 			->where('note_frais.id_responsable', $idUser)
+			->where('nfv.status', 2)
             ->get();
 		return $myCrasList;
 	}

@@ -24,4 +24,14 @@ class NotesFraisValidationRepository
 		DB::table('note_frais_validation')->where('id_note_frais', "=", $idNote)->delete();
 	}
 
+	public function validationNote($idNote, $status, $commentaire, $signature)
+	{
+		DB::table('note_frais_validation')->where('id_note_frais', $idNote)->update([
+			'status' => $status,
+			'commentaire' => $commentaire,
+			'signature_responsable' => $signature,
+			'updated_at' => Carbon::now(),
+		]);
+	}
+
 }
