@@ -92,4 +92,16 @@ class NotesfraisController extends Controller
         return redirect('/intranet/ressourceshumaines/notesfrais');
 
     }
+
+    public function delete(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-notesfrais-delete');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $this->repoNotesFrais->deleteNoteFrais($request->idNote);
+        $this->repoNotesFraisValidation->deleteNoteFraisValidation($request->idNote);
+    }
 }

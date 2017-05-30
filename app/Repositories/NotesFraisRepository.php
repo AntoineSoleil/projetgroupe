@@ -33,4 +33,9 @@ class NotesFraisRepository
 		return $insertId;
 	}
 
+	public function deleteNoteFrais($idNote)
+	{
+		DB::table('note_frais')->where('id', "=", $idNote)->delete();
+	}
+
 }

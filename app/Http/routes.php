@@ -179,6 +179,11 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@createNotesFrais'
         ]);
 
+        Route::delete('/notesfrais/{idNote}', [
+          'as' => 'notesFraisSuppression',
+          'uses' => 'Intranet\Ressourceshumaines\NotesfraisController@delete'
+        ])->where('idNote' , '[0-9]+');
+
         /**========================================================
         *
         * Routes pour la partie Congés des Ressources Humaines

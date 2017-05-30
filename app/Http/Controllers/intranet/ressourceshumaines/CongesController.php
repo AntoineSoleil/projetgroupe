@@ -109,9 +109,8 @@ class CongesController extends Controller
             return redirect('/intranet');
         }
 
-        $idConges = $request->idConges;
-        $this->repoConges->deleteConges($idConges);
-        $this->repoValidationConges->deleteValidation($idConges);
+        $this->repoConges->deleteConges($request->idConges);
+        $this->repoValidationConges->deleteValidation($request->idConges);
         
     }
 

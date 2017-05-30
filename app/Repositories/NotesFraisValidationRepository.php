@@ -8,15 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class NotesFraisValidationRepository
 {
-	/*public function getMyNotesFraisList($idUser)
-	{
-		$myCrasList = DB::table('note_frais')
-			->select('note_frais.id AS noteId', 'note_frais.titre')
-			->where('note_frais.id_createur', $idUser)
-            ->get();
-		return $myCrasList;
-	}*/
-
 
 	public function createNoteValidation($idNote)
 	{
@@ -26,6 +17,11 @@ class NotesFraisValidationRepository
 			'created_at' => Carbon::now(),
 			'updated_at' => Carbon::now(),
 		]);
+	}
+
+	public function deleteNoteFraisValidation($idNote)
+	{
+		DB::table('note_frais_validation')->where('id_note_frais', "=", $idNote)->delete();
 	}
 
 }
