@@ -76,6 +76,20 @@ Route::group(['middleware' => 'web'], function () {
           ]);
 
 
+
+      /**========================================================
+      *
+      * Routes pour acceder et modifier son compte utilisateur
+      *
+      ===========================================================*/
+
+      Route::get('/profil/{idUser}', [
+            'as' => 'intranetProfilIndex',
+            'uses' => 'Intranet\Profil\ProfilController@index'
+          ])->where('idUser' , '[0-9]+');
+
+
+
       /**========================================================
       *
       * Routes ayant le préfixe actualites
