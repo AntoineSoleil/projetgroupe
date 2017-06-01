@@ -93,29 +93,25 @@ class GestionUsersController extends Controller
         return view('intranet.administration.gestionusers.updateRoles', ['authUser' => Auth::user(), 'rolesList' => $rolesList, 'userRoles' => $userRoles]);
     }
 
-    public function addRoleToUserAjax()
+    public function addRoleToUserAjax(Request $request)
     {
         $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionattributionrole-update');
         if($userAllowed == false)
         {
-            //Renvoyer une erreur pour l'AJAX
+            return redirect('/intranet');
         }
-
-        //Récupérer la valeur de l'id Utilisateur du Post
-        //Récupérer la valeur de l'id Role du Post
-        //$userRoles = $repoGestionUsers->addRoleToUser($userId, $roleId);
+        
+        $userRoles = $this->repoGestionUsers->addRoleToUser($request->idUser, $request->idRole);
     }
 
-    public function deleteRoleToUserAjax()
+    public function deleteRoleToUserAjax(Request $request)
     {
         $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionattributionrole-delete');
         if($userAllowed == false)
         {
-            //Renvoyer une erreur pour l'AJAX
+            return redirect('/intranet');
         }
 
-        //Récupérer la valeur de l'id Utilisateur du Delete
-        //Récupérer la valeur de l'id Role du Delete
-        //$userRoles = $repoGestionUsers->deleteRoleToUser($userId, $roleId);
+        $userRoles = $this->repoGestionUsers->deleteRoleToUser($request->idUser, $request->idRole);
     }
 }

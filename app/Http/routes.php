@@ -441,11 +441,11 @@ Route::group(['middleware' => 'web'], function () {
 		        'uses' => 'Intranet\Administration\GestionUsersController@updateRoles'
 		      ])->where('idUser' , '[0-9]+');
 
-            Route::post('/gestionutilisateurs/{idUser}/modifierroles', [
+            Route::post('/gestionutilisateurs/{idUser}/ajouterroles', [
             'uses' => 'Intranet\Administration\GestionUsersController@addRoleToUserAjax'
             ])->where('idUser' , '[0-9]+');
 
-            Route::delete('/gestionutilisateurs/{idUser}/modifierroles', [
+            Route::post('/gestionutilisateurs/{idUser}/supprimerroles', [
             'uses' => 'Intranet\Administration\GestionUsersController@deleteRoleToUserAjax'
             ])->where('idUser' , '[0-9]+');
 

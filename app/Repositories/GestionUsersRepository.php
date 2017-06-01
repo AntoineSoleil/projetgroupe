@@ -27,7 +27,7 @@ class GestionUsersRepository
 
 	public function getUserRoles($authUserId)
 	{
-		$userRoles = DB::select("SELECT rol.name
+		$userRoles = DB::select("SELECT GROUP_CONCAT(rol.id SEPARATOR ', ' ) AS rolesId
 			FROM roles AS rol
 			INNER JOIN users_roles AS ur ON rol.id = ur.id_roles
 			WHERE ur.id_users = " . $authUserId);
@@ -60,13 +60,14 @@ class GestionUsersRepository
     
     public function addRoleToUser($userId, $roleId)
     {
-    	DB::insert("INSERT INTO users_roles (id_users, id_roles)
- 			VALUES (". $userId . ", ". $roleId . ")");
+    	DB::table('users_roles')->insert([
+			'id_users' => $userId,
+			'id_roles' => $roleId,
+		]);
     }
 
     public function deleteRoleToUser($userId, $roleId)
     {
-    	DB::delete("DELETE FROM users_roles
- 			WHERE id_users = ". $userId . " AND id_roles = ". $roleId);
+ 		DB::table('users_roles')->where('id_users', "=", $userId)->where('id_roles', "=", $roleId)->delete();
     }
 }
