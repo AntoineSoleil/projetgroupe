@@ -24,7 +24,21 @@ class CandidaturesRepository
 
 	public function getCandidat($idCandidat)
 	{
-		
+		$candidature = DB::table('candidatures')
+			->select('candidatures.id AS candidatureId',
+				'candidatures.sex AS civilite',  
+				'candidatures.name AS name', 
+				'candidatures.first_name AS firstName', 
+				'candidatures.email AS mail', 
+				'candidatures.phone AS phone',
+				'candidatures.address AS address', 
+				'candidatures.code_postal AS codePostal',
+				'candidatures.city AS city',
+				'candidatures.country AS country',
+				'candidatures.cv_path AS cvPath')
+			->where('candidatures.id', $idCandidat)
+            ->get();
+		return $candidature;
 	}
 
 }

@@ -52,6 +52,8 @@ class CandidaturesController extends Controller
             return redirect('/intranet');
         }
 
-        return view('intranet.ressourceshumaines.candidatures.viewCandidat');
+        $candidat = $this->repoCandidature->getCandidat($request->idCandidat);
+
+        return view('intranet.ressourceshumaines.candidatures.viewCandidat', ['candidat' => $candidat[0]]);
     }
 }
