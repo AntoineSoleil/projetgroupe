@@ -22,7 +22,7 @@
 		    <?php foreach($candidaturesList as $candidature): ?>
 			<tr>
 				<td>
-					<?php echo $candidature->candidatName . ' ' . $candidature->candidatFirstName ?> 
+					<a href="/intranet/ressourceshumaines/candidatures/<?php echo $candidature->candidatureId ?>"><?php echo $candidature->candidatName . ' ' . $candidature->candidatFirstName ?> </a>
 				</td>
 				<td>
 					<?php if($candidature->candidatureType == 1): ?>

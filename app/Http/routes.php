@@ -333,6 +333,11 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\CandidaturesController@index'
         ]);
 
+        Route::get('/candidatures/{idCandidat}', [
+          'as' => 'viewCandidat',
+          'uses' => 'Intranet\Ressourceshumaines\CandidaturesController@viewCandidat'
+        ])->where('idCandidat' , '[0-9]+');
+
 
         /**========================================================
         *

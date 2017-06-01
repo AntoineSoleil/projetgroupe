@@ -46,6 +46,12 @@ class CandidaturesController extends Controller
 
     public function viewCandidat(Request $request)
     {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-candidatures-read');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
 
+        return view('intranet.ressourceshumaines.candidatures.viewCandidat');
     }
 }

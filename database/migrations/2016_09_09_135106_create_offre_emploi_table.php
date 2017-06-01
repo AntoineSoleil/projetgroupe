@@ -16,6 +16,7 @@ class CreateOffreEmploiTable extends Migration {
 	        $table->string('contact_phone');
 	        $table->string('contact_mail');
 	        $table->string('website');
+	        $table->integer('status');
 	        $table->dateTime('created_at');
 	        $table->dateTime('updated_at');
 		});
