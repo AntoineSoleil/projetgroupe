@@ -46,6 +46,17 @@ class GestionUsersRepository
 			ORDER BY res.name");
 		return $userRessource;
 	}
+
+	public function addUser($userName, $userMail, $userPassword)
+	{
+		DB::table('users')->insert([
+			'name' => $userName,
+			'email' => $userMail,
+			'password' => bcrypt($userPassword),
+			'created_at' => Carbon::now(),
+			'updated_at' => Carbon::now(),
+		]);
+	}
     
     public function addRoleToUser($userId, $roleId)
     {
