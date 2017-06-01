@@ -11,11 +11,12 @@ class CandidaturesRepository
 	public function getCandidatures()
 	{
 		$candidatureList = DB::table('candidatures')
+			->join('offre_emploi', 'candidatures.id_offer', '=', 'offre_emploi.id')
 			->select('candidatures.id AS candidatureId', 
 				'candidatures.name AS candidatName', 
 				'candidatures.first_name AS candidatFirstName', 
 				'candidatures.type AS candidatureType', 
-				'candidatures.id_offer AS offrePostule')
+				'offre_emploi.intitule AS offrePostule')
             ->get();
 		return $candidatureList;
 	}
