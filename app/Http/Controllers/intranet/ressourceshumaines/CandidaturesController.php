@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Intranet\Ressourceshumaines;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\AccesControlRepository;
+use App\Repositories\CandidaturesRepository;
+use Auth;
 
 class CandidaturesController extends Controller
 {
+    protected $repoAccesControl;
+    protected $authUserId;
+    protected $repoCandidature;
+
     /**
      * Create a new controller instance.
      *
@@ -15,7 +22,9 @@ class CandidaturesController extends Controller
      */
     public function __construct()
     {
-        
+        $this->repoAccesControl = new AccesControlRepository;
+        $this->repoCandidature = new CandidaturesRepository;
+        $this->authUserId = Auth::user()->id;
     }
 
     /**
@@ -25,6 +34,18 @@ class CandidaturesController extends Controller
      */
     public function index()
     {
-        return view('intranet.ressourceshumaines.candidatures.index');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-candidatures-read');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $candidaturesList = $this->repoCandidature->getCandidatures();
+        return view('intranet.ressourceshumaines.candidatures.index', ['candidaturesList' => $candidaturesList]);
+    }
+
+    public function viewCandidat(Request $request)
+    {
+
     }
 }

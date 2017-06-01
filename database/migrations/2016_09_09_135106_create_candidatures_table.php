@@ -9,7 +9,7 @@ class CreateCandidaturesTable extends Migration {
 	{
 		Schema::create('candidatures', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('sex');
+			$table->integer('sex');
                   $table->string('name');
                   $table->string('first_name');
                   $table->string('email')->unique();
