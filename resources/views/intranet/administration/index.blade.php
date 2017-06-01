@@ -34,6 +34,16 @@
 		    </div>
 		   </a>
 		  </div>
+		  <div class="col-md-4">
+		   <a href="{{ route('administrationApplicationIndex') }}">
+		    <div class="thumbnail">
+		      <img src="{{ asset('img/intranet/administration/attribuer_responsable.png') }}" alt="Atribuer un responsable" style="width:150px; height:150px;">
+		      <div class="caption">
+		        <h3>Attribuer un responsable</h3>
+		      </div>
+		    </div>
+		   </a>
+		  </div>
 		</div>
 	</div>
 </div>
