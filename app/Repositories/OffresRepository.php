@@ -26,6 +26,7 @@ class OffresRepository
 			'contact_phone' => $telephone,
 			'contact_mail' => $mail,
 			'website' => $website,
+			'status' => 0,
 			'description' => $description,
 			'created_at' => Carbon::now(),
 			'updated_at' => Carbon::now(),
@@ -40,6 +41,21 @@ class OffresRepository
             ->get();
 
         return $offre;
+	}
+
+
+	public function deleteOffre($idOffre)
+    {
+        DB::table('offre_emploi')->where('id', "=", $idOffre)->delete();
+    }
+
+
+    public function attribuerOffre($idOffre)
+	{
+		DB::table('offre_emploi')->where('id', $idOffre)->update([
+			'status' => 1, 
+			'updated_at' => Carbon::now(),
+		]);
 	}
 
 }

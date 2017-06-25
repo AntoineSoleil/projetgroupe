@@ -21,8 +21,9 @@
 				  <thead>
 				    <tr>
 				      <th class="col-md-4">Offres d'alternance</th>
-				      <th class="col-md-4">Société</th>
-				      <th class="col-md-4">Statut</th>
+				      <th class="col-md-3">Société</th>
+				      <th class="col-md-2">Statut</th>
+				      <th class="col-md-3">Options</th>
 				    </tr>
 				  </thead>
 				  <tbody>
@@ -46,6 +47,14 @@
 								}
 							?>
 						</td>
+						<td>
+							<?php if($offre->status == 1) : ?>
+								<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="deleteOffre(<?php echo $offre->offreId ?>)">Supprimer</button>
+							<?php else : ?>
+								<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="deleteOffre(<?php echo $offre->offreId ?>)">Supprimer</button>
+								<button class="btn btn-primary boutonTableauGestionUsers deleteButton" onclick="attribuerOffre(<?php echo $offre->offreId ?>)">Attribuer</button>
+							<?php endif; ?>
+						</td>
 					</tr>
 					<?php endforeach; ?>
 				    
@@ -58,3 +67,44 @@
 </div>
 @endsection
 
+<script type="text/javascript">
+	function deleteOffre(idOffre) {
+		var confirmation = confirm("Etes-vous sur de vouloir supprimer cette Offre ?");
+		if(confirmation == true) {
+			 $.ajax({
+		       url : '/intranet/ressourceshumaines/offres/'+idOffre,
+		       type : 'DELETE',
+		       dataType : 'html',
+		       success : function(code_html, statut){ 
+		       		console.log("Succes");
+		       		location.reload();
+		       },
+
+		       error : function(resultat, statut, erreur){
+		       		console.log("Echec");
+		       }
+
+		    });
+		}
+	}
+
+	function attribuerOffre(idOffre) {
+		var confirmation = confirm("Avez-vous trouvé un alternant pour cette offre ?");
+		if(confirmation == true) {
+			 $.ajax({
+		       url : '/intranet/ressourceshumaines/offres/'+idOffre+'/attribuer',
+		       type : 'POST',
+		       dataType : 'html',
+		       success : function(code_html, statut){ 
+		       		console.log("Succes");
+		       		location.reload();
+		       },
+
+		       error : function(resultat, statut, erreur){
+		       		console.log("Echec");
+		       }
+
+		    });
+		}
+	}
+</script>

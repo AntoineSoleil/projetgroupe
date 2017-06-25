@@ -336,6 +336,16 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\OffreController@view'
         ])->where('idOffre' , '[0-9]+');
 
+        Route::delete('/offres/{idOffre}', [
+          'as' => 'offreDelete',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@delete'
+        ])->where('idOffre' , '[0-9]+');
+
+        Route::post('/offres/{idOffre}/attribuer', [
+          'as' => 'offreAttribuer',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@attribuer'
+        ])->where('idOffre' , '[0-9]+');
+
 
         /**========================================================
         *

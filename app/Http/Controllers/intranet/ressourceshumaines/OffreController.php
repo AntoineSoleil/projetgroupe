@@ -78,4 +78,28 @@ class OffreController extends Controller
         $offre = $this->repoOffres->getOneOffre($request->idOffre);
         return view('intranet.ressourceshumaines.offre.view', ['offre' => $offre[0]]);
     }
+
+
+    public function delete(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-offres-delete');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $this->repoOffres->deleteOffre($request->idOffre);
+    }
+
+
+    public function attribuer(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-offres-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $this->repoOffres->attribuerOffre($request->idOffre);
+    }
 }
