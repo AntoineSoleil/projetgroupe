@@ -321,6 +321,11 @@ Route::group(['middleware' => 'web'], function () {
           'uses' => 'Intranet\Ressourceshumaines\OffreController@index'
         ]);
 
+        Route::get('/offre/nouveau', [
+          'as' => 'nouvelleOffreIndex',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@createView'
+        ]);
+
 
         /**========================================================
         *

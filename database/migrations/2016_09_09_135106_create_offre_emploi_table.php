@@ -11,7 +11,6 @@ class CreateOffreEmploiTable extends Migration {
 			$table->increments('id');
 			$table->string('intitule');
 	        $table->string('description');
-	        $table->string('competence_voulue');
 	        $table->string('societe');
 	        $table->string('contact_phone');
 	        $table->string('contact_mail');

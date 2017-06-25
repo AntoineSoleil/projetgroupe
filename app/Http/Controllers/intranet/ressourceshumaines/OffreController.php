@@ -8,23 +8,26 @@ use App\Http\Controllers\Controller;
 
 class OffreController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
         
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('intranet.ressourceshumaines.offre.index');
+    }
+
+
+    public function createView()
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-ressourceshumaines-offres-create');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+        
+        return view('intranet.ressourceshumaines.offre.create');
     }
 }
