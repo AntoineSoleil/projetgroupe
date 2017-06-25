@@ -32,7 +32,15 @@
           <TR>
             <!-- A remplacer par un SELECT -->
             <TD class="col-md-3">Responsable</TD>
-            <TD class="col-md-9" colspan="4" class="form-group"><input type="text" class="form-control" id="responsable" name="responsable"></TD>
+            <TD class="col-md-9" colspan="4" class="form-group">
+              <select id="select">
+                <?php foreach($adminList as $admin): ?>
+                  <option value="<?php echo $admin->userId ?>"><?php echo $admin->userName ?></option>
+                <?php endforeach; ?>
+              </select>
+
+
+            </TD>
           </TR>
       </table>
     </div>

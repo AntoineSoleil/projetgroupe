@@ -101,4 +101,15 @@ class NotesFraisRepository
 		]);
 	}
 
+	public function getAdministrateurs()
+	{
+		$administrateursList = DB::table('users')
+            ->join('users_roles AS ur', 'ur.id_users', '=', 'users.id')
+            ->join('roles AS rol', 'rol.id', '=', 'ur.id_roles')
+			->select('users.id AS userId', 'users.name AS userName')
+			->where('rol.name', "Administrateur")
+            ->get();
+		return $administrateursList;
+	}
+
 }
