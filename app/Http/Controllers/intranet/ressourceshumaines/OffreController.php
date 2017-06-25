@@ -5,12 +5,18 @@ namespace App\Http\Controllers\Intranet\Ressourceshumaines;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\AccesControlRepository;
+use Auth;
 
 class OffreController extends Controller
 {
+    protected $repoAccesControl;
+    protected $authUserId;
     
     public function __construct()
     {
+        $this->repoAccesControl = new AccesControlRepository;
+        $this->authUserId = Auth::user()->id;
         
     }
 
