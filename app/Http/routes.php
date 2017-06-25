@@ -316,15 +316,25 @@ Route::group(['middleware' => 'web'], function () {
         *
         ===========================================================*/
 
-        Route::get('/offre', [
+        Route::get('/offres', [
           'as' => 'offreIndex',
           'uses' => 'Intranet\Ressourceshumaines\OffreController@index'
         ]);
 
-        Route::get('/offre/nouveau', [
+        Route::get('/offres/nouveau', [
           'as' => 'nouvelleOffreIndex',
           'uses' => 'Intranet\Ressourceshumaines\OffreController@createView'
         ]);
+
+        Route::post('/offres/nouveau', [
+          'as' => 'nouvelleOffreIndex',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@create'
+        ]);
+
+        Route::get('/offres/{idOffre}', [
+          'as' => 'offreView',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@view'
+        ])->where('idOffre' , '[0-9]+');
 
 
         /**========================================================

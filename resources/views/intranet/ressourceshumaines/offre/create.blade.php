@@ -11,7 +11,7 @@
 		  <h2 style="text-decoration: underline; text-align:center">Nouvelle offre</h2>
 		</div>
 
-    <form form action="/intranet/ressourceshumaines/conges/nouveau" method="POST">
+    <form form action="/intranet/ressourceshumaines/offres/nouveau" method="POST">
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
 		<div class="row container">
@@ -22,10 +22,6 @@
   			  </TR>
   			  <TR>
   			  	<TD class="col-md-4">Société</TD>
-  			  	<TD  class="col-md-8" class="form-group"><input type="text" class="form-control" id="societe" name="societe"></TD>
-  			  </TR>
-  			  <TR>
-  			  	<TD class="col-md-4">Nom du contact</TD>
   			  	<TD  class="col-md-8" class="form-group"><input type="text" class="form-control" id="societe" name="societe"></TD>
   			  </TR>
   			  <TR>
@@ -54,7 +50,7 @@
 
     <div style="text-align:center; display:table; margin:0 auto">
       <button type="submit" class="btn btn-default">Valider demande</button>
-      <a href="/intranet/ressourceshumaines/offre" class="btn btn-default" style="margin-left: 20px">Retour</a>
+      <a href="/intranet/ressourceshumaines/offres" class="btn btn-default" style="margin-left: 20px">Retour</a>
     </div>
 
     </form>
