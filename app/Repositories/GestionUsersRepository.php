@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class GestionUsersRepository
 {
+	public function getUser($idUser)
+	{
+		$user = DB::table('users')
+			->select('*')
+			->where('users.id', $idUser)
+            ->get();
+		return $user;
+	}
+
 	public function getUsersList()
 	{
 		$usersList = DB::select("SELECT u.id AS userId, u.name AS name, u.email AS email, GROUP_CONCAT(r.name SEPARATOR ', ' ) AS roles 

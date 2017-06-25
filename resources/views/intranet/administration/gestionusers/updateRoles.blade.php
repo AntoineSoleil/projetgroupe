@@ -20,7 +20,7 @@
 				<TD><?php echo $role->name ?></TD>
 				<TD><?php echo $role->description ?></TD>
 				<TD align="center">
-					<?php if(stripos($userRoles[0]->rolesId, $role->id) !== FALSE): ?>
+					<?php if(stripos($userRoles[0]->rolesId, (string)$role->id) !== FALSE): ?>
 						<button type="button" class="btn btn-primary boutonTableauGestionUsers" style="margin-top:10px;" onclick="deleteRole(<?php echo $authUser->id ?>, <?php echo $role->id ?>)">Enlever</button>
 					<?php else: ?>
 						<button type="button" class="btn btn-primary boutonTableauGestionUsers" style="margin-top:10px;" onclick="addRole(<?php echo $authUser->id ?>, <?php echo $role->id ?>)">Ajouter</button>

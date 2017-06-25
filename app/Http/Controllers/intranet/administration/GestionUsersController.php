@@ -79,7 +79,7 @@ class GestionUsersController extends Controller
         return redirect('/intranet/administration/gestionusers');
     }
 
-	public function updateRoles()
+	public function updateRoles(Request $request)
     {
         $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionattributionrole-read');
         if($userAllowed == false)
@@ -87,10 +87,11 @@ class GestionUsersController extends Controller
             return redirect('/intranet');
         }
 
+        $user = $this->repoGestionUsers->getUser($request->idUser);
         $rolesList = $this->repoGestionUsers->getRoleList();
-        $userRoles = $this->repoGestionUsers->getUserRoles($this->authUserId);
+        $userRoles = $this->repoGestionUsers->getUserRoles($request->idUser);
 
-        return view('intranet.administration.gestionusers.updateRoles', ['authUser' => Auth::user(), 'rolesList' => $rolesList, 'userRoles' => $userRoles]);
+        return view('intranet.administration.gestionusers.updateRoles', ['authUser' => $user[0], 'rolesList' => $rolesList, 'userRoles' => $userRoles]);
     }
 
     public function addRoleToUserAjax(Request $request)
