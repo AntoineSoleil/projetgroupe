@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class GestionUsersRepository
 {
+	public function getUser($idUser)
+	{
+		$user = DB::table('users')
+			->select('*')
+			->where('users.id', $idUser)
+            ->get();
+		return $user;
+	}
+
 	public function getUsersList()
 	{
 		$usersList = DB::select("SELECT u.id AS userId, u.name AS name, u.email AS email, GROUP_CONCAT(r.name SEPARATOR ', ' ) AS roles 
@@ -27,7 +36,7 @@ class GestionUsersRepository
 
 	public function getUserRoles($authUserId)
 	{
-		$userRoles = DB::select("SELECT rol.name
+		$userRoles = DB::select("SELECT GROUP_CONCAT(rol.id SEPARATOR ', ' ) AS rolesId
 			FROM roles AS rol
 			INNER JOIN users_roles AS ur ON rol.id = ur.id_roles
 			WHERE ur.id_users = " . $authUserId);
@@ -46,16 +55,28 @@ class GestionUsersRepository
 			ORDER BY res.name");
 		return $userRessource;
 	}
+
+	public function addUser($userName, $userMail, $userPassword)
+	{
+		DB::table('users')->insert([
+			'name' => $userName,
+			'email' => $userMail,
+			'password' => bcrypt($userPassword),
+			'created_at' => Carbon::now(),
+			'updated_at' => Carbon::now(),
+		]);
+	}
     
     public function addRoleToUser($userId, $roleId)
     {
-    	DB::insert("INSERT INTO users_roles (id_users, id_roles)
- 			VALUES (". $userId . ", ". $roleId . ")");
+    	DB::table('users_roles')->insert([
+			'id_users' => $userId,
+			'id_roles' => $roleId,
+		]);
     }
 
     public function deleteRoleToUser($userId, $roleId)
     {
-    	DB::delete("DELETE FROM users_roles
- 			WHERE id_users = ". $userId . " AND id_roles = ". $roleId);
+ 		DB::table('users_roles')->where('id_users', "=", $userId)->where('id_roles', "=", $roleId)->delete();
     }
 }

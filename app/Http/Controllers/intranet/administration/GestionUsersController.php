@@ -11,6 +11,10 @@ use Auth;
 
 class GestionUsersController extends Controller
 {
+
+    protected $repoAccesControl;
+    protected $authUserId;
+    protected $repoGestionUsers;
     /**
      * Create a new controller instance.
      *
@@ -18,7 +22,9 @@ class GestionUsersController extends Controller
      */
     public function __construct()
     {
-        
+        $this->authUserId = Auth::user()->id;
+        $this->repoAccesControl = new AccesControlRepository;
+        $this->repoGestionUsers = new GestionUsersRepository;
     }
 
     /**
@@ -28,25 +34,20 @@ class GestionUsersController extends Controller
      */
     public function index()
     {
-        $authUserId = Auth::user()->id;
-        $repoAccesControl = new AccesControlRepository;
-        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionutilisateur-read');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionutilisateur-read');
         if($userAllowed == false)
         {
             return redirect('/intranet');
         }
 
 
-		$repoGestionUsers = new GestionUsersRepository;
-		$usersList = $repoGestionUsers->getUsersList();
+		$usersList = $this->repoGestionUsers->getUsersList();
         return view('intranet.administration.gestionusers.index', ['usersList' => $usersList]);
     }
 
 	public function addUser()
     {
-        $authUserId = Auth::user()->id;
-        $repoAccesControl = new AccesControlRepository;
-        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionutilisateur-create');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionutilisateur-create');
         if($userAllowed == false)
         {
             return redirect('/intranet');
@@ -55,61 +56,63 @@ class GestionUsersController extends Controller
         return view('intranet.administration.gestionusers.addUser');
     }
 
-    public function addRolePost(Request $request)
+
+    public function addUserPost(Request $request)
     {
-        //$roleName = $request->roleName;
-        //$roleDesc = $request->roleDesc;
-
-        $repoGestionUsers = new GestionUsersRepository;
-        $repoGestionUsers->addUser();
-
-        return redirect('/intranet/administration/gestionusers');
-    }
-
-	public function updateRoles()
-    {
-        $authUserId = Auth::user()->id;
-        $repoAccesControl = new AccesControlRepository;
-        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionattributionrole-read');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionutilisateur-create');
         if($userAllowed == false)
         {
             return redirect('/intranet');
         }
 
-        $repoGestionUsers = new GestionUsersRepository;
-        $rolesList = $repoGestionUsers->getRoleList();
-        $userRoles = $repoGestionUsers->getUserRoles($authUserId);
-
-        return view('intranet.administration.gestionusers.updateRoles', ['authUser' => Auth::user(), 'rolesList' => $rolesList, 'userRoles' => $userRoles]);
+        $this->repoGestionUsers->addUser($request->userName, $request->userMail, $request->userPassword);
+        return redirect('/intranet/administration/gestionutilisateurs');
     }
 
-    public function addRoleToUserAjax()
+    public function addRolePost(Request $request)
     {
-        $authUserId = Auth::user()->id;
-        $repoAccesControl = new AccesControlRepository;
-        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionattributionrole-update');
-        if($userAllowed == false)
-        {
-            //Renvoyer une erreur pour l'AJAX
-        }
+        //$roleName = $request->roleName;
+        //$roleDesc = $request->roleDesc;
 
-        //Récupérer la valeur de l'id Utilisateur du Post
-        //Récupérer la valeur de l'id Role du Post
-        //$userRoles = $repoGestionUsers->addRoleToUser($userId, $roleId);
+        $this->repoGestionUsers->addUser();
+
+        return redirect('/intranet/administration/gestionusers');
     }
 
-    public function deleteRoleToUserAjax()
+	public function updateRoles(Request $request)
     {
-        $authUserId = Auth::user()->id;
-        $repoAccesControl = new AccesControlRepository;
-        $userAllowed = $repoAccesControl->isAllowed($authUserId, 'intranet-administration-gestionattributionrole-delete');
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionattributionrole-read');
         if($userAllowed == false)
         {
-            //Renvoyer une erreur pour l'AJAX
+            return redirect('/intranet');
         }
 
-        //Récupérer la valeur de l'id Utilisateur du Delete
-        //Récupérer la valeur de l'id Role du Delete
-        //$userRoles = $repoGestionUsers->deleteRoleToUser($userId, $roleId);
+        $user = $this->repoGestionUsers->getUser($request->idUser);
+        $rolesList = $this->repoGestionUsers->getRoleList();
+        $userRoles = $this->repoGestionUsers->getUserRoles($request->idUser);
+
+        return view('intranet.administration.gestionusers.updateRoles', ['authUser' => $user[0], 'rolesList' => $rolesList, 'userRoles' => $userRoles]);
+    }
+
+    public function addRoleToUserAjax(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionattributionrole-update');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+        
+        $userRoles = $this->repoGestionUsers->addRoleToUser($request->idUser, $request->idRole);
+    }
+
+    public function deleteRoleToUserAjax(Request $request)
+    {
+        $userAllowed = $this->repoAccesControl->isAllowed($this->authUserId, 'intranet-administration-gestionattributionrole-delete');
+        if($userAllowed == false)
+        {
+            return redirect('/intranet');
+        }
+
+        $userRoles = $this->repoGestionUsers->deleteRoleToUser($request->idUser, $request->idRole);
     }
 }
