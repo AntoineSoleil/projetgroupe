@@ -14,6 +14,7 @@ class CongesController extends Controller
 {
     protected $repoAccesControl;
     protected $repoConges;
+    protected $repoValidationConges;
     protected $authUserId;
 
 

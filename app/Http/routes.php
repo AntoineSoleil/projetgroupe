@@ -316,10 +316,35 @@ Route::group(['middleware' => 'web'], function () {
         *
         ===========================================================*/
 
-        Route::get('/offre', [
+        Route::get('/offres', [
           'as' => 'offreIndex',
           'uses' => 'Intranet\Ressourceshumaines\OffreController@index'
         ]);
+
+        Route::get('/offres/nouveau', [
+          'as' => 'nouvelleOffreIndex',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@createView'
+        ]);
+
+        Route::post('/offres/nouveau', [
+          'as' => 'nouvelleOffreIndex',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@create'
+        ]);
+
+        Route::get('/offres/{idOffre}', [
+          'as' => 'offreView',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@view'
+        ])->where('idOffre' , '[0-9]+');
+
+        Route::delete('/offres/{idOffre}', [
+          'as' => 'offreDelete',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@delete'
+        ])->where('idOffre' , '[0-9]+');
+
+        Route::post('/offres/{idOffre}/attribuer', [
+          'as' => 'offreAttribuer',
+          'uses' => 'Intranet\Ressourceshumaines\OffreController@attribuer'
+        ])->where('idOffre' , '[0-9]+');
 
 
         /**========================================================
@@ -332,6 +357,11 @@ Route::group(['middleware' => 'web'], function () {
           'as' => 'candidaturesIndex',
           'uses' => 'Intranet\Ressourceshumaines\CandidaturesController@index'
         ]);
+
+        Route::get('/candidatures/{idCandidat}', [
+          'as' => 'viewCandidat',
+          'uses' => 'Intranet\Ressourceshumaines\CandidaturesController@viewCandidat'
+        ])->where('idCandidat' , '[0-9]+');
 
 
         /**========================================================
@@ -429,7 +459,7 @@ Route::group(['middleware' => 'web'], function () {
 		      ]);
 
             Route::post('/gestionutilisateurs/ajouterutilisateur', [
-              'uses' => 'Intranet\Administration\GestionRolesController@addUserPost'
+              'uses' => 'Intranet\Administration\GestionUsersController@addUserPost'
             ]);
 
 			      Route::delete('/gestionutilisateurs/supprimerutilisateur', [
@@ -441,11 +471,11 @@ Route::group(['middleware' => 'web'], function () {
 		        'uses' => 'Intranet\Administration\GestionUsersController@updateRoles'
 		      ])->where('idUser' , '[0-9]+');
 
-            Route::post('/gestionutilisateurs/{idUser}/modifierroles', [
+            Route::post('/gestionutilisateurs/{idUser}/ajouterroles', [
             'uses' => 'Intranet\Administration\GestionUsersController@addRoleToUserAjax'
             ])->where('idUser' , '[0-9]+');
 
-            Route::delete('/gestionutilisateurs/{idUser}/modifierroles', [
+            Route::post('/gestionutilisateurs/{idUser}/supprimerroles', [
             'uses' => 'Intranet\Administration\GestionUsersController@deleteRoleToUserAjax'
             ])->where('idUser' , '[0-9]+');
 

@@ -72,7 +72,8 @@ class NotesfraisController extends Controller
             return redirect('/intranet');
         }
 
-        return view('intranet.ressourceshumaines.notesfrais.create', ['currentUser' => Auth::user()]);
+        $adminList = $this->repoNotesFrais->getAdministrateurs();
+        return view('intranet.ressourceshumaines.notesfrais.create', ['currentUser' => Auth::user(), 'adminList' => $adminList]);
     }
 
 
