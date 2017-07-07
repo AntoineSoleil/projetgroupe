@@ -103,28 +103,28 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Intranet\Actualites\ActualitesController@index'
           ]);
 
-          Route::get('/create', [
-            'as' => 'intranetActualitesCreate',
-            'uses' => 'Intranet\Actualites\ActualitesController@create'
-          ]);
-
           Route::post('/create', [
             'as' => 'intranetActualitesCreate',
             'uses' => 'Intranet\Actualites\ActualitesController@create'
           ]);
 
-          Route::get('/update/{:id}', [
-            'as' => 'intranetActualitesUpdate',
-            'uses' => 'Intranet\Actualites\ActualitesController@update'
+          Route::post('/coment', [
+            'as' => 'coment',
+            'uses' => 'Intranet\Actualites\ActualitesController@addComent'
+          ]);
+
+          Route::delete('/commentairedelete/{id}', [
+            'as' => 'commentaireDelete',
+            'uses' => 'Intranet\Actualites\ActualitesController@destroyComent'
+          ]);
+
+          Route::delete('/delete/{id}', [
+            'as' => 'actualiteDelete',
+            'uses' => 'Intranet\Actualites\ActualitesController@destroy'
           ]);
 
           Route::put('/update/{:id}', [
             'as' => 'intranetActualitesUpdate',
-            'uses' => 'Intranet\Actualites\ActualitesController@update'
-          ]);
-
-          Route::delete('/delete/{:id}', [
-            'as' => 'intranetActualitesDelete',
             'uses' => 'Intranet\Actualites\ActualitesController@update'
           ]);
       });
@@ -401,6 +401,22 @@ Route::group(['middleware' => 'web'], function () {
             'as' => 'boiteOutilsDocumentsTravailIndex',
             'uses' => 'Intranet\Boiteoutils\DocumentsController@index'
           ]);
+
+          Route::get('documents/get/{filename}', [
+			      'as' => 'getDocuments',
+            'uses' => 'Intranet\Boiteoutils\DocumentsController@store']
+          );
+
+          Route::post('documents/add', [
+		        'as' => 'addDocuments',
+            'uses' => 'Intranet\Boiteoutils\DocumentsController@add'
+          ]);
+
+          Route::delete('documents/delete/{id}', [
+            'as' => 'documentDelete',
+            'uses' => 'Intranet\Boiteoutils\DocumentsController@destroy'
+          ]);
+
       });
 
 
@@ -485,7 +501,7 @@ Route::group(['middleware' => 'web'], function () {
           *
           * Routes pour la gestion des roles
           *
-          ===========================================================*/  
+          ===========================================================*/
 
 		      Route::get('/gestionroles', [
             'as' => 'administrationGestionRolesIndex',
@@ -518,11 +534,9 @@ Route::group(['middleware' => 'web'], function () {
 
 
       });
-        
+
     });
 
 });
 
 Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
-
-
