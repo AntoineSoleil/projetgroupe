@@ -32,12 +32,13 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/plugins/pace/pace.min.css">
     <link rel="stylesheet" href="{{ asset('vendor/backpack/pnotify/pnotify.custom.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/adminlte/') }}/plugins/sweetalert/dist/sweetalert.css">
 
     <!-- BackPack Base CSS -->
     <link rel="stylesheet" href="{{ asset('vendor/backpack/backpack.base.css') }}">
 
 	<!-- Styles-->
-    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'> 
+    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -127,6 +128,7 @@
     <script src="{{ asset('vendor/adminlte') }}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="{{ asset('vendor/adminlte') }}/plugins/fastclick/fastclick.js"></script>
     <script src="{{ asset('vendor/adminlte') }}/dist/js/app.min.js"></script>
+    <script src="{{ asset('vendor/adminlte') }}/plugins/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- page script -->
     <script type="text/javascript">
