@@ -22,9 +22,14 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'AccueilController@index'
     ]);
 
-    Route::get('/contact/index', [
+    Route::get('/contact', [
       'as' => 'contactIndex',
       'uses' => 'ContactController@index'
+    ]);
+
+    Route::post('/contact', [
+      'as' => 'contactPost',
+      'uses' => 'ContactController@contact'
     ]);
 
     Route::get('/connexion/index', [
@@ -52,14 +57,19 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'PlansiteController@index'
     ]);
 
-    Route::get('/recrutements/index', [
+    Route::get('/recrutements', [
       'as' => 'recrutementsIndex',
-      'uses' => 'RecrutementsController@index'
+      'uses' => 'RecrutementController@index'
     ]);
 
-    Route::get('/collaborateurs/index', [
+    Route::get('/collaborateurs', [
       'as' => 'collaborateursIndex',
-      'uses' => 'CollaborateursController@index'
+      'uses' => 'CollaborateurController@index'
+    ]);
+
+    Route::get('/presentation', [
+      'as' => 'PresentationIndex',
+      'uses' => 'PresentationController@index'
     ]);
 
     /**========================================================

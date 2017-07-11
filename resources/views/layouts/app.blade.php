@@ -5,33 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>@yield('pageTitle')</title>
 
     <!-- Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles-->
-    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'> 
+    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
+    @yield('css')
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="/bootstrap-theme.min.css">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="/js/bootstrap.min.js"></script>
-
-<style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
 </head>
 <body id="app-layout">
     <div class="container">
@@ -81,7 +71,7 @@
                               <li class="tab col s2"><a href="{{-- route('accueilIndex') --}}" class="menu">L'activité</a></li>
                               <li class="tab col s2"><a href="{{ route('recrutementsIndex') }}" class="menu">Nous rejoindre</a></li>
                               <li class="tab col s2"><a href="{{ route('collaborateursIndex') }}" class="menu">Espace collaborateur</a></li>
-                              <li class="tab col s2"><a href="{{ route('contactIndex') }}"class="menu">Contact</a></li>  
+                              <li class="tab col s2"><a href="{{ route('contactIndex') }}"class="menu">Contact</a></li>
                           </ul>
                         </div>
                     </div>
@@ -89,7 +79,7 @@
             </header>
 
             @yield('content')
-            
+
           <footer class="page-footer">
             <div class="container">
               <div class="row">
@@ -115,14 +105,14 @@
           </footer>
         </div>
 
-    
+
 
     <!-- JavaScripts -->
     <!-- <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script> -->
     <!-- <script src="{{ asset('js/materialize.min.js') }}"></script> -->
     <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     @yield('javascript')
 </body>
 </html>
