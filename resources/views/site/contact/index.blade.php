@@ -15,7 +15,8 @@
     <div class="row">
         <div class="col-md-8">
             <div class="well well-sm">
-                <form>
+                <form action="{{ route('contactPost') }}" method="POST">
+                  {{ csrf_field() }}
                  <div class="row">
                     <div class="col-md-12" align="center">
                     	<label><input type="radio" name="sexe">Homme</label>
@@ -60,7 +61,7 @@
 			  			</div>
                     </div>
                     <div class="col-md-12" align="center">
-                        <button type="button" class="btn btn-default submit" ><i class="fa fa-paper-plane" aria-hidden="true"></i>Envoyer</button>
+                        <button type="submit" class="btn btn-default submit" ><i class="fa fa-paper-plane" aria-hidden="true"></i>Envoyer</button>
                     </div>
                 </div>
                 </form>

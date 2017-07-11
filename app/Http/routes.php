@@ -27,6 +27,11 @@ Route::group(['middleware' => 'web'], function () {
       'uses' => 'ContactController@index'
     ]);
 
+    Route::post('/contact', [
+      'as' => 'contactPost',
+      'uses' => 'ContactController@contact'
+    ]);
+
     Route::get('/connexion/index', [
       'as' => 'contactIndex',
       'uses' => 'ContactController@index'
