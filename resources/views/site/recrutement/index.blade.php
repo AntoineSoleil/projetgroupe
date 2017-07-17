@@ -118,21 +118,51 @@ Poste basé sur Lyon à pourvoir en CDI. </div>
         </h4>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        <div class="panel-body">ENSCR - Rennes (35)
+			The National School of Chemistry of Rennes, ENSCR (France) invites applications for 1 post-doc (12 months; Starting date: mid-late October 2017) position on the redox reactions at Fe mineral surfaces: implications in remediation of PCB-contaminated soils.
+			The successful candidate will be contributing to our ongoing efforts in combining molecular-scale reactions at mineral surfaces with macroscopic observations. In other words, the candidate will investigate the sorption and heterogeneous redox reactions occurred at the catalyst surface, and then determine the efficiency of selected catalysts to remove PCB from real contaminated soils, using a variety of chromatographic and spectroscopic methods (GC/MS, HPLC/MS, FTIR, Raman, DTG-MS).
+			To qualify, applicants must hold a ph.D in environmental chemistry, geochemistry, mineral chemistry or related areas. The successful candidate will have access to excellent experimental and computational research facilities that are supported by competent scientific staff, and will also benefit from attractive working conditions.
+			Please contact K. Hanna for further information. Your application (short cover letter, curriculum vitae including names of references) should be sent by email no later than September 30, 2017.
+
+			Job Type: Full-time
+
+			Required education:
+
+			Doctorate
+			Required language:
+
+English</div>
       </div>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Poste : Ingénieur</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Poste : Chef de projet</a>
         </h4>
       </div>
       <div id="collapse3" class="panel-collapse collapse">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        <div class="panel-body">
+        	ENTREPRISE
+Sopra Steria, fort de 40 000 collaborateurs dans plus de 20 pays, propose l’un des portefeuilles d’offres les plus complets du marché : conseil, intégration de systèmes, édition de solutions métier, infrastructure management et business process services. En forte croissance, le Groupe accueillera 2 700 talents en 2017 en France pour participer à ses projets d’envergure sur l’ensemble de ses métiers.
+DESCRIPTION
+Missions
+Afin de soutenir notre croissance régulière (10% annuel depuis 5 ans, près de 60 projets aux technologies innovantes), rejoignez notre entité rennaise Telecom, Media et Jeux en tant que Chef de projet (H/F).
+
+Vous participerez aux projets de refonte de systèmes d'information de nos clients.
+Dans un cadre forfaitaire, vous assurerez la gestion d'un projet de bout en bout :
+- gestion de la relation client
+- respect des engagements (périmètre, délai, qualité et coût)
+- analyse et suivi des risques et plans d'action associés
+- pilotage du projet
+- management de l'équipe
+
+Vous serez formé(e) au contexte client et à ses métiers, ainsi qu'à nos processus qualité et méthode. Vous évoluerez dans un environnement dynamique en travaillant sur des projets innovants, variés et passionnants pour nos clients Telecom, Media et Jeux.
+
+Nous vous offrons la possibilité de capitaliser sur vos qualités professionnelles et personnelles, d'évoluer dans un environnement dynamique et convivial.
+Profil
+Vous êtes issu(e) d'une formation Bac+5 (d'Ingénieurs ou Master 2 Informatique) et avez acquis au cours de votre parcours professionnel une expérience significative (3 ans minimum) en management de projet au forfait, idéalement au sein d'une Entreprise de Services Numériques (ESN) ou d'une structure informatique.
+        	
+        </div>
       </div>
     </div>
 		  </div>

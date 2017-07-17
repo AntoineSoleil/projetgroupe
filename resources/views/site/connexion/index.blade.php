@@ -10,6 +10,7 @@ $( document ).ready(function() {
 	});
 });
 </script>
+<br>
 <div>
   <div class="input-field">
     <label for="IdUser">Identifiant</label>
